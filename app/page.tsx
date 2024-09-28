@@ -1,17 +1,19 @@
 "use client";
 import { FunctionCard } from "@/components/cards/FunctionCard";
+import { ShareholderCard } from "@/components/footer/ShareholderCard";
+import { AppleCardsCarouselDemo } from "@/components/home/brandsCards";
 import { AuroraBackground } from "@/components/ui/AuroraBackground";
 import { FadeInEffect } from "@/components/ui/FadeInEffect";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import { HomePageWords, mainFunctions } from "@/lib/constants";
-import { Button } from "@nextui-org/react";
+import { Button, Card, CardBody } from "@nextui-org/react";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <>
      
-      <main className="space-y-10 ">
+      <main className="space-y-10 md:space-y-20">
         <AuroraBackground>
           <TypewriterEffectSmooth words={HomePageWords} />
 
@@ -30,7 +32,7 @@ export default function Home() {
             </Button>
           </FadeInEffect>
         </AuroraBackground>
-        <FadeInEffect className="grid grid-cols-2 gap-10 ">
+        <FadeInEffect className="grid md:grid-cols-2 gap-10 ">
           {mainFunctions.map(({ title, description, href, icon }, index) => (
             <FunctionCard
               icon={icon}
@@ -41,6 +43,8 @@ export default function Home() {
             />
           ))}
         </FadeInEffect>
+        <AppleCardsCarouselDemo />
+    
       </main>
     </>
   );

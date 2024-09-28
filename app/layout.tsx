@@ -36,7 +36,7 @@ export default async function RootLayout({
       >
         <Providers>
           <Navbar session={session} />
-          <div className="px-5">
+          <div className="px-5 min-h-screen">
           {children}
           </div>
           <Footer />
