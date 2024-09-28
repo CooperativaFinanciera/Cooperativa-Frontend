@@ -30,9 +30,7 @@ PUBLIC_URL=http://localhost:3000
 Reemplaza usuario y password con tus credenciales de PostgreSQL, y asegúrate de que el nombre de la base de datos coincida con el que creaste.
 
 5. Generar clave secreta para NextAuth
-NextAuth requiere una clave secreta para manejar la autenticación de manera segura. Genera una clave secreta utilizando el siguiente comando:
-
-npx auth secret
+NextAuth requiere una clave secreta para manejar la autenticación de manera segura. Genera una clave secreta utilizando el siguiente comando: npx auth secret
 6. Ejecutar la aplicación
 Ahora puedes iniciar la aplicación en modo de desarrollo:
 npm run dev
