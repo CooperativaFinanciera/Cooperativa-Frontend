@@ -32,8 +32,40 @@ Reemplaza usuario y password con tus credenciales de PostgreSQL, y asegúrate de
 5. Generar clave secreta para NextAuth
 NextAuth requiere una clave secreta para manejar la autenticación de manera segura. Genera una clave secreta utilizando el siguiente comando:
 
-npx nextauth secret
+npx auth secret
 6. Ejecutar la aplicación
 Ahora puedes iniciar la aplicación en modo de desarrollo:
 npm run dev
+
+Herramientas que se están usando en el proyecto
+
+Framework:
+	- NextJS app router(se requiere un nivel avanzado o medio)
+
+
+Frontend:
+        - React(nivel avanzado)
+        - Tailwind CSS
+	- NextAuth
+        - typescript
+	- NextUI
+	- ShadCn
+	- FramerMotion
+
+Backend:
+        - Node.js
+        - Postgres SQL
+	- Prisma
+	- firebase
+	- typescript
+	
+Validaciones:
+	- zod
+
+Editor de Código:
+	- Visual Studio Code
+        
+##NOTA
+
+para poder subir un cambio, es necesario eliminar todos los errores de sintaxis, revisar el funcionamiento y hacer un build local con "npm run build" para descartar cualquier problema a la hora de unir los cambios
 
