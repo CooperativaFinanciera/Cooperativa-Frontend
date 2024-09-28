@@ -1,9 +1,5 @@
 
-export const aboutLinks: {
-  title: string;
-  href: string;
-  description: string;
-}[] = [
+export const aboutLinks:navLink [] = [
   {
     title: "Estructura",
     href: "/about/structure",
@@ -26,17 +22,53 @@ export const aboutLinks: {
   },
 ];
 
+export const shareholdersLinks:navLink[] = [
+  {
+    title: "Requisitos",
+    href: "/shareholders/requirements",
+    description: "Conoce los requisitos para ser accionista",
+  },
+  {
+    title: "Beneficios",
+    href: "/shareholders/benefits",
+    description: "Conoce los beneficios de ser accionista",
+  },
+  {
+    title: "Afiliate",
+    href: "/shareholders/join",
+    description: "Puedes ser accionista con una inversión mínima",
+  },
+  {
+    title: "Rendimiento",
+    href: "/shareholders/performance",
+    description: "Conoce el rendimiento de la inversión",
+  },
+  {
+    title: "Dividendos",
+    href: "/shareholders/dividends",
+    description: "Conoce los dividendos",
+  },
+
+
+  {
+    title: "Preguntas frecuentes",
+    href: "/shareholders/faq",
+    description: "Preguntas frecuentes",
+  },
+  
+]
+
 export const HomePageWords = [
   {
     text: "Confiabilidad",
-    className: "text-primary-500 dark:text-blue-500",
+    className: "text-primary",
   },
   {
     text: "y",
   },
   {
     text: "Calidad",
-    className: "text-primary-500 dark:text-blue-500",
+    className: "text-primary",
   },
   {
     text: "para",
@@ -56,6 +88,7 @@ export const HomePageWords = [
 
 ];
 
+import { navLink } from "@/types";
 import { HiOutlineCog, HiOutlineExclamation, HiOutlineOfficeBuilding, HiOutlineUserGroup } from "react-icons/hi";
 
 export const mainFunctions =[

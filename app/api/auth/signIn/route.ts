@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+import prisma from "@/lib/prisma";
 import { loginSchema, processZodError } from "@/lib/zodValidations";
 import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest) {
@@ -7,9 +7,8 @@ export async function POST(req: NextRequest) {
     const validatedData = loginSchema.parse(data);
     const userFinded = await prisma.users.findUnique({
       where: {
-        email: validatedData.email,
+        id: validatedData.id,
       },
-
     });
     if (!userFinded)
       return NextResponse.json(

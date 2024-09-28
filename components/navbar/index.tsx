@@ -1,5 +1,4 @@
-
-"use client"
+"use client";
 import Link from "next/link";
 import { ThemeSwitch } from "../littleComponets/ThemeSwitch";
 import {
@@ -8,25 +7,19 @@ import {
   NavbarContent,
   NavbarItem,
   Button,
-  Avatar,
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
 } from "@nextui-org/react";
 import { NavLink } from "./NavLink";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "../ui/navigation-menu";
+import { NavigationMenuLink } from "../ui/navigation-menu";
 import brand from "@/public/Cooperativa.svg";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { aboutLinks } from "@/lib/constants";
+import { aboutLinks, shareholdersLinks } from "@/lib/constants";
 import { Session } from "next-auth";
+import { UserDropdown } from "./UserDropdown";
+import { LinksDropdown } from "./LinksDropdown";
 export const Navbar = ({ session }: { session: Session | null }) => {
   const menuItems = [
     "Profile",
@@ -42,9 +35,7 @@ export const Navbar = ({ session }: { session: Session | null }) => {
   ];
   return (
     <NextNavbar maxWidth="full">
-      <NavbarMenuToggle
-          className="sm:hidden"
-        />
+      <NavbarMenuToggle className="sm:hidden" />
       <NavbarBrand>
         <NavLink className="flex items-center gap-2" href="/">
           <Image alt="brand" src={brand} width={45} height={45} />
@@ -53,12 +44,16 @@ export const Navbar = ({ session }: { session: Session | null }) => {
           </h1>
         </NavLink>
       </NavbarBrand>
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+      <NavbarContent className="hidden sm:flex gap-8" justify="center">
         <NavbarItem>
+          <NavLink href="/">Inicio</NavLink>
+        </NavbarItem>
+        <LinksDropdown items={aboutLinks} label="Nosotros" />
+        {/* <NavbarItem>
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-default-500 font-normal text-base">
+                <NavigationMenuTrigger className="text-default-500 dark:text-default-800 font-normal text-base">
                   Nosotros
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -77,20 +72,14 @@ export const Navbar = ({ session }: { session: Session | null }) => {
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
-          {/* <NavLink href="/about">Nosotros</NavLink> */}
-        </NavbarItem>
+        </NavbarItem> */}
         <NavbarItem>
           <NavLink href="/articles">Artículos</NavLink>
         </NavbarItem>
         <NavbarItem>
           <NavLink href="/partners">Socios</NavLink>
         </NavbarItem>
-        <NavbarItem>
-          <NavLink href="/">Accionistas</NavLink>
-        </NavbarItem>
-        <NavbarItem>
-          <NavLink href="/">Centro de ayuda</NavLink>
-        </NavbarItem>
+        <LinksDropdown items={shareholdersLinks} label="Accionistas" />
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem>
@@ -117,16 +106,12 @@ export const Navbar = ({ session }: { session: Session | null }) => {
                 href="/auth/signIn"
                 variant="flat"
               >
-                Iniciar sesión
+                ¿Eres accionista?
               </Button>
             </NavbarItem>
           </>
         ) : (
-          <>
-            <NavbarItem>
-              <Avatar name="Irving"/>
-            </NavbarItem>
-          </>
+          <UserDropdown session={session}/>
         )}
       </NavbarContent>
       <NavbarMenu>
@@ -134,11 +119,14 @@ export const Navbar = ({ session }: { session: Session | null }) => {
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
               color={
-                index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
+                index === 2
+                  ? "primary"
+                  : index === menuItems.length - 1
+                  ? "danger"
+                  : "foreground"
               }
               className="w-full"
               href="#"
-             
             >
               {item}
             </Link>
@@ -164,19 +152,16 @@ const ListItem = ({
   ref?: React.Ref<HTMLAnchorElement>;
 }) => {
   return (
-    <li>
+    <li
+      className={cn(
+        "flex flex-col justify-center select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+        className
+      )}
+    >
       <NavigationMenuLink asChild>
-        <Link
-          ref={ref}
-          href={href}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
-          )}
-          {...props}
-        >
+        <Link ref={ref} href={href} {...props}>
           <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground text-wrap max-w-full">
             {children}
           </p>
         </Link>

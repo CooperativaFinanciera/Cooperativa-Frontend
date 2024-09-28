@@ -1,18 +1,19 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 
+
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     Credentials({
       credentials: {
-        email: { label: "email" },
+        id: { label: "id" },
         password: { label: "Password", type: "password" },
       },
-      async authorize({ password, email }) {
+      async authorize({ password, id }) {
         const res = await fetch(`${process.env.PUBLIC_URL}/api/auth/signIn`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ password, email }),
+          body: JSON.stringify({ password, id }),
         });
         const data = await res.json();
         console.log(data);
