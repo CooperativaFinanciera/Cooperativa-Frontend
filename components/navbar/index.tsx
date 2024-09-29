@@ -34,7 +34,7 @@ export const Navbar = ({ session }: { session: Session | null }) => {
     "Log Out",
   ];
   return (
-    <NextNavbar maxWidth="full">
+    <NextNavbar  maxWidth="full">
       <NavbarMenuToggle className="sm:hidden" />
       <NavbarBrand>
         <NavLink className="flex items-center gap-2" href="/">
