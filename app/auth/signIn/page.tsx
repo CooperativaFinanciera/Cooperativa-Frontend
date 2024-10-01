@@ -2,35 +2,23 @@ import { auth, signIn } from "@/auth";
 import { InputPasword } from "@/components/littleComponets/InputPasword";
 import { Button, Input } from "@nextui-org/react";
 import Link from "next/link";
-import { FcGoogle } from "react-icons/fc";
+import { redirect } from "next/navigation";
 import { MdMail } from "react-icons/md";
 
 export default async function SignInPage() {
 
   const session = await auth();
-  console.log(session)
-  
+  if(session){
+    redirect("/");
+  }
   return (
     <section className="flex flex-col gap-4">
       <h2 className="font-semibold text-xl">
         Inicia en nuestra Cooperativa Ahora
       </h2>
       <p className="text-neutral-500">Ingresa tus credenciales</p>
-      <div>
-        <Button
-          fullWidth
-          startContent={<FcGoogle size={25} />}
-          color="default"
-          variant="bordered"
-        >
-          Iniciar con Google
-        </Button>
-      </div>
-      <div className="flex items-center gap-2">
-        <span className="bg-default-300 h-[.5px] w-full"></span>
-        <p className="text-default-500">o</p>
-        <span className="bg-default-300 h-[.5px] w-full"></span>
-      </div>
+     
+
       <form
         action={async (formData) => {
           "use server";
@@ -41,15 +29,15 @@ export default async function SignInPage() {
         <fieldset>
           <Input
             startContent={<MdMail className="text-default-500" />}
-            label="Email"
-            name="email"
-            placeholder="tucorreo@ejemplo.com"
+            label="Cédula"
+            name="id"
+            placeholder="Escribe tu número de cédula"
             labelPlacement="outside"
           />
         </fieldset>
         <fieldset>
           <InputPasword name="password" />
-          <Link href="#" className="text-primary-500 text-xs">
+          <Link href="#" className="text-primary text-xs">
             ¿Olvidaste tu contraseña?
           </Link>
         </fieldset>
@@ -58,7 +46,7 @@ export default async function SignInPage() {
         </Button>
         <p className="text-sm">
           ¿No tienes una cuenta?{" "}
-          <Link className="text-primary-500" href="#">
+          <Link className="text-primary" href="/auth/signUp">
             Creala aquí
           </Link>
         </p>

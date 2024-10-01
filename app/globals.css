@@ -4,7 +4,6 @@
 
 @layer base {
   :root {
-
     --background: 0 0% 100%;
 
     --foreground: 240 10% 3.9%;
@@ -53,10 +52,9 @@
 
     --chart-5: 27 87% 67%;
 
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
   .dark {
-
     --background: 240 10% 3.9%;
 
     --foreground: 0 0% 98%;
@@ -103,7 +101,7 @@
 
     --chart-4: 280 65% 60%;
 
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
   }
 }
 
@@ -114,4 +112,45 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.link:hover .link-icon {
+  transform: translate(1rem, 0);
+}
+
+.cross-background {
+  background-color: #25466a;
+  opacity: 0.1;
+  background: radial-gradient(
+      circle,
+      transparent 20%,
+      #080707 20%,
+      #080707 80%,
+      transparent 80%,
+      transparent
+    ),
+    radial-gradient(
+        circle,
+        transparent 20%,
+        #080707 20%,
+        #080707 80%,
+        transparent 80%,
+        transparent
+      )
+      20px 20px,
+    linear-gradient(#ffffff 1.6px, transparent 1.6px) 0 -0.8px,
+    linear-gradient(90deg, #ffffff 1.6px, #080707 1.6px) -0.8px 0;
+  background-size: 40px 40px, 40px 40px, 20px 20px, 20px 20px;
+}
+
+
+/* Quitar los botones de incremento y decremento */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.brandCardContainer:hover .brandImage{
+  transform: scale(1.3);
 }

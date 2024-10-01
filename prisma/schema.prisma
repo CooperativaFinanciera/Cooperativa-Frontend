@@ -19,5 +19,14 @@ model users {
   name String
   email String @unique
   password String
+  image String?
   phone String
+  shareholders shareholders[]
+}
+
+model shareholders  {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  user users @relation(fields: [userId], references: [id])
+  userId Int @unique
 }

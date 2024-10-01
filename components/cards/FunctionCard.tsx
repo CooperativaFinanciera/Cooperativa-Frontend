@@ -6,12 +6,13 @@ import {
   CardHeader,
 } from "@nextui-org/react";
 import Link from "next/link";
+import { HiOutlineChevronRight } from "react-icons/hi";
 
 export const FunctionCard = ({
   title,
   description,
   href,
-  icon
+  icon,
 }: {
   title: string;
   description: string;
@@ -22,15 +23,16 @@ export const FunctionCard = ({
     <Card shadow="none" className="bg-default-100 basis-1/3 p-4">
       <CardHeader className="flex flex-col gap-2 items-start">
         <Button size="lg" isIconOnly color="primary">
-         {icon}
+          {icon}
         </Button>
         <h3 className="text-lg font-semibold">{title}</h3>
       </CardHeader>
-      <CardBody>
-      {description}
-      </CardBody>
+      <CardBody>{description}</CardBody>
       <CardFooter>
-        <Link href={href} className="text-primary-500">Más información</Link>
+        <Link href={href} className="text-primary flex items-center gap-2 link">
+          Más información
+          <HiOutlineChevronRight className="link-icon transition-transform" />
+        </Link>
       </CardFooter>
     </Card>
   );

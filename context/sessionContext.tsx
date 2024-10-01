@@ -3,8 +3,6 @@ import { sessionContextTypes } from "@/types";
 import { Session } from "next-auth";
 import { createContext, useState } from "react";
 
-
-
 export const sessionContext = createContext<sessionContextTypes | null>(null); 
 
 export const SessionProvider = ({ children }: { children: React.ReactNode }) => {

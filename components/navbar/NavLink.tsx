@@ -14,7 +14,7 @@ export const NavLink = ({ children, ...rest }: NavItemProps) => {
  
       <Link 
         className={`${
-          pathname === rest.href ? "text-primary-500" : "text-default-500"
+          pathname === rest.href ? "text-primary" : "text-default-500 dark:text-default-800"
         }`}
         href="/" {...rest}>
         {children}
