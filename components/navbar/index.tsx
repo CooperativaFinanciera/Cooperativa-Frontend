@@ -16,7 +16,7 @@ import { NavigationMenuLink } from "../ui/navigation-menu";
 import brand from "@/public/Cooperativa.svg";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { aboutLinks, shareholdersLinks } from "@/lib/constants";
+import { aboutLinks, shareholdersLinks,Articles } from "@/lib/constants";
 import { Session } from "next-auth";
 import { UserDropdown } from "./UserDropdown";
 import { LinksDropdown } from "./LinksDropdown";
@@ -73,9 +73,10 @@ export const Navbar = ({ session }: { session: Session | null }) => {
             </NavigationMenuList>
           </NavigationMenu>
         </NavbarItem> */}
-        <NavbarItem>
+        {/*<NavbarItem>
           <NavLink href="/articles">Artículos</NavLink>
-        </NavbarItem>
+        </NavbarItem>*/}
+        <LinksDropdown items={Articles} label="Articulos" />
         <NavbarItem>
           <NavLink href="/partners">Socios</NavLink>
         </NavbarItem>

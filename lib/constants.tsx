@@ -57,6 +57,58 @@ export const shareholdersLinks:navLink[] = [
   },
   
 ]
+export const Articles:navLink[] = [
+  {
+    title: "Empleos",
+    href: "https://aneupi.com/ofertas-laborales",
+    description: "Conoce las oportunidades de empleo.",
+  },
+  {
+    title: "Cuentas",
+    href: "/articulos/cuentas",
+    description: "Información sobre cuentas y su gestión.",
+  },
+  {
+    title: "Créditos",
+    href: "/articulos/creditos",
+    description: "Todo sobre créditos y financiamiento.",
+  },
+  {
+    title: "Inversiones",
+    href: "/articulos/inversiones",
+    description: "Explora oportunidades de inversión.",
+  },
+  {
+    title: "Fideicomisos",
+    href: "/articulos/fideicomisos",
+    description: "Conoce más sobre fideicomisos.",
+  },
+  {
+    title: "Productos",
+    href: "/articulos/productos",
+    description: "Descubre nuestros productos financieros.",
+  },
+  {
+    title: "Pago de Servicios e Impuestos",
+    href: "/articulos/pago-servicios",
+    description: "Instrucciones para el pago de servicios e impuestos.",
+  },
+  {
+    title: "Nóminas",
+    href: "/articulos/nominas",
+    description: "Información sobre nóminas y su administración.",
+  },
+  {
+    title: "Revistas",
+    href: "/articulos/revistas",
+    description: "Accede a nuestras revistas informativas.",
+  },
+  {
+    title: "Servicios",
+    href: "/articulos/servicios",
+    description: "Conoce los servicios que ofrecemos.",
+  },
+];
 
 export const HomePageWords = [
   {
