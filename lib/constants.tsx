@@ -65,7 +65,7 @@ export const Articles:navLink[] = [
   },
   {
     title: "Cuentas",
-    href: "/articulos/cuentas",
+    href: "/articles/cuentas_financieras",
     description: "Información sobre cuentas y su gestión.",
   },
   {
