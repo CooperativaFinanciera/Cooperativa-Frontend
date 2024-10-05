@@ -1,36 +1,34 @@
 "use client";
+import { BrandButtons } from "@/components/buttons/BrandButtons";
 import { FunctionCard } from "@/components/cards/FunctionCard";
-import { ShareholderCard } from "@/components/footer/ShareholderCard";
-import { AppleCardsCarouselDemo } from "@/components/home/brandsCards";
+import { Brands } from "@/components/home/brandsCards";
 import { AuroraBackground } from "@/components/ui/AuroraBackground";
 import { FadeInEffect } from "@/components/ui/FadeInEffect";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
-import { HomePageWords, mainFunctions } from "@/lib/constants";
-import { Button, Card, CardBody } from "@nextui-org/react";
+import { cooperativaWords, HomePageWords, mainFunctions } from "@/lib/constants";
+import { Button } from "@nextui-org/react";
 import Link from "next/link";
-
 export default function Home() {
   return (
     <>
-     
-      <main className="space-y-10 md:space-y-20">
-        <AuroraBackground>
-          <TypewriterEffectSmooth words={HomePageWords} />
+      <main className="space-y-10 md:space-y-10">
+        <AuroraBackground className="relative h-[70vh]">
+         
+          {/* <TypewriterEffectSmooth words={HomePageWords} /> */}
+            <TypewriterEffectSmooth words={cooperativaWords} />
 
           <FadeInEffect>
-            <div className="font-extralight text-base md:text-4xl dark:text-neutral-200 py-4 text-center">
-              Únete a nosotros como accionista y transforma tu mentalidad hacia el
-              éxito.
-            </div>
+           
             <Button
               as={Link}
               href="/auth/signIn"
               className="bg-black dark:bg-white text-white dark:text-black"
               radius="full"
             >
-              Inicia ahora
+              Únete a Nosotros
             </Button>
           </FadeInEffect>
+          {/* <BrandButtons className="absolute bottom-10 flex items-center justify-between  w-4/5 p-4" /> */}
         </AuroraBackground>
         <FadeInEffect className="grid md:grid-cols-2 gap-10 ">
           {mainFunctions.map(({ title, description, href, icon }, index) => (
@@ -43,8 +41,7 @@ export default function Home() {
             />
           ))}
         </FadeInEffect>
-        <AppleCardsCarouselDemo />
-    
+       
       </main>
     </>
   );

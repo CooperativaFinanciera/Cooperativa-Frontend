@@ -58,6 +58,26 @@ export const shareholdersLinks:navLink[] = [
   
 ]
 
+export const cooperativaWords = [
+  {
+    text:"¿",
+  },
+  {
+    text: "Quieres",
+    
+  },
+  {
+    text: "ser",
+  },
+  {
+    text: "Accionista",
+    className: "text-primary",
+  },
+  {
+    text: "?",
+  },
+
+]
 export const HomePageWords = [
   {
     text: "Confiabilidad",

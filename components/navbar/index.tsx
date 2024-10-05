@@ -34,106 +34,90 @@ export const Navbar = ({ session }: { session: Session | null }) => {
     "Log Out",
   ];
   return (
-    <NextNavbar maxWidth="full">
-      <NavbarMenuToggle className="sm:hidden" />
-      <NavbarBrand>
-        <NavLink className="flex items-center gap-2" href="/">
-          <Image alt="brand" src={brand} width={45} height={45} />
-          <h1 className="hidden md:block w-52 text-xl font-semibold text-[#424340] dark:text-white">
-            Cooperativa Financiera
-          </h1>
-        </NavLink>
-      </NavbarBrand>
-      <NavbarContent className="hidden sm:flex gap-8" justify="center">
-        <NavbarItem>
-          <NavLink href="/">Inicio</NavLink>
-        </NavbarItem>
-        <LinksDropdown items={aboutLinks} label="Nosotros" />
-        {/* <NavbarItem>
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-default-500 dark:text-default-800 font-normal text-base">
-                  Nosotros
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                    {aboutLinks.map((component) => (
-                      <ListItem
-                        key={component.title}
-                        title={component.title}
-                        href={component.href}
-                      >
-                        {component.description}
-                      </ListItem>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
-        </NavbarItem> */}
-        <NavbarItem>
-          <NavLink href="/articles">Artículos</NavLink>
-        </NavbarItem>
-        <NavbarItem>
-          <NavLink href="/partners">Socios</NavLink>
-        </NavbarItem>
-        <LinksDropdown items={shareholdersLinks} label="Accionistas" />
-      </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem>
-          <ThemeSwitch />
-        </NavbarItem>
+    <>
+      <header className="w-full bg-white flex flex-col items-center  justify-center py-4 sticky top-0 z-50 transition-all">
+        {/* <nav></nav> */}
+        <div className="flex items-center gap-3">
+        <Image alt="brand" src={brand} width={75} height={75} />
+            <h1 className="hidden md:block text-4xl font-bold text-[#454442] dark:text-white">
+              Cooperativa Financiera
+            </h1>
+        </div>
+        <nav className=" w-full py-4">
+          <ul className="flex items-center  mx-auto justify-between w-1/2">
+            <li className="">Inicio</li>
+            <li className="">Nosotros</li>
+            <li className="">Artículos</li>
+            <li className="">Socios</li>
+            <li className="">Accionistas</li>
+          </ul>
+        </nav>
+      </header>
+      {/* <NextNavbar height={125} maxWidth="full" >
+        <NavbarMenuToggle className="sm:hidden" />
+        <NavbarContent justify="center">
+          <NavLink className="flex items-center gap-2" href="/">
+            <Image alt="brand" src={brand} width={70} height={70} />
+            <h1 className="hidden md:block w-52 text-4xl font-bold text-primary dark:text-white">
+              Cooperativa Financiera
+            </h1>
+          </NavLink>
+        </NavbarContent>
+       
+        <NavbarContent justify="end">
+          <NavbarItem>
+            <ThemeSwitch />
+          </NavbarItem>
 
-        {!session ? (
-          <>
-            <NavbarItem>
-              <Button
-                radius="full"
-                as={Link}
-                href="/auth/signUp"
-                variant="flat"
-                className="bg-black dark:bg-white text-white dark:text-black"
+          {!session ? (
+            <>
+              <NavbarItem>
+                <Button
+                  radius="full"
+                  as={Link}
+                  href="/auth/signUp"
+                  variant="flat"
+                  className="bg-black dark:bg-white text-white dark:text-black"
+                >
+                  Registrarse
+                </Button>
+              </NavbarItem>
+              <NavbarItem>
+                <Button
+                  radius="full"
+                  as={Link}
+                  href="/auth/signIn"
+                  variant="flat"
+                >
+                  ¿Eres accionista?
+                </Button>
+              </NavbarItem>
+            </>
+          ) : (
+            <UserDropdown session={session} />
+          )}
+        </NavbarContent>
+        <NavbarMenu>
+          {menuItems.map((item, index) => (
+            <NavbarMenuItem key={`${item}-${index}`}>
+              <Link
+                color={
+                  index === 2
+                    ? "primary"
+                    : index === menuItems.length - 1
+                    ? "danger"
+                    : "foreground"
+                }
+                className="w-full"
+                href="#"
               >
-                Registrarse
-              </Button>
-            </NavbarItem>
-            <NavbarItem>
-              <Button
-                radius="full"
-                as={Link}
-                href="/auth/signIn"
-                variant="flat"
-              >
-                ¿Eres accionista?
-              </Button>
-            </NavbarItem>
-          </>
-        ) : (
-          <UserDropdown session={session}/>
-        )}
-      </NavbarContent>
-      <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              color={
-                index === 2
-                  ? "primary"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
-              className="w-full"
-              href="#"
-            >
-              {item}
-            </Link>
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu>
-    </NextNavbar>
+                {item}
+              </Link>
+            </NavbarMenuItem>
+          ))}
+        </NavbarMenu>
+      </NextNavbar> */}
+    </>
   );
 };
 
