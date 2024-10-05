@@ -1,36 +1,36 @@
 "use client";
-import { BrandButtons } from "@/components/buttons/BrandButtons";
 import { FunctionCard } from "@/components/cards/FunctionCard";
-import { Brands } from "@/components/home/brandsCards";
+import { ServiceCard } from "@/components/cards/ServiceCard";
 import { AuroraBackground } from "@/components/ui/AuroraBackground";
 import { FadeInEffect } from "@/components/ui/FadeInEffect";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
-import { cooperativaWords, HomePageWords, mainFunctions } from "@/lib/constants";
+import {  HomePageWords, mainFunctions, services } from "@/lib/constants";
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <main className="space-y-10 md:space-y-10">
-        <AuroraBackground className="relative h-[70vh]">
-         
-          {/* <TypewriterEffectSmooth words={HomePageWords} /> */}
-            <TypewriterEffectSmooth words={cooperativaWords} />
+      <main className="space-y-10 md:space-y-20">
+        <AuroraBackground>
+          <TypewriterEffectSmooth words={HomePageWords} />
 
           <FadeInEffect>
-           
+            <div className="font-extralight text-base md:text-4xl dark:text-neutral-200 py-4 text-center">
+              Únete a nosotros como accionista y transforma tu mentalidad hacia
+              el éxito.
+            </div>
             <Button
               as={Link}
-              href="/auth/signIn"
+              href="/shareholders/join"
               className="bg-black dark:bg-white text-white dark:text-black"
               radius="full"
             >
-              Únete a Nosotros
+              Únete ahora
             </Button>
           </FadeInEffect>
           {/* <BrandButtons className="absolute bottom-10 flex items-center justify-between  w-4/5 p-4" /> */}
         </AuroraBackground>
-        <FadeInEffect className="grid md:grid-cols-2 gap-10 ">
+        <FadeInEffect className="grid md:grid-cols-4 gap-10 ">
           {mainFunctions.map(({ title, description, href, icon }, index) => (
             <FunctionCard
               icon={icon}
@@ -41,7 +41,20 @@ export default function Home() {
             />
           ))}
         </FadeInEffect>
-       
+        <section className="space-y-10">
+          <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans text-center">Servicios</h2>
+          <article className="grid md:grid-cols-4 gap-5 ">
+            {services.map(({ title, description, href, icon }, index) => (
+              <ServiceCard
+                key={index}
+                title={title}
+                description={description}
+                href={href}
+                icon={icon}
+              />
+            ))}
+          </article>
+        </section>
       </main>
     </>
   );
