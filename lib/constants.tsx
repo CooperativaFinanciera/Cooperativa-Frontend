@@ -1,5 +1,4 @@
-
-export const aboutLinks:navLink [] = [
+export const aboutLinks: navLink[] = [
   {
     title: "Estructura",
     href: "/about/structure",
@@ -22,7 +21,7 @@ export const aboutLinks:navLink [] = [
   },
 ];
 
-export const shareholdersLinks:navLink[] = [
+export const shareholdersLinks: navLink[] = [
   {
     title: "Requisitos",
     href: "/shareholders/requirements",
@@ -49,35 +48,27 @@ export const shareholdersLinks:navLink[] = [
     description: "Conoce los dividendos",
   },
 
-
   {
     title: "Preguntas frecuentes",
     href: "/shareholders/faq",
     description: "Preguntas frecuentes",
   },
-  
-]
+];
 
 export const cooperativaWords = [
   {
-    text:"¿",
-  },
-  {
-    text: "Quieres",
-    
+    text: "¿Quieres",
+    className: "text-white",
   },
   {
     text: "ser",
+    className: "text-white",
   },
   {
-    text: "Accionista",
-    className: "text-primary",
+    text: "Accionista?",
+    className: "text-white",
   },
-  {
-    text: "?",
-  },
-
-]
+];
 export const HomePageWords = [
   {
     text: "Confiabilidad",
@@ -105,36 +96,43 @@ export const HomePageWords = [
   {
     text: "solido",
   },
-
 ];
 
 import { navLink } from "@/types";
-import { HiOutlineCog, HiOutlineExclamation, HiOutlineOfficeBuilding, HiOutlineUserGroup } from "react-icons/hi";
+import {
+  HiOutlineCog,
+  HiOutlineExclamation,
+  HiOutlineOfficeBuilding,
+  HiOutlineUserGroup,
+} from "react-icons/hi";
 
-export const mainFunctions =[
+export const mainFunctions = [
   {
     title: "Accionistas",
-    description: "Conviértete en accionista de nuestra cooperativa y obtén beneficios exclusivos",
+    description:
+      "Conviértete en accionista de nuestra cooperativa y obtén beneficios exclusivos",
     href: "/shareholders",
-    icon: <HiOutlineUserGroup size={30}/>
+    icon: <HiOutlineUserGroup size={30} />,
   },
   {
     title: "Socios",
-    description: "Conoce a nuestros socios y descubre cómo puedes ser parte de nuestra cooperativa",
+    description:
+      "Conoce a nuestros socios y descubre cómo puedes ser parte de nuestra cooperativa",
     href: "/partners",
-    icon: <HiOutlineCog size={30}/>
+    icon: <HiOutlineCog size={30} />,
   },
   {
     title: "Empleos o vacantes",
-    description: "Descubre las vacantes disponibles y únete a nuestro equipo de trabajo",
-    href: "/jobs",  
-    icon: <HiOutlineOfficeBuilding size={30}/>
+    description:
+      "Descubre las vacantes disponibles y únete a nuestro equipo de trabajo",
+    href: "/jobs",
+    icon: <HiOutlineOfficeBuilding size={30} />,
   },
   {
     title: "Denuncias o reclamos",
-    description: "Realiza una denuncia o reclamo si has tenido algún problema con nuestra cooperativa",
+    description:
+      "Realiza una denuncia o reclamo si has tenido algún problema con nuestra cooperativa",
     href: "/reports",
-    icon: <HiOutlineExclamation size={30}/>
-
-  }
-]
+    icon: <HiOutlineExclamation size={30} />,
+  },
+];

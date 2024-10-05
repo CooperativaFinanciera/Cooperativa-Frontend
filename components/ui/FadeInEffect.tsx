@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 export const FadeInEffect = ({
   children,
   className,
+  ...rest
 }: {
   children: React.ReactNode;
   className?: string;
@@ -22,6 +23,7 @@ export const FadeInEffect = ({
           ? className
           : "relative flex flex-col gap-4 items-center justify-center px-4"
       }
+      {...rest}
     >
       {children}
     </motion.div>

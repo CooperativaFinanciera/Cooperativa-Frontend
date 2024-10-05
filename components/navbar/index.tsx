@@ -20,6 +20,7 @@ import { aboutLinks, shareholdersLinks } from "@/lib/constants";
 import { Session } from "next-auth";
 import { UserDropdown } from "./UserDropdown";
 import { LinksDropdown } from "./LinksDropdown";
+import { NotificationButton } from "../buttons/NotificationButton";
 export const Navbar = ({ session }: { session: Session | null }) => {
   const menuItems = [
     "Profile",
@@ -35,23 +36,60 @@ export const Navbar = ({ session }: { session: Session | null }) => {
   ];
   return (
     <>
-      <header className="w-full bg-white flex flex-col items-center  justify-center py-4 sticky top-0 z-50 transition-all">
+      <header className="w-full bg-white dark:bg-[#1e1e21] flex flex-col items-center  justify-center sticky top-0 z-50 transition-all">
         {/* <nav></nav> */}
         <div className="flex items-center gap-3">
-        <Image alt="brand" src={brand} width={75} height={75} />
-            <h1 className="hidden md:block text-4xl font-bold text-[#454442] dark:text-white">
-              Cooperativa Financiera
-            </h1>
+          <Image alt="brand" src={brand} width={75} height={75} />
+          <h1 className="hidden md:block text-4xl font-bold text-[#454442] dark:text-white">
+            Cooperativa Financiera
+          </h1>
         </div>
-        <nav className=" w-full py-4">
-          <ul className="flex items-center  mx-auto justify-between w-1/2">
-            <li className="">Inicio</li>
-            <li className="">Nosotros</li>
+        {/* <nav className=" w-full py-4">
+          <ul className="flex items-center  mx-auto justify-center gap-8">
+            <NavLink href="/" className="text-primary">Inicio</NavLink>
+            <LinksDropdown label="Acerca de" items={aboutLinks} />
+            
             <li className="">Artículos</li>
-            <li className="">Socios</li>
-            <li className="">Accionistas</li>
+            <NavLink href="/contact">Socios</NavLink>
+            <LinksDropdown label="Accionistas" items={shareholdersLinks} />
           </ul>
-        </nav>
+          <ul className="flex">
+            <ThemeSwitch />
+            <Button as={Link} href="/auth/signIn" color="primary" radius="full">
+              Iniciar sesión
+            </Button>
+          
+          </ul>
+        </nav> */}
+        <NextNavbar
+          className="bg-white dark:bg-[#1e1e21]"
+          isBordered
+          isBlurred={false}
+          maxWidth="xl"
+          position="static"
+        >
+          <NavbarBrand>
+            <p className="font-bold text-inherit"></p>
+          </NavbarBrand>
+          <NavbarContent className="hidden sm:flex gap-4" justify="center">
+            <NavLink href="/" className="text-primary">
+              Inicio
+            </NavLink>
+            <LinksDropdown label="Acerca de" items={aboutLinks} />
+
+            <li className="">Artículos</li>
+            <NavLink href="/contact">Socios</NavLink>
+            <LinksDropdown label="Accionistas" items={shareholdersLinks} />
+            <NavLink href="/contact">Centro de ayuda</NavLink>
+          </NavbarContent>
+          <NavbarContent justify="end">
+            <ThemeSwitch />
+            <NotificationButton />
+            <Button as={Link} href="/auth/signIn" color="primary" radius="full">
+              Iniciar sesión
+            </Button>
+          </NavbarContent>
+        </NextNavbar>
       </header>
       {/* <NextNavbar height={125} maxWidth="full" >
         <NavbarMenuToggle className="sm:hidden" />
