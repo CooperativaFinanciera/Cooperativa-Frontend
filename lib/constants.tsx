@@ -99,12 +99,17 @@ export const HomePageWords = [
 ];
 
 import { navLink } from "@/types";
+
 import {
-  HiOutlineCog,
-  HiOutlineExclamation,
-  HiOutlineOfficeBuilding,
+  HiBanknotes,
+  HiBuildingStorefront,
+  HiCreditCard,
+  HiDocumentText,
+  HiOutlineBuildingOffice2,
+  HiOutlineExclamationTriangle,
   HiOutlineUserGroup,
-} from "react-icons/hi";
+  HiOutlineUserPlus,
+} from "react-icons/hi2";
 
 export const mainFunctions = [
   {
@@ -112,27 +117,58 @@ export const mainFunctions = [
     description:
       "Conviértete en accionista de nuestra cooperativa y obtén beneficios exclusivos",
     href: "/shareholders",
-    icon: <HiOutlineUserGroup size={30} />,
+    icon: <HiOutlineUserPlus size={40} />,
   },
   {
     title: "Socios",
     description:
       "Conoce a nuestros socios y descubre cómo puedes ser parte de nuestra cooperativa",
     href: "/partners",
-    icon: <HiOutlineCog size={30} />,
+    icon: <HiOutlineUserGroup size={40} />,
   },
   {
     title: "Empleos o vacantes",
     description:
       "Descubre las vacantes disponibles y únete a nuestro equipo de trabajo",
     href: "/jobs",
-    icon: <HiOutlineOfficeBuilding size={30} />,
+    icon: <HiOutlineBuildingOffice2 size={40} />,
   },
   {
     title: "Denuncias o reclamos",
     description:
       "Realiza una denuncia o reclamo si has tenido algún problema con nuestra cooperativa",
     href: "/reports",
-    icon: <HiOutlineExclamation size={30} />,
+    icon: <HiOutlineExclamationTriangle size={40} />,
+  },
+];
+
+export const services = [
+  {
+    title: "Créditos",
+    description:
+      "Proporcionaremos Créditos Financieros para tu propio emprendimiento o empresa.",
+    href: "/services/credits",
+    icon: <HiCreditCard size={35} />,
+  },
+  {
+    title: "Empleos",
+    description:
+      "Exploraremos diversas oportunidades acordes a tu área laboral y desafiaremos tus capacidad para demostrar tu talento.",
+    href: "/services/jobs",
+    icon: <HiDocumentText size={35} />,
+  },
+  {
+    title: "Agencias y cajeros",
+    description:
+      "A futuro encontrarás en nuestras diversas Agencias para relizar retiros en nuestros diversos Cajeros a nivel nacional.",
+    href: "/services/branches",
+    icon: <HiBuildingStorefront size={35} />,
+  },
+  {
+    title: "Inversiones",
+    description:
+      "Al futuro contribuiremos al crecimiento continuo de nuestros emprendedores mediante préstamos para fortalecimento de capital.",
+    href: "/services/investments",
+    icon: <HiBanknotes size={35}/>
   },
 ];
