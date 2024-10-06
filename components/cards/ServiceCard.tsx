@@ -4,62 +4,76 @@ import { Button } from "@nextui-org/react";
 // import { CardContainer, CardItem } from "../ui/3d-card";
 import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
 import { useRouter } from "next/navigation";
-
+import { motion } from "framer-motion";
 export const ServiceCard = ({
   title,
   description,
   href,
   icon,
+  index,
 }: {
   title: string;
   description: string;
   href: string;
   icon: React.ReactNode;
+  index: number;
 }) => {
-
   const router = useRouter();
 
   return (
-    <CardContainer className="inter-var">
-      <CardBody className="bg-default-100 rounded-2xl p-6 flex flex-col justify-between">
-        <CardItem
-          translateZ="100"
-          className="text-xl font-bold text-neutral-600 dark:text-white"
-        >
-          <Button variant="flat" size="lg" isIconOnly color="primary">
-            {icon}
-          </Button>
-        </CardItem>
-        <div>
-        <CardItem
-          as="h3"
-          translateZ="60"
-          className="text-lg font-semibold"
-        >
-         {title}
-        </CardItem>
-
-        <CardItem
-          as="p"
-          translateZ="60"
-          className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
-        >
-         {description}
-        </CardItem>
-        </div>
-        <div className="flex justify-end items-center">
-          
+    <motion.div
+    initial={{
+      opacity: 0,
+      y: 20,
+    }}
+    whileInView={{
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        delay: 0.2 * index,
+        ease: "easeOut",
+        once: true,
+      },
+    }}
+    
+    >
+      <CardContainer className="inter-var w-full ">
+        <CardBody className="bg-default-100 rounded-2xl p-6 flex flex-col justify-between w-full">
           <CardItem
             translateZ="100"
-            as={Button}
-            onPress={() => router.push(href)}
-            className="bg-black dark:bg-white text-white dark:text-black"
+            className="text-xl font-bold text-neutral-600 dark:text-white"
           >
-            Más información <span className="ml-2">→</span>
+            <Button variant="flat" size="lg" isIconOnly color="primary">
+              {icon}
+            </Button>
           </CardItem>
-        </div>
-      </CardBody>
-    </CardContainer>
+          <div>
+            <CardItem as="h3" translateZ="60" className="text-lg font-semibold">
+              {title}
+            </CardItem>
+
+            <CardItem
+              as="p"
+              translateZ="60"
+              className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+            >
+              {description}
+            </CardItem>
+          </div>
+          <div className="flex justify-end items-center">
+            <CardItem
+              translateZ="100"
+              as={Button}
+              onPress={() => router.push(href)}
+              className="bg-black dark:bg-white text-white dark:text-black"
+            >
+              Más información <span className="ml-2">→</span>
+            </CardItem>
+          </div>
+        </CardBody>
+      </CardContainer>
+    </motion.div>
   );
 };
 

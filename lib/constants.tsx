@@ -169,6 +169,35 @@ export const services = [
     description:
       "Al futuro contribuiremos al crecimiento continuo de nuestros emprendedores mediante préstamos para fortalecimento de capital.",
     href: "/services/investments",
-    icon: <HiBanknotes size={35}/>
+    icon: <HiBanknotes size={35} />,
   },
+];
+
+export const corporativeBrands = [
+  {
+    title: "Fundación ANEUPI",
+    src: "/brand.webp",
+    href: "#",
+  },
+  {
+    title: "Gatito Plis",
+    src: "/gatitoplis.png",
+    href: "#",
+  },
+  {
+    title: "LECENI",
+    src: "/leceni.png",
+    href: "#",
+  },
+  {
+    title: "ANEUPI TV",
+    src: "/tv-aneupi.webp",
+    href: "#",
+  },
+  {
+    title: "Academia ANEUPI",
+    src: "/academia_aneupi.webp",
+    href: "#",
+  },
+ 
 ];

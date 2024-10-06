@@ -37,7 +37,7 @@ export const FunctionCard = ({
       </CardHeader>
       <CardBody>
         <h3 className="text-lg font-medium">{title}</h3>
-        <p className="text- font-light text-default-700">{description}</p>
+        <p className="text-sm text-default-500 ">{description}</p>
       </CardBody>
     </Card>
   );

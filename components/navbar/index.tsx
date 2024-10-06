@@ -5,7 +5,6 @@ import {
   Navbar as NextNavbar,
   NavbarBrand,
   NavbarContent,
-  NavbarItem,
   Button,
   NavbarMenuToggle,
   NavbarMenu,
@@ -13,7 +12,6 @@ import {
 } from "@nextui-org/react";
 import { NavLink } from "./NavLink";
 import { NavigationMenuLink } from "../ui/navigation-menu";
-import brand from "@/public/Cooperativa.svg";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { aboutLinks, shareholdersLinks } from "@/lib/constants";
@@ -21,7 +19,11 @@ import { Session } from "next-auth";
 import { UserDropdown } from "./UserDropdown";
 import { LinksDropdown } from "./LinksDropdown";
 import { NotificationButton } from "../buttons/NotificationButton";
+import { useState } from "react";
+import { Brand } from "../littleComponets/Brand";
 export const Navbar = ({ session }: { session: Session | null }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const menuItems = [
     "Profile",
     "Dashboard",
@@ -35,104 +37,42 @@ export const Navbar = ({ session }: { session: Session | null }) => {
     "Log Out",
   ];
   return (
-    <>
-      <header className="w-full bg-white dark:bg-[#1e1e21] flex flex-col items-center  justify-center sticky top-0 z-50 transition-all">
-        {/* <nav></nav> */}
-        <div className="flex items-center gap-3">
-          <Image alt="brand" src={brand} width={75} height={75} />
-          <h1 className="hidden md:block text-4xl font-bold text-[#454442] dark:text-white">
-            Cooperativa Financiera
-          </h1>
-        </div>
-        {/* <nav className=" w-full py-4">
-          <ul className="flex items-center  mx-auto justify-center gap-8">
-            <NavLink href="/" className="text-primary">Inicio</NavLink>
-            <LinksDropdown label="Acerca de" items={aboutLinks} />
-            
-            <li className="">Artículos</li>
-            <NavLink href="/contact">Socios</NavLink>
-            <LinksDropdown label="Accionistas" items={shareholdersLinks} />
-          </ul>
-          <ul className="flex">
-            <ThemeSwitch />
-            <Button as={Link} href="/auth/signIn" color="primary" radius="full">
-              Iniciar sesión
-            </Button>
-          
-          </ul>
-        </nav> */}
-        <NextNavbar
-          className="bg-white dark:bg-[#1e1e21]"
-          isBordered
-          isBlurred={false}
-          maxWidth="xl"
-          position="static"
-        >
-          <NavbarBrand>
-            <p className="font-bold text-inherit"></p>
-          </NavbarBrand>
-          <NavbarContent className="hidden sm:flex gap-4" justify="center">
-            <NavLink href="/" className="text-primary">
-              Inicio
-            </NavLink>
-            <LinksDropdown label="Acerca de" items={aboutLinks} />
+    <header className="w-full bg-white dark:bg-[#1e1e21] flex flex-col items-center  justify-center sticky top-0 z-50 transition-all pt-2">
+      <Brand className="text-default-600" />
 
-            <li className="">Artículos</li>
-            <NavLink href="/contact">Socios</NavLink>
-            <LinksDropdown label="Accionistas" items={shareholdersLinks} />
-            <NavLink href="/contact">Centro de ayuda</NavLink>
-          </NavbarContent>
-          <NavbarContent justify="end">
-            <ThemeSwitch />
-            <NotificationButton />
-            <Button as={Link} href="/auth/signIn" color="primary" radius="full">
-              Iniciar sesión
-            </Button>
-          </NavbarContent>
-        </NextNavbar>
-      </header>
-      {/* <NextNavbar height={125} maxWidth="full" >
-        <NavbarMenuToggle className="sm:hidden" />
-        <NavbarContent justify="center">
-          <NavLink className="flex items-center gap-2" href="/">
-            <Image alt="brand" src={brand} width={70} height={70} />
-            <h1 className="hidden md:block w-52 text-4xl font-bold text-primary dark:text-white">
-              Cooperativa Financiera
-            </h1>
-          </NavLink>
+      <NextNavbar
+        className="bg-white dark:bg-[#1e1e21]"
+        isBlurred={false}
+        maxWidth="xl"
+        position="static"
+        onMenuOpenChange={setIsMenuOpen}
+      >
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="sm:hidden"
+        />
+
+        <NavbarBrand>
+          <p className="font-bold text-inherit"></p>
+        </NavbarBrand>
+        <NavbarContent className="hidden sm:flex gap-4" justify="center">
+          <NavLink href="/">Inicio</NavLink>
+          <LinksDropdown label="Nosotros" items={aboutLinks} />
+
+          <li className="">Artículos</li>
+          <NavLink href="/contact">Socios</NavLink>
+          <LinksDropdown label="Accionistas" items={shareholdersLinks} />
+          <NavLink href="/contact">Centro de ayuda</NavLink>
         </NavbarContent>
-       
         <NavbarContent justify="end">
-          <NavbarItem>
-            <ThemeSwitch />
-          </NavbarItem>
-
-          {!session ? (
-            <>
-              <NavbarItem>
-                <Button
-                  radius="full"
-                  as={Link}
-                  href="/auth/signUp"
-                  variant="flat"
-                  className="bg-black dark:bg-white text-white dark:text-black"
-                >
-                  Registrarse
-                </Button>
-              </NavbarItem>
-              <NavbarItem>
-                <Button
-                  radius="full"
-                  as={Link}
-                  href="/auth/signIn"
-                  variant="flat"
-                >
-                  ¿Eres accionista?
-                </Button>
-              </NavbarItem>
-            </>
-          ) : (
+          <ThemeSwitch />
+          <NotificationButton />
+          {session ? (
             <UserDropdown session={session} />
+          ) : (
+            <Button as={Link} href="/auth/signIn" color="primary" radius="full">
+              Iniciar sesión
+            </Button>
           )}
         </NavbarContent>
         <NavbarMenu>
@@ -154,8 +94,8 @@ export const Navbar = ({ session }: { session: Session | null }) => {
             </NavbarMenuItem>
           ))}
         </NavbarMenu>
-      </NextNavbar> */}
-    </>
+      </NextNavbar>
+    </header>
   );
 };
 
