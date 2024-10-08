@@ -3,8 +3,8 @@ import { Card, CardBody } from "@nextui-org/react";
 import type { Metadata } from 'next'
  
 export const metadata: Metadata = {
-  title: '...',
-  description: '...',
+  title: 'Autenticación',
+  description: 'Autenticación de usuarios',
 }
 export default function Layout({ children }: { children: React.ReactNode }) {
   

@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
-import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
+import { Card } from "@/components/ui/apple-cards-carousel";
 
-export function AppleCardsCarouselDemo() {
+export function Brands() {
   const cards = data.map((card, index) => (
     <Card key={card.src} card={card} index={index} />
   ));

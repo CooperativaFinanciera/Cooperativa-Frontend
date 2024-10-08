@@ -5,7 +5,8 @@ import { Navbar } from "@/components/navbar";
 import { Providers } from "./providers";
 import { auth } from "@/auth";
 import { Footer } from "@/components/footer";
-
+import { Open_Sans } from 'next/font/google'
+ 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -16,6 +17,11 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+})
+ 
 
 export const metadata: Metadata = {
   title: "Cooperativa de ahorro ANEUPI",
@@ -32,10 +38,12 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${openSans.className}`}
       >
         <Providers>
+          
           <Navbar session={session} />
+          
           <div className="px-5 min-h-screen">
           {children}
           </div>

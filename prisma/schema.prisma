@@ -22,7 +22,8 @@ model users {
   image String?
   phone String
   shareholders shareholders[]
-}
+  role String @default("user")
+} 
 
 model shareholders  {
   id Int @id @default(autoincrement())
