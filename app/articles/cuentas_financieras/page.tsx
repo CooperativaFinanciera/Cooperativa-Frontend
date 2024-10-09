@@ -8,7 +8,7 @@ export default function Cuentas_Financieras() {
     const [piggyBankActive, setPiggyBankActive] = useState(false);
     const [moneyTransferActive, setMoneyTransferActive] = useState(false);
     const [selectedIcon, setSelectedIcon] = useState(""); // Estado para controlar qué ícono está seleccionado
-    const [showImportantInfo, setShowImportantInfo] = useState(null); // Estado para manejar el cuadro de texto de información importante
+    const [showImportantInfo, setShowImportantInfo] = useState<string | null>(null); // Cambiar aquí
 
     // Manejar el clic en el icono Piggy Bank
     const handlePiggyBankClick = () => {
@@ -54,7 +54,6 @@ export default function Cuentas_Financieras() {
                     />
                 </div>
 
-              
                 <div className="grid grid-cols-4">
                     <div></div> 
                     <div className="col-span-2 space-y-10 md:space-y-20">
@@ -106,7 +105,6 @@ export default function Cuentas_Financieras() {
                                         </p>
                                     </div>
 
-   
                                     <div
                                         className="h-32 w-32 flex items-center justify-center border-2 border-white cursor-pointer flex-col"
                                         onClick={handleMoneyTransferClick} 
@@ -180,7 +178,6 @@ export default function Cuentas_Financieras() {
                     </button>
                 </div>
 
-  
                 {showImportantInfo && (
                     <div className="grid grid-cols-4 mt-10">
                         <div></div> 
@@ -191,13 +188,16 @@ export default function Cuentas_Financieras() {
                                     *Recuerde que prestar su cuenta personal para recibir o transferir dinero de y hacia personas desconocidas tiene implicaciones legales.
                                 </p>
                                 <p className="text-left mb-4">
-                                    *No preste su cuenta a terceras personas, recuerde que el mal uso que haga de ella faculta a la Cooperativa a su cierre.
+                                    *No preste su cuenta a terceras personas, recuerde que el mal uso de su cuenta puede repercutir en su historial crediticio.
                                 </p>
-                                <p className="text-left mb-4">
-                                    *Ningún funcionario de la Cooperativa le solicitará datos privados como su contraseña, PIN, datos de su Clave Dinámica u otros datos confidenciales.
-                                </p>
+                                <button 
+                                    className="bg-red-500 text-white px-4 py-2 rounded" 
+                                    onClick={() => setShowImportantInfo(null)}
+                                >
+                                    Cerrar
+                                </button>
                             </div>
-                        </div>
+                        </div> 
                         <div></div> 
                     </div>
                 )}

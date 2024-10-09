@@ -8,6 +8,7 @@ import {
   Button,
   NavbarMenuToggle,
   NavbarMenu,
+  NavbarItem,
   NavbarMenuItem,
 } from "@nextui-org/react";
 import { NavLink } from "./NavLink";
@@ -53,82 +54,18 @@ export const Navbar = ({ session }: { session: Session | null }) => {
         />
 
         <NavbarBrand>
-          <p className="font-bold text-inherit"></p>
+          <p className="font-bold text-inherit">Your Brand</p>
         </NavbarBrand>
+
         <NavbarContent className="hidden sm:flex gap-4" justify="center">
           <NavLink href="/">Inicio</NavLink>
-        </NavbarItem>
-        <LinksDropdown items={aboutLinks} label="Nosotros" />
-        {/* <NavbarItem>
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-default-500 dark:text-default-800 font-normal text-base">
-                  Nosotros
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                    {aboutLinks.map((component) => (
-                      <ListItem
-                        key={component.title}
-                        title={component.title}
-                        href={component.href}
-                      >
-                        {component.description}
-                      </ListItem>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
-        </NavbarItem> */}
-        {/*<NavbarItem>
+          <LinksDropdown items={aboutLinks} label="Nosotros" />
           <NavLink href="/articles">Artículos</NavLink>
-        </NavbarItem>*/}
-        <LinksDropdown items={Articles} label="Articulos" />
-        <NavbarItem>
           <NavLink href="/partners">Socios</NavLink>
-        </NavbarItem>
-        <LinksDropdown items={shareholdersLinks} label="Accionistas" />
-      </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem>
-          <LinksDropdown label="Nosotros" items={aboutLinks} />
-
-          <li className="">Artículos</li>
-          <NavLink href="/contact">Socios</NavLink>
-          <LinksDropdown label="Accionistas" items={shareholdersLinks} />
+          <LinksDropdown items={shareholdersLinks} label="Accionistas" />
           <NavLink href="/contact">Centro de ayuda</NavLink>
         </NavbarContent>
-        <NavbarContent justify="end">
-          <ThemeSwitch />
-        </NavbarItem>
 
-      <NextNavbar
-        className="bg-white dark:bg-[#1e1e21]"
-        isBlurred={false}
-        maxWidth="xl"
-        position="static"
-        onMenuOpenChange={setIsMenuOpen}
-      >
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
-        />
-
-        <NavbarBrand>
-          <p className="font-bold text-inherit"></p>
-        </NavbarBrand>
-        <NavbarContent className="hidden sm:flex gap-4" justify="center">
-          <NavLink href="/">Inicio</NavLink>
-          <LinksDropdown label="Nosotros" items={aboutLinks} />
-
-          <li className="">Artículos</li>
-          <NavLink href="/contact">Socios</NavLink>
-          <LinksDropdown label="Accionistas" items={shareholdersLinks} />
-          <NavLink href="/contact">Centro de ayuda</NavLink>
-        </NavbarContent>
         <NavbarContent justify="end">
           <ThemeSwitch />
           <NotificationButton />
@@ -140,6 +77,7 @@ export const Navbar = ({ session }: { session: Session | null }) => {
             </Button>
           )}
         </NavbarContent>
+
         <NavbarMenu>
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
