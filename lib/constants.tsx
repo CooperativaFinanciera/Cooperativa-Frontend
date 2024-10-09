@@ -98,6 +98,7 @@ export const HomePageWords = [
   },
 ];
 
+import { NavLink } from "@/components/navbar/NavLink";
 import { navLink } from "@/types";
 
 import {
@@ -201,3 +202,7 @@ export const corporativeBrands = [
   },
  
 ];
+
+export const Articles: navLink[]=[
+  
+]
