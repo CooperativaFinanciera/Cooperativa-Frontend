@@ -1,8 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { BsPiggyBankFill, BsPiggyBank } from "react-icons/bs"; 
-import { FaMoneyBillTransfer } from "react-icons/fa6"; 
 import { Button } from "@nextui-org/button"; 
 import { Tabs, Tab } from "@nextui-org/tabs";
 import { Card, CardBody } from "@nextui-org/card";
