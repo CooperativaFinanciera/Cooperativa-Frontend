@@ -39,10 +39,10 @@ export const ServiceCard = ({
     
     >
       <CardContainer className="inter-var w-full ">
-        <CardBody className="bg-default-100 rounded-2xl p-6 flex flex-col justify-between w-full">
+        <CardBody className="bg-primary rounded-2xl p-6 flex flex-col justify-between w-full">
           <CardItem
             translateZ="100"
-            className="text-xl font-bold text-neutral-600 dark:text-white"
+            className="text-xl font-bold text-white"
           >
             <Button variant="flat" size="lg" isIconOnly color="primary">
               {icon}
@@ -56,7 +56,7 @@ export const ServiceCard = ({
             <CardItem
               as="p"
               translateZ="60"
-              className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+              className="text-white/50 text-sm max-w-sm mt-2 "
             >
               {description}
             </CardItem>

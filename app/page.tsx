@@ -9,19 +9,21 @@ import {
   mainFunctions,
   services,
 } from "@/lib/constants";
-import { Button, Tooltip } from "@nextui-org/react";
+import { Button, Card, CardFooter, Tooltip } from "@nextui-org/react";
 import { HiChevronRight } from "react-icons/hi2";
 import { motion } from "framer-motion";
 import { ShareholderCard } from "@/components/footer/ShareholderCard";
 import Image from "next/image";
+import { Image as NextImage } from "@nextui-org/react";
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
+import { ReviewCard } from "@/components/cards/ReviewCard";
 export default function Home() {
   return (
-    <main className="space-y-10 md:space-y-10 w-[90%] mx-auto">
+    <>
       <div>
         <FadeInEffect
-          className="relative h-[70vh] rounded-t-2xl flex flex-col items-center justify-center gap-5"
+          className="relative h-[78vh] w-full flex flex-col items-center justify-center gap-5"
           style={{
             backgroundImage: "url('/portada.webp')",
           }}
@@ -50,7 +52,7 @@ export default function Home() {
             </Button>
           </FadeInEffect>
         </FadeInEffect>
-        <div className="bg-[#25466a] text-white rounded-b-xl p-2">
+        <div className="bg-[#25466a] text-white p-2">
           <Marquee>
             {" "}
             Gracias por la confianza a todas las personas por ser parte como
@@ -60,7 +62,8 @@ export default function Home() {
           </Marquee>
         </div>
       </div>
-      {/* <FadeInEffect className="grid md:grid-cols-2 gap-10 ">
+      <main className="space-y-10 md:space-y-10 w-[90%] mx-auto mt-5">
+        {/* <FadeInEffect className="grid md:grid-cols-2 gap-10 ">
           {mainFunctions.map(({ title, description, href, icon }, index) => (
             <FunctionCard
               icon={icon}
@@ -71,43 +74,81 @@ export default function Home() {
             />
           ))}
         </FadeInEffect> */}
-      <section className="space-y-10">
-        {/* <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans text-center">
+        <section className="space-y-10">
+          {/* <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans text-center">
             Servicios
           </h2> */}
-        <article className="grid md:grid-cols-4 gap-5 ">
-          {mainFunctions.map(({ title, description, href, icon }, index) => (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 + index * 0.1 }}
-              key={index}
-            >
-              <Tooltip
-                placement="bottom"
-                classNames={{
-                  content: "bg-primary text-white w-52",
-                }}
-                delay={500}
-                content={description}
+          <article className="grid md:grid-cols-4 gap-5 ">
+            {mainFunctions.map(({ title, description, href, icon }, index) => (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 + index * 0.1 }}
+                key={index}
               >
-                <Button
-                  size="lg"
-                  fullWidth
-                  color="primary"
-                  variant="flat"
-                  startContent={icon}
-                  as={Link}
-                  href={href}
+                <Tooltip
+                  placement="bottom"
+                  classNames={{
+                    content: "bg-primary text-white w-52",
+                  }}
+                  delay={1000}
+                  content={description}
                 >
-                  {title}
-                </Button>
-              </Tooltip>
-            </motion.div>
-          ))}
-        </article>
-      </section>
-      <section className="space-y-5">
+                  <Button
+                    size="lg"
+                    fullWidth
+                    color="warning"
+                    
+                    startContent={icon}
+                    as={Link}
+                    href={href}
+                    className="text-lg"
+                  >
+                    {title}
+                  </Button>
+                </Tooltip>
+              </motion.div>
+            ))}
+          </article>
+        </section>
+        <section>
+          <Card
+            isFooterBlurred
+            className="border-3 border-primary w-[80%] mx-auto rounded-2xl"
+          >
+            <NextImage
+              className=" object-cover object-top"
+              removeWrapper
+              as={Image}
+              src="/homeResources/personasFinancieras.jpg"
+              width={1280}
+              height={720}
+              alt=""
+            />
+            <CardFooter className="justify-center before:bg-white/10 border-white/20 border-1 overflow-hidden  absolute before:rounded-xl rounded-large bottom-0 w-1/2 mx-auto shadow-small z-10 py-4">
+              <div className="space-y-3">
+                <h3 className="text-black text-3xl font-semibold">
+                  Nuestros Servicios
+                </h3>
+
+                <div className="flex flex-col gap-3">
+                  {services.map((service, index) => (
+                    <Button
+                      size="lg"
+                      as={Link}
+                      href={service.href}
+                      color="primary"
+                      key={index}
+                    >
+                      {service.title}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+            </CardFooter>
+          </Card>
+        </section>
+        {/* <section className="space-y-5">
         <h2 className="text-center text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200">
           Servicios
         </h2>
@@ -123,25 +164,27 @@ export default function Home() {
             />
           ))}
         </article>
-      </section>
-      <section className="">
-        <h2 className="text-center text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 relative top-14">
-          Marcas coorporativas
-        </h2>
-        <div className="flex flex-col md:flex-row justify-between items-center w-[90%] mx-auto">
-          {corporativeBrands.map((brand, index) => (
-            <Link key={index} href={brand.href} target="_blank">
-              <Image
-                className="hover:scale-125 transition-transform"
-                alt={brand.title}
-                src={brand.src}
-                width={brand.title === "LECENI" ? 300 : 150}
-                height={brand.title === "LECENI" ? 300 : 150}
-              />
-            </Link>
-          ))}
-        </div>
-      </section>
-    </main>
+      </section> */}
+        <section className="border-primary border-3 rounded-2xl py-5">
+          <h2 className="text-center text-xl md:text-3xl font-bold text-primary dark:text-neutral-200 relative">
+            NUESTRAS MARCAS CORPORATIVAS
+          </h2>
+          <div className="flex flex-col md:flex-row justify-between items-center w-[90%] mx-auto gap-10">
+            {corporativeBrands.map((brand, index) => (
+              <Link key={index} href={brand.href} target="_blank">
+                <Image
+                  className="hover:scale-125 transition-transform"
+                  alt={brand.title}
+                  src={brand.src}
+                  width={150}
+                  height={150}
+                />
+              </Link>
+            ))}
+          </div>
+        </section>
+        <ReviewCard/>
+      </main>
+    </>
   );
 }
