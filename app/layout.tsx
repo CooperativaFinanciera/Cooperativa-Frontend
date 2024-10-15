@@ -6,6 +6,7 @@ import { Providers } from "./providers";
 import { auth } from "@/auth";
 import { Footer } from "@/components/footer";
 import { Open_Sans } from 'next/font/google'
+import { Toaster } from "@/components/ui/toaster"
  
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -44,10 +45,12 @@ export default async function RootLayout({
           
           <Navbar session={session} />
           
-          <div className="px-5 min-h-screen">
+          <div className="min-h-screen">
           {children}
           </div>
           <Footer />
+          <Toaster />
+
         </Providers>
       </body>
     </html>

@@ -38,14 +38,11 @@ export const Navbar = ({ session }: { session: Session | null }) => {
     "Log Out",
   ];
   return (
-    <header className="w-full bg-white dark:bg-[#1e1e21] flex flex-col items-center  justify-center sticky top-0 z-50 transition-all pt-2">
-      <Brand className="text-default-600" />
-
       <NextNavbar
-        className="bg-white dark:bg-[#1e1e21]"
+        className="bg-white dark:bg-[#1e1e21] h-32"
         isBlurred={false}
-        maxWidth="xl"
-        position="static"
+        maxWidth="full"
+        position="sticky"
         onMenuOpenChange={setIsMenuOpen}
       >
         <NavbarMenuToggle
@@ -54,25 +51,33 @@ export const Navbar = ({ session }: { session: Session | null }) => {
         />
 
         <NavbarBrand>
-          <p className="font-bold text-inherit">Your Brand</p>
+          <Brand className="text-default-600" />
         </NavbarBrand>
 
-        <NavbarContent className="hidden sm:flex gap-4" justify="center">
+        <NavbarContent justify="end" className="">
           <NavLink href="/">Inicio</NavLink>
-          <LinksDropdown items={aboutLinks} label="Nosotros" />
-          <NavLink href="/articles">Artículos</NavLink>
-          <NavLink href="/partners">Socios</NavLink>
-          <LinksDropdown items={shareholdersLinks} label="Accionistas" />
-          <NavLink href="/contact">Centro de ayuda</NavLink>
-        </NavbarContent>
+          <LinksDropdown label="Nosotros" items={aboutLinks} />
 
-        <NavbarContent justify="end">
-          <ThemeSwitch />
-          <NotificationButton />
+          <NavLink href="/articles">Artículos</NavLink>
+          <NavLink href="/contact">Socios</NavLink>
+          <LinksDropdown label="Accionistas" items={shareholdersLinks} />
+          {/* <NavLink href="/contact">Centro de ayuda</NavLink> */}
+          {session && (
+            <>
+              <ThemeSwitch />
+              <NotificationButton />
+            </>
+          )}
           {session ? (
             <UserDropdown session={session} />
           ) : (
-            <Button as={Link} href="/auth/signIn" color="primary" radius="full">
+            <Button
+              size="lg"
+              as={Link}
+              href="/auth/signIn"
+              color="primary"
+              radius="full"
+            >
               Iniciar sesión
             </Button>
           )}
@@ -98,7 +103,7 @@ export const Navbar = ({ session }: { session: Session | null }) => {
           ))}
         </NavbarMenu>
       </NextNavbar>
-    </header>
+
   );
 };
 

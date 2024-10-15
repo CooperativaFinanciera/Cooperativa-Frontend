@@ -1,3 +1,5 @@
+"use client"
+import { createUser } from "@/components/actions/createUser";
 import { InputPasword } from "@/components/littleComponets/InputPasword";
 import { Button, Input } from "@nextui-org/react";
 import Link from "next/link";
@@ -5,19 +7,8 @@ import { HiOutlineIdentification, HiOutlinePhone, HiOutlineUser } from "react-ic
 import { MdMail } from "react-icons/md";
 
 export default function Page() {
-  async function createUser(formData: FormData) {
-    "use server";
-    const values = Object.fromEntries(formData);
-    const res = await fetch(`${process.env.PUBLIC_URL}/api/auth/signUp`, {
-      method: "POST",
-      body: JSON.stringify(values),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const data = await res.json();
-    console.log(data);
-  }
+
+  
 
   return (
     <form action={createUser} className="grid grid-cols-2 gap-3 col-span-2">

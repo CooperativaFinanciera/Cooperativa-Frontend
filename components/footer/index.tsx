@@ -55,7 +55,7 @@ export const Footer = () => {
                 <p className="flex items-center gap-1">
                   <HiLocationMarker size={20} />
               
-                <p>Av. Las Escondidas por la Panamericana Sur</p>
+              Av. Las Escondidas por la Panamericana Sur
                 </p>
               </Link>
             </div>
