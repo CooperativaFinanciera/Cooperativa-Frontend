@@ -154,3 +154,20 @@ input[type="number"]::-webkit-outer-spin-button {
 .brandCardContainer:hover .brandImage{
   transform: scale(1.3);
 }
+
+
+
+.animate-scale{
+  animation: scaleUpDown .5 infinite ease-in-out;
+}
+
+
+@keyframes scaleUpDown {
+  0%,100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+
+}

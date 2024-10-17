@@ -2,11 +2,10 @@ import {
   Button,
   Card,
   CardBody,
-  CardFooter,
   CardHeader,
 } from "@nextui-org/react";
 import Link from "next/link";
-import { HiOutlineChevronRight } from "react-icons/hi";
+import { HiMiniArrowUpRight } from "react-icons/hi2";
 
 export const FunctionCard = ({
   title,
@@ -20,20 +19,26 @@ export const FunctionCard = ({
   icon: React.ReactNode;
 }) => {
   return (
-    <Card shadow="none" className="bg-default-100 basis-1/3 p-4">
-      <CardHeader className="flex flex-col gap-2 items-start">
-        <Button size="lg" isIconOnly color="primary">
+    <Card shadow="none" className="bg-default-100 space-y-10 p-2">
+      <CardHeader className=" flex justify-between items-center">
+        <Button disabled size="lg" isIconOnly color="primary" variant="flat">
           {icon}
         </Button>
-        <h3 className="text-lg font-semibold">{title}</h3>
+        <Button
+          as={Link}
+          href={href}
+          isIconOnly
+          radius="full"
+          className="text-white"
+          variant="light"
+        >
+          <HiMiniArrowUpRight className="text-default-600" size={25} />
+        </Button>
       </CardHeader>
-      <CardBody>{description}</CardBody>
-      <CardFooter>
-        <Link href={href} className="text-primary flex items-center gap-2 link">
-          Más información
-          <HiOutlineChevronRight className="link-icon transition-transform" />
-        </Link>
-      </CardFooter>
+      <CardBody>
+        <h3 className="text-lg font-medium">{title}</h3>
+        <p className="text-sm text-default-500 ">{description}</p>
+      </CardBody>
     </Card>
   );
 };

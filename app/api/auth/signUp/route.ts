@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
       phone,
       password,
     } = userSchema.parse(data);
-
+    console.log(data);
     const newUser = await prisma.users.create({
       data: {
         id,

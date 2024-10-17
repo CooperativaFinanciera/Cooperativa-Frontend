@@ -5,8 +5,9 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
-  
 } from "@nextui-org/react";
+import { useState } from "react";
+import { HiOutlineChevronDown } from "react-icons/hi2";
 
 export const LinksDropdown = ({
   items,
@@ -15,13 +16,28 @@ export const LinksDropdown = ({
   items: navLink[];
   label: string;
 }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const onOpenChange = (open: boolean) => {
+    setIsOpen(open);
+  };
+
   return (
-    <Dropdown showArrow>
+    <Dropdown onOpenChange={onOpenChange} showArrow>
       <DropdownTrigger>
         <Button
-          disableRipple
-          className="p-0 bg-transparent data-[hover=true]:bg-transparent text-default-500 dark:text-default-800 font-normal text-base"
+          color="primary"
           variant="light"
+          size="lg"
+          endContent={
+            <HiOutlineChevronDown
+              size={14}
+              className={`transition-transform ${
+                isOpen ? "transform rotate-180" : ""
+              }`}
+            />
+          }
+          className="text-lg font-medium"
         >
           {label}
         </Button>

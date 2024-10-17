@@ -22,6 +22,17 @@ model users {
   image String?
   phone String
   shareholders shareholders[]
+  role String @default("user")
+} 
+
+model reviews {
+    id Int @id @default(autoincrement())
+    createdAt DateTime @default(now())
+    name String
+    email String
+    review String
+    image String
+    state String @default("pending")
 }
 
 model shareholders  {

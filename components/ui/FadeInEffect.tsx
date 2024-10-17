@@ -1,13 +1,14 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, MotionProps } from "framer-motion";
 
 export const FadeInEffect = ({
   children,
   className,
+  ...rest
 }: {
   children: React.ReactNode;
   className?: string;
-}) => {
+} & React.HTMLAttributes<HTMLDivElement> & MotionProps) => {
   return (
     <motion.div
       initial={{ opacity: 0.0, y: 40 }}
@@ -22,6 +23,7 @@ export const FadeInEffect = ({
           ? className
           : "relative flex flex-col gap-4 items-center justify-center px-4"
       }
+      {...rest}
     >
       {children}
     </motion.div>
