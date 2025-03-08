@@ -18,6 +18,7 @@ import { Image as NextImage } from "@nextui-org/react";
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
 import { ReviewCard } from "@/components/cards/ReviewCard";
+
 export default function Home() {
   return (
     <>
@@ -86,6 +87,7 @@ export default function Home() {
                 transition={{ delay: 0.5 + index * 0.1 }}
                 key={index}
               >
+                {/* Tooltip añadido aquí */}
                 <Tooltip
                   placement="bottom"
                   classNames={{
@@ -98,7 +100,6 @@ export default function Home() {
                     size="lg"
                     fullWidth
                     color="warning"
-                    
                     startContent={icon}
                     as={Link}
                     href={href}
