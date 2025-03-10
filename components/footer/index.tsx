@@ -12,7 +12,7 @@ import Link from "next/link";
 import { HiEnvelope, HiOutlineBuildingOffice2 } from "react-icons/hi2";
 import { HiLocationMarker, HiOfficeBuilding } from "react-icons/hi";
 import { RiWhatsappFill } from "react-icons/ri";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaX } from "react-icons/fa6";
 
 export const Footer = () => {
   return (
@@ -83,23 +83,33 @@ export const Footer = () => {
         </CardBody>
         <Divider />
         <CardFooter className="flex items-center justify-between w-[70%] mx-auto py-0">
-          <p className="text-white text-sm">© 2021 Cooperativa de Ahorro y Crédito</p>
+          <p className="text-white text-sm">© 2025 Cooperativa de Ahorro y Crédito</p>
           <div className="flex items-center gap-5">
+          <a href="https://www.facebook.com/aneupi.fundacion/" target="_blank" rel="noopener noreferrer">
             <SocialButton>
               <FaFacebook />
             </SocialButton>
+            </a>
+          <a href="https://www.tiktok.com/@fundacionaneupi" target="_blank" rel="noopener noreferrer">
             <SocialButton>
               <FaTiktok />
             </SocialButton>
+            </a>
+          <a href="https://www.youtube.com/@tvaneupi" target="_blank" rel="noopener noreferrer">
             <SocialButton>
               <FaYoutube />
             </SocialButton>
+            </a>
+          <a href="https://www.instagram.com/fundacion_aneupi/" target="_blank" rel="noopener noreferrer">
             <SocialButton>
               <FaInstagram />
             </SocialButton>
+            </a>
+          <a href="https://x.com/FundacionANEUPI/" target="_blank" rel="noopener noreferrer">
             <SocialButton>
-            <FaXTwitter />
+            <FaX />
             </SocialButton>
+            </a>
           </div>
         </CardFooter>
       </Card>

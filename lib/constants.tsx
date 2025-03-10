@@ -1,3 +1,41 @@
+export const sociosLinks: navLink[] = [
+  {
+    title: "Beneficios Sociales",
+    href: "/partners/SocialBenefits",
+    description: ""
+  },
+  {
+    title: "Cuentas",
+    href: "/partners/accounts",
+    description: "",
+  },
+  {
+    title: "Educación Finaciera Social",
+    href: "/partners/FinancialEducationPartners",
+    description: "",
+  },
+  {
+    title: "Inversiones",
+    href: "/partners/Investments",
+    description: "",
+  },
+  {
+    title: "Pensiones",
+    href: "/partners/Pensions",
+    description: "",
+  },
+  {
+    title: "Soluciones",
+    href: "/partners/Solutions",
+    description: "",
+  },
+  {
+    title: "Servicios",
+    href: "/partners/Services",
+    description: "",
+  },
+];
+
 export const aboutLinks: navLink[] = [
   {
     title: "Estructura",
