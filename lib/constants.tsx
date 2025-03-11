@@ -1,8 +1,18 @@
 export const aboutLinks: navLink[] = [
   {
+    title: "Contactanos",
+    href: "/about/contactUs",
+    description: "Obtenga mas información sobre nosotros",
+  },
+  {
     title: "Estructura",
     href: "/about/structure",
     description: "Más información sobre la estructura de la cooperativa",
+  },
+  {
+    title: "Organigrama",
+    href: "/about/organizationChart",
+    description: "Conoce nuestro organigrama",
   },
   {
     title: "Misión y Visión",
@@ -10,13 +20,18 @@ export const aboutLinks: navLink[] = [
     description: "Conóce más acerca de nuestra misión y visión",
   },
   {
-    title: "Objetivo",
-    href: "/about/goal",
-    description: "Conoce más acerca de nuestro objetivo",
+    title: "Estatutos",
+    href: "/about/statutes",
+    description: "Conoce nuestros estatutos",
+  },
+  {
+    title: "Introducion y Objetivos",
+    href: "/about/introduction",
+    description: "Conoce más acerca de nuestra introducción y objetivos",
   },
   {
     title: "Educación financiera",
-    href: "/about/financial-education",
+    href: "/about/financialEducation",
     description: "Aprende más acerca de la educación financiera",
   },
 ];

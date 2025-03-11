@@ -9,7 +9,7 @@ const FinancialEducationPartners: React.FC = () => {
     <>
       <main className="space-y-10 md:space-y-20">
         {/* Encabezado de cuentas */}
-        <header className="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:scale-105 transform transition duration-300 text-center rounded-lg ">
+        <header className="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:scale-105 transform transition duration-300 text-center ">
           <h1 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">
             Esta institución financiera generará confianza para guiarte en tus mejores decisiones y no te equivoques.
           </h1>
@@ -83,7 +83,7 @@ const FinancialEducationPartners: React.FC = () => {
         </FadeInEffect>
 
         {/* Pie de Página */}
-        <footer className="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:scale-105 transform transition duration-300 rounded-lg">
+        <footer className="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:scale-105 transform transition duration-300">
           <div className="text-center text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">
             <p className="text-lg font-bold">
               Mejora tu futuro financiero con nuestros Ahorros exclusivos.
