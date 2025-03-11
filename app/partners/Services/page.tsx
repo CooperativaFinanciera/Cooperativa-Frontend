@@ -24,7 +24,7 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-black text-gray-700 dark:text-gray-300">
-      <header className="bg-[#00325e] text-white p-6 rounded-lg shadow-md flex flex-col items-center transition-transform transform hover:scale-105">
+      <header className="bg-[rgba(37,70,106,1)] text-white p-6 rounded-lg shadow-md flex flex-col items-center transition-transform transform hover:scale-105">
         <h1 className="text-4xl font-bold">Servicios Disponibles</h1>
         <p className="mt-4 text-xl">
           Explora los servicios que tenemos a tu disposición para facilitarte la vida financiera.
