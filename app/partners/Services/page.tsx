@@ -10,6 +10,7 @@ import {
 } from "react-icons/hi2";
 import { Button } from "@nextui-org/react";
 import { useState } from "react";
+import Imageservi from "@/app/assets/image/servi.png";
 
 const Services = () => {
   const [expandedServices, setExpandedServices] = useState<string[]>([]);
@@ -23,25 +24,42 @@ const Services = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-black text-gray-700 dark:text-gray-300">
-      <header className="bg-[rgba(37,70,106,1)] text-white p-6 rounded-lg shadow-md flex flex-col items-center transition-transform transform hover:scale-105">
+    <div className="min-h-screen bg-white text-[#25466A]">
+      <header className="bg-[#25466A] text-white p-6 rounded-lg shadow-md flex flex-col items-center transition-transform transform hover:scale-105">
         <h1 className="text-4xl font-bold">Servicios Disponibles</h1>
         <p className="mt-4 text-xl">
           Explora los servicios que tenemos a tu disposición para facilitarte la vida financiera.
         </p>
         <p className="text-lg mt-2 font-medium italic">(En desarrollo)</p>
       </header>
+
+      <div className="flex items-center justify-between mb-12 px-4 md:px-20">
+        <img
+          src={Imageservi.src}
+          alt="Imagen de Servicios"
+          className="w-[750px] h-[auto] rounded-lg"
+        />
+        <div className="ml-8">
+          <h2 className="text-4xl font-bold text-[#25466A]">Servicios</h2>
+          <p className="mt-4 text-lg text-[#25466A]">
+            Aquí podrás encontrar una variedad de servicios diseñados para facilitarte la vida financiera, con
+            opciones personalizadas y accesibles para todos. Explora y encuentra lo que mejor se adapte a tus
+            necesidades.
+          </p>
+        </div>
+      </div>
+
       <section className="py-12 px-4 md:px-20">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {/* Servicio Eléctrico */}
-          <div className="bg-white dark:bg-white text-[#00325e] p-6 rounded-lg shadow-md flex flex-col items-center transition-transform transform hover:scale-105 border-2 border-[#00325e]">
+          <div className="bg-[#25466A] text-white p-6 rounded-lg shadow-md flex flex-col items-center transition-transform transform hover:scale-105">
             <HiOutlineLightBulb className="text-4xl mb-4" />
             <h3 className="text-xl font-semibold">Servicio Eléctrico</h3>
-            <Button color="primary" className="mt-4" onClick={() => handleMoreInfo("Servicio Eléctrico")}>
+            <Button color="secondary" className="mt-4 bg-white text-[#25466A] hover:bg-[#f1f1f1]" onClick={() => handleMoreInfo("Servicio Eléctrico")}>
               Más Información
             </Button>
             {expandedServices.includes("Servicio Eléctrico") && (
-              <p className="mt-4 text-gray-600 dark:text-gray-400">
+              <p className="mt-4">
                 Con nuestro <strong>Servicio Eléctrico</strong>, te ofrecemos tarifas competitivas y un acceso
                 rápido a tu consumo. Además, podrás disfrutar de opciones de pago flexibles que se adaptan a tu
                 estilo de vida. Mantente al tanto de las tarifas actualizadas y planifica tu consumo de manera
@@ -50,16 +68,16 @@ const Services = () => {
               </p>
             )}
           </div>
-          
+
           {/* Servicio Potable */}
-          <div className="bg-white dark:bg-white text-[#00325e] p-6 rounded-lg shadow-md flex flex-col items-center transition-transform transform hover:scale-105 border-2 border-[#00325e]">
+          <div className="bg-[#25466A] text-white p-6 rounded-lg shadow-md flex flex-col items-center transition-transform transform hover:scale-105">
             <HiHome className="text-4xl mb-4" />
             <h3 className="text-xl font-semibold">Servicio Potable</h3>
-            <Button color="primary" className="mt-4" onClick={() => handleMoreInfo("Servicio Potable")}>
+            <Button color="secondary" className="mt-4 bg-white text-[#25466A] hover:bg-[#f1f1f1]" onClick={() => handleMoreInfo("Servicio Potable")}>
               Más Información
             </Button>
             {expandedServices.includes("Servicio Potable") && (
-              <p className="mt-4 text-gray-600 dark:text-gray-400">
+              <p className="mt-4">
                 Nuestro <strong>Servicio Potable</strong> te ofrece el agua limpia y segura que necesitas para
                 tu día a día. Sabemos que el agua es esencial, por eso te proporcionamos un servicio confiable
                 que garantiza el acceso a agua de calidad. Además, puedes consultar nuestras tarifas y realizar
@@ -67,16 +85,16 @@ const Services = () => {
               </p>
             )}
           </div>
-          
+
           {/* Predios Urbanos */}
-          <div className="bg-white dark:bg-white text-[#00325e] p-6 rounded-lg shadow-md flex flex-col items-center transition-transform transform hover:scale-105 border-2 border-[#00325e]">
+          <div className="bg-[#25466A] text-white p-6 rounded-lg shadow-md flex flex-col items-center transition-transform transform hover:scale-105">
             <HiOutlineBanknotes className="text-4xl mb-4" />
             <h3 className="text-xl font-semibold">Predios Urbanos</h3>
-            <Button color="primary" className="mt-4" onClick={() => handleMoreInfo("Predios Urbanos")}>
+            <Button color="secondary" className="mt-4 bg-white text-[#25466A] hover:bg-[#f1f1f1]" onClick={() => handleMoreInfo("Predios Urbanos")}>
               Más Información
             </Button>
             {expandedServices.includes("Predios Urbanos") && (
-              <p className="mt-4 text-gray-600 dark:text-gray-400">
+              <p className="mt-4">
                 Con el servicio de <strong>Predios Urbanos</strong>, tienes a tu disposición una solución para
                 gestionar los pagos de impuestos de tus propiedades. Ya sea que necesites realizar pagos de
                 impuestos prediales o mantener tus predios urbanos al día, nosotros te brindamos un sistema
@@ -84,16 +102,16 @@ const Services = () => {
               </p>
             )}
           </div>
-          
+
           {/* Internet */}
-          <div className="bg-white dark:bg-white text-[#00325e] p-6 rounded-lg shadow-md flex flex-col items-center transition-transform transform hover:scale-105 border-2 border-[#00325e]">
+          <div className="bg-[#25466A] text-white p-6 rounded-lg shadow-md flex flex-col items-center transition-transform transform hover:scale-105">
             <HiMiniWifi className="text-4xl mb-4" />
             <h3 className="text-xl font-semibold">Internet</h3>
-            <Button color="primary" className="mt-4" onClick={() => handleMoreInfo("Internet")}>
+            <Button color="secondary" className="mt-4 bg-white text-[#25466A] hover:bg-[#f1f1f1]" onClick={() => handleMoreInfo("Internet")}>
               Más Información
             </Button>
             {expandedServices.includes("Internet") && (
-              <p className="mt-4 text-gray-600 dark:text-gray-400">
+              <p className="mt-4">
                 En un mundo conectado, el acceso a <strong>Internet</strong> es vital. Con nuestro servicio de
                 Internet de alta velocidad, podrás navegar, trabajar y comunicarte sin interrupciones. Ya sea
                 que necesites un plan para tu hogar o para tu oficina, te ofrecemos opciones flexibles que se
@@ -101,16 +119,16 @@ const Services = () => {
               </p>
             )}
           </div>
-          
+
           {/* Telefonía */}
-          <div className="bg-white dark:bg-white text-[#00325e] p-6 rounded-lg shadow-md flex flex-col items-center transition-transform transform hover:scale-105 border-2 border-[#00325e]">
+          <div className="bg-[#25466A] text-white p-6 rounded-lg shadow-md flex flex-col items-center transition-transform transform hover:scale-105">
             <HiMiniPhone className="text-4xl mb-4" />
             <h3 className="text-xl font-semibold">Telefonía</h3>
-            <Button color="primary" className="mt-4" onClick={() => handleMoreInfo("Telefonía")}>
+            <Button color="secondary" className="mt-4 bg-white text-[#25466A] hover:bg-[#f1f1f1]" onClick={() => handleMoreInfo("Telefonía")}>
               Más Información
             </Button>
             {expandedServices.includes("Telefonía") && (
-              <p className="mt-4 text-gray-600 dark:text-gray-400">
+              <p className="mt-4">
                 Mantente conectado con el mundo a través de nuestro servicio de <strong>Telefonía</strong>. Ofrecemos
                 tarifas competitivas para llamadas nacionales e internacionales. Además, podrás gestionar tus pagos
                 y recargas en línea, lo que te da comodidad y flexibilidad. ¡Hablar nunca ha sido tan sencillo y
@@ -118,16 +136,16 @@ const Services = () => {
               </p>
             )}
           </div>
-          
+
           {/* Pensión Alimenticia */}
-          <div className="bg-white dark:bg-white text-[#00325e] p-6 rounded-lg shadow-md flex flex-col items-center transition-transform transform hover:scale-105 border-2 border-[#00325e]">
+          <div className="bg-[#25466A] text-white p-6 rounded-lg shadow-md flex flex-col items-center transition-transform transform hover:scale-105">
             <HiTruck className="text-4xl mb-4" />
             <h3 className="text-xl font-semibold">Pensión Alimenticia</h3>
-            <Button color="primary" className="mt-4" onClick={() => handleMoreInfo("Pensión Alimenticia")}>
+            <Button color="secondary" className="mt-4 bg-white text-[#25466A] hover:bg-[#f1f1f1]" onClick={() => handleMoreInfo("Pensión Alimenticia")}>
               Más Información
             </Button>
             {expandedServices.includes("Pensión Alimenticia") && (
-              <p className="mt-4 text-gray-600 dark:text-gray-400">
+              <p className="mt-4">
                 El servicio de <strong>Pensión Alimenticia</strong> te brinda una plataforma segura para gestionar
                 y realizar tus pagos de pensión alimentaria. Nos encargamos de que el proceso sea sencillo, rápido
                 y transparente. Conoce más sobre las tarifas, opciones de pago y cómo puedes facilitar este importante
@@ -136,8 +154,8 @@ const Services = () => {
             )}
           </div>
         </div>
-        
-        <div className="mt-12 text-center text-gray-600 dark:text-gray-400">
+
+        <div className="mt-12 text-center text-[#25466A]">
           <p className="text-lg font-medium">
             En esta institución financiera podrás a futuro realizar pagos de
             servicios para que tengas una facilidad.

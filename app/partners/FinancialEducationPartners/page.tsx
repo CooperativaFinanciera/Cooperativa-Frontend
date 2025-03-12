@@ -1,23 +1,26 @@
 import { HiArrowUpCircle } from "react-icons/hi2";
-import { FaPiggyBank, FaChartLine, FaUniversity, FaShieldAlt, FaWhatsapp, FaBook } from "react-icons/fa"; // Agregamos un icono extra (FaBook) para el card
-
+import { FaPiggyBank, FaChartLine, FaUniversity, FaShieldAlt, FaWhatsapp, FaBook } from "react-icons/fa";
 import { FadeInEffect } from "@/components/ui/FadeInEffect";
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
-
+import Image from "next/image";
+import edufi from "@/app//assets/image/edufi.png";
 const FinancialEducationPartners: React.FC = () => {
   return (
     <>
       <main className="space-y-10 md:space-y-20 bg-white py-12">
-        <header className="relative p-16 bg-cover bg-center bg-[url('https://static.wixstatic.com/media/11062b_4f567bf2cb3c415a8721b0708b0568e7~mv2.jpg/v1/fill/w_794,h_400,al_t,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_4f567bf2cb3c415a8721b0708b0568e7~mv2.jpg')] text-white rounded-2xl shadow-xl text-center transform transition-all duration-300">
-          <div className="absolute inset-0 bg-black opacity-50 rounded-2xl"></div>
-          <h1 className="text-3xl font-bold mb-2 relative z-10">
-            TU FUTURO FINANCIERO COMIENZA AQUÍ
-          </h1>
-          <h3 className="text-2xl font-bold mb-2 relative z-10">
-            ¡Educación financiera para nuestros futuros socios!
-          </h3>
-        </header>
+      <header className="p-6 bg-[#234263] text-white rounded-2xl shadow-xl text-center transform transition-all duration-300">
+  <div className="absolute inset-0 bg-[#234263] opacity-100 rounded-2xl"></div>
+  <h1 className="text-3xl font-bold mb-2 relative z-10">
+    TU FUTURO FINANCIERO COMIENZA AQUÍ
+  </h1>
+  <h3 className="text-2xl font-bold mb-2 relative z-10">
+    ¡Educación financiera para nuestros futuros socios!
+  </h3>
+</header>
+
+
+
 
         <div className="max-w-4xl mx-auto p-6 bg-[#234263] text-white rounded-lg shadow-lg flex items-center gap-4">
           <FaBook className="text-3xl text-white-400" />
@@ -102,11 +105,13 @@ const FinancialEducationPartners: React.FC = () => {
             </FadeInEffect>
           </div>
           <div className="flex justify-center">
-            <img
-              src="https://img.freepik.com/vector-gratis/joven-posicion-aislado-icono_18591-83052.jpg?t=st=1741361530~exp=1741365130~hmac=437249d6fe5dffe8d26adc1c5bb7fdfd9781f184cccb79884ddd548629f735e6&w=740"
-              alt="Educación financiera"
-              className="max-w-xs rounded-lg shadow-lg mt-8"
-            />
+          <Image
+  src={edufi}
+  alt="Educación financiera"
+  className="max-w-xs rounded-lg shadow-lg mt-8"
+  width={500}
+  height={300}
+/>
           </div>
         </div>
 

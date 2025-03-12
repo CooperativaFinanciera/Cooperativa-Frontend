@@ -1,4 +1,3 @@
-import { HiArrowUpCircle } from "react-icons/hi2";
 import { FaPiggyBank, FaHeartbeat, FaTags } from "react-icons/fa";
 import { FadeInEffect } from "@/components/ui/FadeInEffect";
 import { Button } from "@nextui-org/react";
@@ -6,18 +5,38 @@ import Link from "next/link";
 import benefiImage from "@/app/assets/image/benefi.png";
 import descuentoImage from "@/app/assets/image/descuento.png";
 import socilImage from "@/app/assets/image/socil.png";
+import socialbenefiImage from "@/app/assets/image/socialbenefi.png";
 
 const SocialBenefitsPage: React.FC = () => {
   return (
     <>
       <main className="space-y-10 md:space-y-20">
-        {/* ENCABEZADO */}
         <header className="p-8 bg-[rgba(37,70,106,1)] text-white rounded-2xl shadow-xl text-center transform transition-all duration-300">
           <h1 className="text-3xl font-bold mb-2">Beneficios Sociales</h1>
           <p className="text-lg font-medium">
             Descubre los beneficios que ofrecemos para mejorar tu calidad de vida.
           </p>
         </header>
+
+        <div className="flex items-center space-x-10 mt-8 px-4">
+          <div className="flex-shrink-0">
+            <img
+              className="w-[400px] h-auto rounded-xl"
+              src={socialbenefiImage.src}
+              alt="Beneficios Sociales"
+            />
+          </div>
+          <div className="flex-grow">
+            <h2 className="text-2xl font-semibold text-[rgba(37,70,106,1)]">
+              Beneficios Especiales para Ti
+            </h2>
+            <p className="text-black text-lg">
+              Nuestros beneficios están diseñados para mejorar tu bienestar y brindarte soluciones que
+              contribuyan a una vida más plena. Aprovecha cada uno de los programas que tenemos
+              disponibles para ti, que van desde servicios financieros hasta bienestar y descuentos exclusivos.
+            </p>
+          </div>
+        </div>
 
         {/* TARJETAS DE BENEFICIOS */}
         <FadeInEffect className="flex flex-col items-center">
@@ -103,7 +122,7 @@ const SocialBenefitsPage: React.FC = () => {
               <div className="relative w-full h-40">
                 <img
                   className="w-full h-full object-cover rounded-xl mt-6 shadow-md hover:scale-105 transition-transform duration-300"
-                  src={benefiImage.src} 
+                  src={benefiImage.src}
                   alt="Descuentos y Convenios"
                 />
               </div>
