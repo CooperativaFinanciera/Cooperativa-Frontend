@@ -1,68 +1,78 @@
-/* Nueva clase para los textos dentro de un recuadro azul */
-.textContainer {
-  background-color: #00335f;
-  border: 2px solid #00335f; /* Borde azul */
-}
-
-.textContainer h2,
-.textContainer p {
-  margin-bottom: 1px; /* Separación entre los textos */
-  color: #ffffff;
-
-}
-
-
-.textContainer p {
-  margin-top: 20px; /* Para mover el párrafo más abajo */
-  font-size: 1.25rem;
-}
-
+/* Contenedor principal de las cards */
 .cardContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60vh;
   width: 100%;
   margin: 40px auto;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  flex-wrap: wrap;
-}
-
-.card {
-  width: 60%;
-  text-align: left;
-  padding-right: 20px;
   padding: 20px;
-  margin-right: 20px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  border: 2px solid #00335f;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
+/* Card con imagen en la parte superior */
+.cardWithImageTop {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el contenido verticalmente */
+  align-items: center; /* Centra el contenido horizontalmente */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cardWithImageTop img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Card con la imagen a la derecha */
+.cardWithImageRight {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  gap: 20px;
+}
+
+.cardWithImageRight .cardContent {
+  flex: 1; /* Hace que el contenido de texto ocupe el espacio disponible */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el texto verticalmente */
+}
+
+.cardImage {
+  width: 40%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Estilos para el título y la descripción */
 .cardTitle {
   font-size: 2rem;
   color: #00335f;
   font-weight: bold;
-  margin-bottom: 25px;
-  text-align: left;
+  margin-bottom: 15px;
+  text-align: center; /* Centra el texto */
 }
 
 .cardDescription {
   font-size: 1.125rem;
   color: #00335f;
   line-height: 1.75;
-  margin-bottom: 25px;
-  text-align: left;
-}
-
-.cardImage {
-  width: 30%;
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
-  margin-left: 20px;
+  margin-bottom: 15px;
+  text-align: center; /* Centra el texto */
 }

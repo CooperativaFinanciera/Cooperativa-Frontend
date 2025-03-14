@@ -1,14 +1,199 @@
-import React from 'react'
+'use client';
+import React, { useState } from 'react';
 
-const Page = ({
-  params
-}:{
-  params:{
-    id: string
+const articles = {
+  "2": {
+    title: "Explora nuestras opciones de cuentas financieras",
+    description: "Nuestras opciones de cuentas diseñadas para satisfacer sus necesidades financieras individuales y empresariales.",
+    image: "https://static.wixstatic.com/media/9edfb0_c0fd437b521d4e83960bca2981e768a4~mv2.jpg/v1/fill/w_1265,h_440,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9edfb0_c0fd437b521d4e83960bca2981e768a4~mv2.jpg"
+  },
+  "3": {
+    image: "https://static.wixstatic.com/media/b5d897a11e2d48479595d09c7cf15044.jpg/v1/fill/w_980,h_500,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b5d897a11e2d48479595d09c7cf15044.jpg"
   }
-}) => {
+};
+
+const ArticlePage = ({ params }: { params: { id: string } }) => {
+  const article = articles[params.id as keyof typeof articles];
+  
+  // Estado para controlar la visibilidad del modal y el contenido
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState('');
+
+  if (!article) {
+    return <div className="text-center text-red-500">Artículo no encontrado</div>;
+  }
+
+  // Función para abrir el modal
+  const openModal = (content: string) => {
+    setModalContent(content);
+    setIsModalOpen(true);
+  };
+
+  // Función para cerrar el modal
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <div>{params.id}</div>
-  )
-}
-export default Page
+    <main className="my-10 mx-auto px-5">
+      {/* Artículo de cuentas */}
+      <div className="flex flex-wrap justify-center items-center w-full my-10 p-5 bg-white rounded-lg shadow-lg gap-5">
+        <img src={article.image}  className="w-full h-auto rounded-lg mb-5" />
+      </div>
+
+      {/* Nueva Card con la descripción sobre la Cooperativa */}
+      {params.id === "2" && (
+        <div className="flex flex-wrap justify-between items-center w-full my-10 p-5 bg-gray-100 rounded-lg shadow-md gap-5">
+          {/* Parte izquierda ajustada a la mitad de la pantalla */}
+          <div className="w-full sm:w-1/2 p-5 flex flex-col justify-center items-start flex-grow">
+            <h2 className="text-2xl font-bold text-[#00335f] mb-5">¿Podrán adquirir un crédito en nuestra futura Cooperativa?</h2>
+            <p className="text-lg leading-relaxed text-[#00335f] mb-5">
+              Nuestras soluciones crediticias serán las más eficientes en el mercado.
+            </p>
+            <p className="text-lg leading-relaxed text-[#00335f] mb-5">
+              Contaremos con las facilidades que te ayudarán a alcanzar tus metas más rápido. Los abonos y precancelación de nuestros créditos, no contemplan penalización alguna.
+            </p>
+            <p className="text-lg leading-relaxed text-[#00335f]">
+              Buscaremos ser tu mejor aliado. Nuestros productos crediticios, cuentan con: financiamiento de gastos legales y seguro de vida.
+            </p>
+          </div>
+
+          {/* Parte derecha se mantiene igual */}
+          <div className="w-full sm:w-1/3 p-5 flex flex-col justify-center items-center">
+            <div className="flex gap-10 justify-center mb-5">
+              
+            {/* Recuadro con imagen y texto */}
+              <div className="border-2 border-custom-blue p-4 rounded-lg flex flex-col items-center transition-all duration-300 hover:border-custom-blue hover:shadow-xl hover:bg-custom-blue group">
+                <img src="/cuenta_ahorro.png" alt="Cuenta de Ahorro" className="w-32 h-32 object-contain mb-3 transform transition-transform duration-500 hover:rotate-12" />
+                <span className="text-[#00335f] text-lg font-semibold group-hover:text-white transition duration-300">
+                  Cuenta de Ahorro
+                </span>
+              </div>
+
+              {/* Recuadro con imagen y texto */}
+              <div className="border-2 border-custom-blue p-4 rounded-lg flex flex-col items-center transition-all duration-300 hover:border-custom-blue hover:shadow-xl hover:bg-custom-blue group">
+                <img src="/cuenta_corriente.png" alt="Cuenta Corriente" className="w-32 h-32 object-contain mb-5 transform transition-transform duration-500 hover:rotate-12" />
+                <span className="text-[#00335f] text-lg font-semibold group-hover:text-white transition duration-300">
+                  Cuenta Corriente
+                </span>
+              </div>
+            </div>
+
+            {/* Botones debajo de las imágenes */}
+            <div className="flex justify-start w-full mt-3 gap-3">
+              <button 
+                className="bg-custom-blue text-white px-2 py-3 rounded-lg hover:bg-custom-blue transition duration-300 w-auto flex items-center text-left whitespace-nowrap"
+                onClick={() => openModal("Contenido de Requisitos Generales")}
+              >
+                Requisitos Generales
+              </button>
+              <button 
+                className="bg-custom-blue text-white px-2 py-3 rounded-lg hover:bg-custom-blue transition duration-300 w-auto flex items-center text-left whitespace-nowrap"
+                onClick={() => openModal("Contenido de Contratos de Cuentas")}
+              >
+                Contratos de Cuentas
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Información importante*/}
+      {params.id === "2" && (
+        <div className="flex flex-wrap justify-between items-center w-full my-10 p-5 bg-gray-100 rounded-lg shadow-md gap-5 border-2 border-blue-500">
+          <div className="flex-1 flex flex-col justify-center items-start p-5">
+            <h2 className="text-2xl font-bold text-[#00335f] mb-5 flex items-center">
+              {/* Ícono de alerta */}
+              <img src="/alert.png" alt="Alerta" className="w-10 h-10 mr-3 inline-block align-middle" />
+              Información importante
+            </h2>
+            <ul className="list-none pl-0 space-y-3 text-lg text-[#00335f]">
+              <li className="flex items-start">
+                <span className="text-xl mr-2">➔</span>
+                Recuerde que prestar su cuenta personal para recibir o transferir dinero de y hacia personas desconocidas tiene implicaciones legales.
+              </li>
+              <li className="flex items-start">
+                <span className="text-xl mr-2">➔</span>
+                No preste su cuenta a terceras personas, recuerde que el mal uso que haga de ella faculta a la Cooperativa a su cierre.
+              </li>
+              <li className="flex items-start">
+                <span className="text-xl mr-2">➔</span>
+                Ningún funcionario de la Cooperativa le solicitará datos privados como su contraseña, PIN, datos de su Clave Dinámica u otros datos confidenciales.
+              </li>
+            </ul>
+          </div>
+        </div>
+      )}
+
+      {params.id === "3" && (
+      <div className="flex flex-col items-center w-full my-10 p-5 bg-gray-100 rounded-lg shadow-md">
+        {/* Título Central */}
+        <h2 className="text-3xl font-bold text-[#00335f] mb-2 text-center">
+        Conoce Nuestras Opciones de Crédito
+        </h2>
+        <p className="text-m font-semibold text-[#00335f] mt-0 mb-4 text-center">
+        Accede al crédito que se adapta a tus metas financieras.
+        </p>
+        {/* Contenedor de Cards */}
+        <div className="flex flex-wrap justify-center gap-8">
+          
+          {/* Card 1 */}
+          <div className="border-2 border-custom-blue p-6 rounded-lg flex flex-col items-center transition-all duration-300 hover:border-custom-blue hover:shadow-xl hover:bg-custom-blue group w-full sm:w-64">
+            <h1 className="text-[#00335f] text-lg font-semibold group-hover:text-white transition duration-300 mb-2">
+            Crédito Personal</h1>
+            <img src="/credito_personal.png" alt="Crédito Personal" className="w-32 h-32 object-contain mb-4 transform transition-transform duration-500 hover:rotate-12" />
+            <p className="text-[#00335f] text-m font-semibold group-hover:text-white transition duration-300 mt-4">
+            No te detengas. Para tus necesidades de financiamiento, tenemos la solución inmediata.</p>
+          </div>
+
+          {/* Card 2 */}
+          <div className="border-2 border-custom-blue p-6 rounded-lg flex flex-col items-center transition-all duration-300 hover:border-custom-blue hover:shadow-xl hover:bg-custom-blue group w-full sm:w-64">
+            <h1 className="text-[#00335f] text-lg font-semibold group-hover:text-white transition duration-300 mb-2">
+            Crédito Vehicular
+            </h1>
+            <img src="/credito_hipotecario.png" alt="Crédito Hipotecario" className="w-32 h-32 object-contain mb-4 transform transition-transform duration-500 hover:rotate-12" />
+            <p className="text-[#00335f] text-m font-semibold group-hover:text-white transition duration-300 mt-4">
+            Empieza el camino hacia tu nuevo vehículo. Nosotros, lo financiamos hasta 60 meses plazo.</p>
+          </div>
+
+          {/* Card 3 */}
+          <div className="border-2 border-custom-blue p-6 rounded-lg flex flex-col items-center transition-all duration-300 hover:border-custom-blue hover:shadow-xl hover:bg-custom-blue group w-full sm:w-64">
+          <h1 className="text-[#00335f] text-lg font-semibold group-hover:text-white transition duration-300 mb-2 ">
+            Crédito Hipotecario
+            </h1>
+            <img src="/credito_vehicular.png" alt="Crédito Vehicular" className="w-32 h-32 object-contain mb-4 transform transition-transform duration-500 hover:rotate-12" />
+            <p className="text-[#00335f] text-m font-semibold group-hover:text-white transition duration-300 mt-4">
+            Materializa el sueño de una vivienda propia. Financiamos la construcción, compra o ampliación de tu nueva casa.</p>
+
+          </div>
+        </div>
+      </div>
+      )}
+
+      {params.id === "3" && (
+      <div className="flex flex-wrap justify-between items-center w-full my-10 p-5 bg-gray-100 rounded-lg shadow-md gap-5 border-2 ">
+          <div className="flex-1 flex flex-col justify-center items-start p-5">
+            <h2 className="text-lg font-bold text-[#00335f] mb-5 flex items-center">
+              ¿Podrán adquirir un crédito en nuestra futura Cooperativa?
+            </h2>
+            <ul className="list-none pl-0 space-y-3 text-lg text-[#00335f]">
+              <li className="flex items-start">
+                <span className="text-m mr-2">*</span>
+                Nuestras soluciones crediticias serán las más eficiente en el mercado.
+              </li>
+              <li className="flex items-start">
+                <span className="text-m mr-2">*</span>
+                Contaremos con las facilidades que te ayudarán a alcanzar tus metas más rápido. Los abonos y precancelación de nuestros créditos, no contemplan penalización alguna.              </li>
+              <li className="flex items-start">
+                <span className="text-m mr-2">*</span>
+                Buscaremos ser tu mejor aliado. Nuestros productos crediticios, cuentan con: financiamiento de gastos legales y seguro de vida.              </li>
+            </ul>
+
+            </div>
+            </div>
+      )}
+    </main>
+  );
+};
+
+export default ArticlePage;

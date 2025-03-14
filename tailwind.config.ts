@@ -1,8 +1,8 @@
 import type { Config } from "tailwindcss";
 import { nextui } from "@nextui-org/react";
-
 import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
 import tailwindAnimate from "tailwindcss-animate";
+
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -15,6 +15,7 @@ const config: Config = {
     extend: {
       animation: {
         aurora: "aurora 60s linear infinite",
+        'rotate-fade': 'rotateFade 1.5s ease-in-out infinite', // Animación rotar y desvanecer
       },
       keyframes: {
         aurora: {
@@ -25,7 +26,22 @@ const config: Config = {
             backgroundPosition: "350% 50%, 350% 50%",
           },
         },
+        rotateFade: { // Definición de la animación "rotate-fade"
+          '0%': {
+            transform: 'rotate(0deg)',
+            opacity: '0',
+          },
+          '50%': {
+            transform: 'rotate(180deg)',
+            opacity: '0.5',
+          },
+          '100%': {
+            transform: 'rotate(360deg)',
+            opacity: '1',
+          },
+        },
       },
+
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -46,7 +62,6 @@ const config: Config = {
           DEFAULT: "#25466a",
           foreground: "hsl(var(--primary-foreground))",
         },
-
         secondary: {
           DEFAULT: "#25466a",
           foreground: "hsl(var(--secondary-foreground))",
@@ -73,11 +88,13 @@ const config: Config = {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+        // Agrega tu color personalizado
+        'custom-blue': 'rgb(37, 70, 106)', // Aquí está el color rgb(37, 70, 106)
       },
     },
   },
   darkMode: "class",
-  plugins: [nextui(), tailwindAnimate,addVariablesForColors],
+  plugins: [nextui(), tailwindAnimate, addVariablesForColors],
 };
 
 function addVariablesForColors({ addBase, theme }: any) {
@@ -90,4 +107,5 @@ function addVariablesForColors({ addBase, theme }: any) {
     ":root": newVars,
   });
 }
+
 export default config;

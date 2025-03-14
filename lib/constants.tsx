@@ -21,6 +21,20 @@ export const aboutLinks: navLink[] = [
   },
 ];
 
+export const articlesLinks = [
+  { title: "Empleos", href: "/articles/1", description: "" },
+  { title: "Cuentas", href: "/articles/2", description: "" },
+  { title: "Creditos", href: "/articles/3", description: "" },
+  { title: "Inversiones", href: "/articles/4", description: "" },
+  { title: "FIDEICOMISOS", href: "/articles/3", description: "" },
+  { title: "Productos", href: "/articles/3", description: "" },
+  { title: "Pago de Servicios Impuestos", href: "/articles/3", description: "" },
+  { title: "Nomina", href: "/articles/3", description: "" },
+  { title: "Revistas", href: "/articles/3", description: "" },
+  { title: "Servicios", href: "/articles/3", description: "" },
+
+];
+
 export const shareholdersLinks: navLink[] = [
   {
     title: "Requisitos",
