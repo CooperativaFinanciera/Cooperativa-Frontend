@@ -3,13 +3,31 @@ import React, { useState } from 'react';
 
 const articles = {
   "2": {
-    title: "Explora nuestras opciones de cuentas financieras",
-    description: "Nuestras opciones de cuentas diseñadas para satisfacer sus necesidades financieras individuales y empresariales.",
     image: "https://static.wixstatic.com/media/9edfb0_c0fd437b521d4e83960bca2981e768a4~mv2.jpg/v1/fill/w_1265,h_440,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9edfb0_c0fd437b521d4e83960bca2981e768a4~mv2.jpg"
   },
   "3": {
     image: "https://static.wixstatic.com/media/b5d897a11e2d48479595d09c7cf15044.jpg/v1/fill/w_980,h_500,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b5d897a11e2d48479595d09c7cf15044.jpg"
-  }
+  },
+  "4": {
+    image: "https://static.wixstatic.com/media/6091ca_0ec4eed9297a4a53992283311cf2dd56~mv2.png/v1/fill/w_484,h_512,al_c,q_85,enc_avif,quality_auto/6091ca_0ec4eed9297a4a53992283311cf2dd56~mv2.png%201x"
+  },
+  "5": {
+    image: "https://static.wixstatic.com/media/9edfb0_c0fd437b521d4e83960bca2981e768a4~mv2.jpg/v1/fill/w_1265,h_440,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9edfb0_c0fd437b521d4e83960bca2981e768a4~mv2.jpg"
+  },
+  "6": {
+    image: "https://static.wixstatic.com/media/9edfb0_c0fd437b521d4e83960bca2981e768a4~mv2.jpg/v1/fill/w_1265,h_440,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9edfb0_c0fd437b521d4e83960bca2981e768a4~mv2.jpg"
+  },
+  "7": {
+    image: "https://static.wixstatic.com/media/9edfb0_c0fd437b521d4e83960bca2981e768a4~mv2.jpg/v1/fill/w_1265,h_440,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9edfb0_c0fd437b521d4e83960bca2981e768a4~mv2.jpg"
+  },
+  "8": {
+    image: "https://static.wixstatic.com/media/9edfb0_c0fd437b521d4e83960bca2981e768a4~mv2.jpg/v1/fill/w_1265,h_440,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9edfb0_c0fd437b521d4e83960bca2981e768a4~mv2.jpg"
+  },
+  "9": {
+    image: "https://static.wixstatic.com/media/9edfb0_c0fd437b521d4e83960bca2981e768a4~mv2.jpg/v1/fill/w_1265,h_440,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9edfb0_c0fd437b521d4e83960bca2981e768a4~mv2.jpg"
+  },
+ 
+  
 };
 
 const ArticlePage = ({ params }: { params: { id: string } }) => {
@@ -38,7 +56,7 @@ const ArticlePage = ({ params }: { params: { id: string } }) => {
     <main className="my-10 mx-auto px-5">
       {/* Artículo de cuentas */}
       <div className="flex flex-wrap justify-center items-center w-full my-10 p-5 bg-white rounded-lg shadow-lg gap-5">
-        <img src={article.image}  className="w-full h-auto rounded-lg mb-5" />
+        <img src={article.image}  className="w-full h-1/2-lg mb-5" />
       </div>
 
       {/* Nueva Card con la descripción sobre la Cooperativa */}
@@ -125,6 +143,8 @@ const ArticlePage = ({ params }: { params: { id: string } }) => {
         </div>
       )}
 
+
+
       {params.id === "3" && (
       <div className="flex flex-col items-center w-full my-10 p-5 bg-gray-100 rounded-lg shadow-md">
         {/* Título Central */}
@@ -192,6 +212,69 @@ const ArticlePage = ({ params }: { params: { id: string } }) => {
             </div>
             </div>
       )}
+
+
+           {/* Nueva Card con la descripción sobre la Cooperativa */}
+      {params.id === "4" && (
+        <div className="flex flex-wrap justify-between items-center w-full my-10 p-5 bg-gray-100 rounded-lg shadow-md gap-5">
+          {/* Parte izquierda ajustada a la mitad de la pantalla */}
+          <div className="w-full sm:w-1/2 p-5 flex flex-col justify-center items-start flex-grow">
+            <h2 className="text-2xl font-bold text-[#00335f] mb-5">Haremos crecer tu dinero!</h2>
+            <p className="text-lg leading-relaxed text-[#00335f] mb-5">
+            Simula y crea tu inversión con el monto y plazo que prefieras. Recibirás intereses beneficiosos.</p>
+            <p className="text-lg leading-relaxed text-[#00335f] mb-5">
+            En el Proyecto de la Cooperativa Financiera ANEUPI nos dedicaremos a potenciar su patrimonio con estrategias financieras sólidas y personalizadas. Nuestro equipo de expertos están comprometido en brindarle soluciones rentables y seguras para alcanzar sus objetivos financieros. Estaremos aquí para guiarlo en cada paso de su camino hacia el éxito financiero.
+            </p>
+          </div>
+
+          {/* Parte derecha se mantiene igual */}
+          <div className="w-full sm:w-1/3 p-5 flex flex-col justify-center items-center">
+            <div className="flex gap-10 justify-center mb-5">
+              
+            {/* Recuadro con imagen  */}
+              <div className="border-2 border-custom-blue p-4 rounded-lg flex flex-col items-center transition-all duration-300 hover:border-custom-blue hover:shadow-xl hover:bg-custom-blue group">
+                <img src="/inversiones.png" alt="Inversiones" className="w-50 h-50 object-contain mb-3 transform transition-transform duration-500 hover:rotate-12" />
+              </div>
+
+            </div>
+            
+          </div>
+        </div>
+      )}
+      {params.id === "4" && (
+      <div className="flex flex-wrap justify-between items-center w-full my-10 p-5 bg-gray-100 rounded-lg shadow-md gap-5 border-2 ">
+          <div className="flex-1 flex flex-col justify-center items-start p-5">
+            <h2 className="text-lg font-bold text-[#00335f] mb-5 flex items-center">
+              Inversión rentable desde el primer día
+            </h2>
+            <p className="text-[#00335f] text-m font-semibold group-hover:text-white transition duration-300 mt-4">
+            Multiplicaremos tú dinero con un depósito a plazo fijo.</p>
+            <div className="border-2 border-custom-blue p-4 rounded-lg flex flex-col items-center transition-all duration-300 hover:border-custom-blue hover:shadow-xl hover:bg-custom-blue group">
+                <h1 className="w-32 h-32 object-contain mb-3 transform transition-transform duration-500 hover:rotate-12" />
+                <span className="text-[#00335f] text-lg font-semibold group-hover:text-white transition duration-300">
+                  Cuenta de Ahorro
+                </span>
+              </div>
+
+              {/* Recuadro con texto */}
+              <div className="border-2 border-custom-blue p-4 rounded-lg flex flex-col items-center transition-all duration-300 hover:border-custom-blue hover:shadow-xl hover:bg-custom-blue group">
+                <h1 className="w-32 h-32 object-contain mb-5 transform transition-transform duration-500 hover:rotate-12" />
+                <span className="text-[#00335f] text-lg font-semibold group-hover:text-white transition duration-300">
+                  Cuenta Corriente
+                </span>
+              </div>
+          
+          </div>
+        </div>
+      )}
+
+
+
+
+
+
+
+
     </main>
   );
 };
