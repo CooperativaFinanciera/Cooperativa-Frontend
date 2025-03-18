@@ -26,12 +26,12 @@ export const articlesLinks = [
   { title: "Cuentas", href: "/articles/2", description: "" },
   { title: "Creditos", href: "/articles/3", description: "" },
   { title: "Inversiones", href: "/articles/4", description: "" },
-  { title: "FIDEICOMISOS", href: "/articles/3", description: "" },
-  { title: "Productos", href: "/articles/3", description: "" },
-  { title: "Pago de Servicios Impuestos", href: "/articles/3", description: "" },
-  { title: "Nomina", href: "/articles/3", description: "" },
-  { title: "Revistas", href: "/articles/3", description: "" },
-  { title: "Servicios", href: "/articles/3", description: "" },
+  { title: "FIDEICOMISOS", href: "/articles/5", description: "" },
+  { title: "Productos", href: "/articles/6", description: "" },
+  { title: "Pago de Servicios Impuestos", href: "/articles/7", description: "" },
+  { title: "Nomina", href: "/articles/8", description: "" },
+  { title: "Revistas", href: "/articles/9", description: "" },
+  { title: "Servicios", href: "/articles/10", description: "" },
 
 ];
 

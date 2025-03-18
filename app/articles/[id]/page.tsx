@@ -9,22 +9,22 @@ const articles = {
     image: "https://static.wixstatic.com/media/b5d897a11e2d48479595d09c7cf15044.jpg/v1/fill/w_980,h_500,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b5d897a11e2d48479595d09c7cf15044.jpg"
   },
   "4": {
-    image: "https://static.wixstatic.com/media/6091ca_0ec4eed9297a4a53992283311cf2dd56~mv2.png/v1/fill/w_484,h_512,al_c,q_85,enc_avif,quality_auto/6091ca_0ec4eed9297a4a53992283311cf2dd56~mv2.png%201x"
+    image: ""
   },
   "5": {
-    image: "https://static.wixstatic.com/media/9edfb0_c0fd437b521d4e83960bca2981e768a4~mv2.jpg/v1/fill/w_1265,h_440,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9edfb0_c0fd437b521d4e83960bca2981e768a4~mv2.jpg"
+    image: "https://static.wixstatic.com/media/6091ca_57129fa6bdfb49c88834199d08d3fd5f~mv2.jpg/v1/fill/w_980,h_425,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/6091ca_57129fa6bdfb49c88834199d08d3fd5f~mv2.jpg"
   },
   "6": {
-    image: "https://static.wixstatic.com/media/9edfb0_c0fd437b521d4e83960bca2981e768a4~mv2.jpg/v1/fill/w_1265,h_440,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9edfb0_c0fd437b521d4e83960bca2981e768a4~mv2.jpg"
+    image: "https://static.wixstatic.com/media/6091ca_e4ecdcf8624344cbbf4939959b86d2ba~mv2.jpg/v1/fill/w_980,h_500,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/6091ca_e4ecdcf8624344cbbf4939959b86d2ba~mv2.jpg"
   },
   "7": {
-    image: "https://static.wixstatic.com/media/9edfb0_c0fd437b521d4e83960bca2981e768a4~mv2.jpg/v1/fill/w_1265,h_440,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9edfb0_c0fd437b521d4e83960bca2981e768a4~mv2.jpg"
+    image: "https://static.wixstatic.com/media/6091ca_d16a5601f55a440f94b62be4270b0a23~mv2.jpg/v1/fill/w_980,h_479,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/6091ca_d16a5601f55a440f94b62be4270b0a23~mv2.jpg"
   },
   "8": {
-    image: "https://static.wixstatic.com/media/9edfb0_c0fd437b521d4e83960bca2981e768a4~mv2.jpg/v1/fill/w_1265,h_440,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9edfb0_c0fd437b521d4e83960bca2981e768a4~mv2.jpg"
+    image: ""
   },
   "9": {
-    image: "https://static.wixstatic.com/media/9edfb0_c0fd437b521d4e83960bca2981e768a4~mv2.jpg/v1/fill/w_1265,h_440,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9edfb0_c0fd437b521d4e83960bca2981e768a4~mv2.jpg"
+    image: "https://static.wixstatic.com/media/11062b_6969086045f144fba681ef6887d3f3b4~mv2.jpg/v1/fill/w_980,h_384,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_6969086045f144fba681ef6887d3f3b4~mv2.jpg"
   },
  
   
@@ -58,7 +58,7 @@ const ArticlePage = ({ params }: { params: { id: string } }) => {
       <div className="flex flex-wrap justify-center items-center w-full my-10 p-5 bg-white rounded-lg shadow-lg gap-5">
         <img src={article.image}  className="w-full h-1/2-lg mb-5" />
       </div>
-
+       {/* PAGINA 2 CUENTAS*/}
       {/* Nueva Card con la descripción sobre la Cooperativa */}
       {params.id === "2" && (
         <div className="flex flex-wrap justify-between items-center w-full my-10 p-5 bg-gray-100 rounded-lg shadow-md gap-5">
@@ -144,7 +144,7 @@ const ArticlePage = ({ params }: { params: { id: string } }) => {
       )}
 
 
-
+        {/* PAGINA 3 CREDITO*/}
       {params.id === "3" && (
       <div className="flex flex-col items-center w-full my-10 p-5 bg-gray-100 rounded-lg shadow-md">
         {/* Título Central */}
@@ -214,8 +214,124 @@ const ArticlePage = ({ params }: { params: { id: string } }) => {
       )}
 
 
-           {/* Nueva Card con la descripción sobre la Cooperativa */}
-      {params.id === "4" && (
+    {/* PAGINA 4 INVERSIONES */}
+{params.id === "4" && (
+  <div className="border-2 border-custom-blue bg-custom-blue flex flex-wrap justify-between items-center w-full my-10 p-5 bg-gray-100 rounded-lg shadow-md gap-5 group-hover:text-white transition duration-300 mt-3 ">
+    {/* Parte izquierda ajustada a la mitad de la pantalla */}
+    <div className="w-full sm:w-1/2 p-9 flex flex-col justify-center items-start flex-grow ">
+      <h2 className=" text-center text-2xl font-bold text-[#00335f] mb-5 ml-40 " >Haremos crecer tu dinero!</h2>
+      <p className="text-lg leading-relaxed text-[#00335f] mb-5">
+        Simula y crea tu inversión con el monto y plazo que prefieras. Recibirás intereses beneficiosos.
+      </p>
+      <p className="text-lg leading-relaxed text-[#00335f] mb-5">
+        En el Proyecto de la Cooperativa Financiera ANEUPI nos dedicaremos a potenciar su patrimonio con estrategias financieras sólidas y personalizadas. Nuestro equipo de expertos está comprometido en brindarle soluciones rentables y seguras para alcanzar sus objetivos financieros. Estaremos aquí para guiarlo en cada paso de su camino hacia el éxito financiero.
+      </p>
+    </div>
+
+    {/* Parte derecha con imagen */}
+    <div className="w-full sm:w-1/3 p-1 flex flex-col justify-center items-center">
+      <div className="flex gap-10 justify-center mb-5">
+        <div className=" p-2 rounded-lg flex flex-col items-center transition-all duration-300 hover:border-custom-blue hover:shadow-xl hover:bg-custom-blue group">
+          <img src="/inversiones.png" alt="Inversiones" className="w-100 h-100 object-contain mb-3 transform transition-transform duration-500 hover:rotate-12" />
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+
+  {params.id === "4" && (
+    <div className="flex flex-wrap justify-between items-center w-full my-10 p-5 bg-gray-100 rounded-lg shadow-md gap-5 border-2">
+      <div className="flex-1 flex flex-col justify-center items-center p-5">
+        <h2 className="text-lg font-bold text-[#00335f] mb-2 text-center">
+        Inversión rentable desde el primer día
+        </h2>
+        <p className="text-[#00335f] text-m font-semibold group-hover:text-white transition duration-300 mt-3 text-center">
+        Multiplicaremos tu dinero con un depósito a plazo fijo.
+        </p>
+  
+
+      {/* Contenedor padre para los cuadros */}
+      <div className="flex justify-start w-full mt-3 gap-8 group-hover:text-white transition duration-300">
+        {/* Primer Cuadro */}
+        <div className="border-2 border-custom-blue p-3 rounded-lg w-full md:w-50 transition-all duration-300 hover:border-custom-blue hover:shadow-xl hover:bg-custom-blue group ml-30">
+          <h1 className="text-lg font-bold text-[#00335f] group-hover:text-white transition duration-300 text-center">
+            ¡Soy cliente y quiero invertir!
+          </h1>
+          <p className="text-sm text-[#00335f] group-hover:text-white transition duration-300 text-center">
+            Ingresa a tu Banca Online.
+          </p>
+
+          <div className="flex justify-start w-full mt-3 gap-40">
+            <button
+              className="bg-custom-blue text-white px-2 py-2 rounded-lg hover:bg-custom-blue transition duration-300 ml-20"
+              onClick={() => openModal("Contenido de Requisitos Generales")}
+            >
+              Ingresar Ahora
+            </button>
+            <button
+              className="bg-custom-blue text-white px-2 py-2 rounded-lg hover:bg-custom-blue transition duration-300 mr-10"
+              onClick={() => openModal("Contenido de Contratos de Cuentas")}
+            >
+              Ver Tutorial
+            </button>
+          </div>
+          <ul className="list-none pl-0 space-y-2 text-sm text-[#00335f] mt-3 group-hover:text-white transition duration-300">
+            <li className="flex items-start">
+              <span className="text-m mr-2 group-hover:text-white transition duration-300">➔</span>
+              Haz clic en nuevos Productos.
+            </li>
+            <li className="flex items-start">
+              <span className="text-lg mr-2 group-hover:text-white transition duration-300">➔</span>
+              Selecciona realiza una inversión.
+            </li>
+          </ul>
+        </div>
+
+        {/* Segundo Cuadro */}
+        <div className="border-2 border-custom-blue p-3 rounded-lg w-full md:w-50 transition-all duration-300 hover:border-white hover:shadow-xl hover:bg-custom-blue group">
+          <h1 className="text-lg font-bold text-[#00335f] group-hover:text-white transition duration-300">
+            ¡No soy cliente y quiero invertir!
+          </h1>
+          <p className="text-sm text-[#00335f] group-hover:text-white transition duration-300">
+            Crea tu Cuenta de Ahorros o Corriente online en minutos.
+          </p>
+          
+          <div className="flex justify-start w-full mt-3 gap-40">
+            <button
+              className="bg-custom-blue text-white px-2 py-2 rounded-lg hover:bg-custom-blue transition duration-300 ml-20"
+              onClick={() => openModal("Contenido de Requisitos de Cuenta Corriente")}
+            >
+              Abrir Cuenta
+            </button>
+            <button
+              className="bg-custom-blue text-white px-2 py-2 rounded-lg hover:bg-custom-blue transition duration-300"
+              onClick={() => openModal("Contenido de Información Adicional")}
+            >
+              Simular Inversión
+            </button>
+          </div>
+          
+          <ul className="list-none pl-0 space-y-2 text-sm text-[#00335f] mt-3 group-hover:text-white transition duration-300">
+            <li className="flex items-start">
+              <span className="text-lg mr-2 group-hover:text-white transition duration-300">➔</span>
+              Abre una Cuenta Online.
+            </li>
+            <li className="flex items-start">
+              <span className="text-lg mr-2 group-hover:text-white transition duration-300">➔</span>
+              Crea tu inversión desde Banca Online.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+
+
+
+      
+           {/* PAGINA 5 FIDEICOMISOS*/}
+           {params.id === "5" && (
         <div className="flex flex-wrap justify-between items-center w-full my-10 p-5 bg-gray-100 rounded-lg shadow-md gap-5">
           {/* Parte izquierda ajustada a la mitad de la pantalla */}
           <div className="w-full sm:w-1/2 p-5 flex flex-col justify-center items-start flex-grow">
@@ -241,7 +357,7 @@ const ArticlePage = ({ params }: { params: { id: string } }) => {
           </div>
         </div>
       )}
-      {params.id === "4" && (
+      {params.id === "5" && (
       <div className="flex flex-wrap justify-between items-center w-full my-10 p-5 bg-gray-100 rounded-lg shadow-md gap-5 border-2 ">
           <div className="flex-1 flex flex-col justify-center items-start p-5">
             <h2 className="text-lg font-bold text-[#00335f] mb-5 flex items-center">
@@ -267,10 +383,6 @@ const ArticlePage = ({ params }: { params: { id: string } }) => {
           </div>
         </div>
       )}
-
-
-
-
 
 
 
