@@ -1,4 +1,5 @@
 import { HiTrendingUp, HiChartBar, HiLightBulb } from "react-icons/hi";
+import solucionesImage from "@/app/assets/image/soluciones.gif";
 
 const Solutions = () => {
   return (
@@ -9,30 +10,28 @@ const Solutions = () => {
           Proporcionamos soluciones integrales que impulsan el crecimiento y el éxito tanto de su empresa como de su equipo
         </p>
       </header>
+      <div className="flex items-center space-x-10 mt-8 px-4 border-4 border-[#25466A] rounded-xl p-6 shadow-lg">
+  <div className="flex-shrink-0">
+    <img
+      className="w-[400px] h-auto rounded-xl"
+      src={solucionesImage.src}
+      alt="Beneficios Sociales"
+    />
+  </div>
+  <div className="flex-grow">
+    <h2 className="text-2xl font-semibold text-[rgba(37,70,106,1)]">
+      Descubrirás oportunidades de inversión
+    </h2>
+    <p className="text-lg text-gray-500 text">(en desarrollo)</p>
+    <p className="text-black text-lg">
+      Descubrirás soluciones de inversión para alcanzar tus metas
+      financieras con productos diversificados y asesoramiento
+      personalizado. Consulta nuestras tasas de interés actualizadas en
+      nuestra tabla.
+    </p>
+  </div>
+</div>
 
-      <section className="p-8 text-center md:text-left md:flex justify-between items-center">
-        <div className="mb-6 md:mb-0">
-          <h2 className="text-3xl font-bold text-[rgba(37,70,106,1)] mb-4">
-            Descubrirás oportunidades de inversión
-          </h2>
-          <h3 className="text-center">(En desarrollo)</h3>
-          <div className="mt-6">
-            <img
-              src="https://cdni.iconscout.com/illustration/premium/thumb/crecimiento-inversion-5015544-4185619.png?f=webp"
-              alt="Crecimiento de inversión"
-              className="w-96 mx-auto"
-            />
-          </div>
-        </div>
-        <div className="text-gray-600 dark:text-gray-400 md:w-1/2">
-          <p>
-            Descubrirás soluciones de inversión para alcanzar tus metas
-            financieras con productos diversificados y asesoramiento
-            personalizado. Consulta nuestras tasas de interés actualizadas en
-            nuestra tabla.
-          </p>
-        </div>
-      </section>
 
       <section className="p-8">
         <h3 className="text-2xl font-bold text-center text-[rgba(37,70,106,1)] mb-4">

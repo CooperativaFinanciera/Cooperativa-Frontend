@@ -1,5 +1,4 @@
 "use client";
-
 import {
   HiHome,
   HiMiniPhone,
@@ -7,10 +6,11 @@ import {
   HiOutlineBanknotes,
   HiOutlineLightBulb,
   HiTruck,
+  HiShieldCheck,
 } from "react-icons/hi2";
 import { Button } from "@nextui-org/react";
 import { useState } from "react";
-import Imageservi from "@/app/assets/image/servi.png";
+import serviciosGif from "@/app/assets/image/servicios.gif";
 
 const Services = () => {
   const [expandedServices, setExpandedServices] = useState<string[]>([]);
@@ -25,29 +25,33 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-white text-[#25466A]">
-      <header className="bg-[#25466A] text-white p-6 rounded-lg shadow-md flex flex-col items-center transition-transform transform hover:scale-105">
+      <header className="bg-[rgba(37,70,106,1)] text-white p-6 rounded-lg shadow-md flex flex-col items-center transition-transform transform hover:scale-105">
         <h1 className="text-4xl font-bold">Servicios Disponibles</h1>
         <p className="mt-4 text-xl">
           Explora los servicios que tenemos a tu disposición para facilitarte la vida financiera.
         </p>
-        <p className="text-lg mt-2 font-medium italic">(En desarrollo)</p>
+        <p className="text-lg mt-2 font-medium italic"></p>
       </header>
 
-      <div className="flex items-center justify-between mb-12 px-4 md:px-20">
-        <img
-          src={Imageservi.src}
-          alt="Imagen de Servicios"
-          className="w-[750px] h-[auto] rounded-lg"
-        />
-        <div className="ml-8">
-          <h2 className="text-4xl font-bold text-[#25466A]">Servicios</h2>
-          <p className="mt-4 text-lg text-[#25466A]">
-            Aquí podrás encontrar una variedad de servicios diseñados para facilitarte la vida financiera, con
-            opciones personalizadas y accesibles para todos. Explora y encuentra lo que mejor se adapte a tus
-            necesidades.
-          </p>
-        </div>
-      </div>
+      <section className="flex items-center space-x-10 mt-8 px-4 border-4 border-[rgba(37,70,106,1)] rounded-2xl shadow-xl">
+  <div className="flex-shrink-0">
+    <img
+      src={serviciosGif.src}
+      alt="Imagen de Servicios"
+      className="w-[400px] h-[250px] object-cover rounded-xl"
+    />
+  </div>
+  <div className="flex-grow">
+    <h2 className="text-2xl font-semibold text-[rgba(37,70,106,1)]">Servicios</h2>
+    <p className="text-lg text-gray-500 text">(en desarrollo)</p>
+    <p className="text-black text-lg">
+      Aquí podrás encontrar una variedad de servicios diseñados para facilitarte la vida financiera, con
+      opciones personalizadas y accesibles para todos. Explora y encuentra lo que mejor se adapte a tus
+      necesidades.
+    </p>
+  </div>
+</section>
+
 
       <section className="py-12 px-4 md:px-20">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -58,6 +62,7 @@ const Services = () => {
             <Button color="secondary" className="mt-4 bg-white text-[#25466A] hover:bg-[#f1f1f1]" onClick={() => handleMoreInfo("Servicio Eléctrico")}>
               Más Información
             </Button>
+            <p className="text-lg text-white-500 text-center">(en desarrollo)</p>
             {expandedServices.includes("Servicio Eléctrico") && (
               <p className="mt-4">
                 Con nuestro <strong>Servicio Eléctrico</strong>, te ofrecemos tarifas competitivas y un acceso
@@ -76,6 +81,7 @@ const Services = () => {
             <Button color="secondary" className="mt-4 bg-white text-[#25466A] hover:bg-[#f1f1f1]" onClick={() => handleMoreInfo("Servicio Potable")}>
               Más Información
             </Button>
+            <p className="text-lg text-white-500 text-center">(en desarrollo)</p>
             {expandedServices.includes("Servicio Potable") && (
               <p className="mt-4">
                 Nuestro <strong>Servicio Potable</strong> te ofrece el agua limpia y segura que necesitas para
@@ -93,6 +99,7 @@ const Services = () => {
             <Button color="secondary" className="mt-4 bg-white text-[#25466A] hover:bg-[#f1f1f1]" onClick={() => handleMoreInfo("Predios Urbanos")}>
               Más Información
             </Button>
+            <p className="text-lg text-white-500 text-center">(en desarrollo)</p>
             {expandedServices.includes("Predios Urbanos") && (
               <p className="mt-4">
                 Con el servicio de <strong>Predios Urbanos</strong>, tienes a tu disposición una solución para
@@ -110,6 +117,7 @@ const Services = () => {
             <Button color="secondary" className="mt-4 bg-white text-[#25466A] hover:bg-[#f1f1f1]" onClick={() => handleMoreInfo("Internet")}>
               Más Información
             </Button>
+            <p className="text-lg text-white-500 text-center">(en desarrollo)</p>
             {expandedServices.includes("Internet") && (
               <p className="mt-4">
                 En un mundo conectado, el acceso a <strong>Internet</strong> es vital. Con nuestro servicio de
@@ -127,6 +135,7 @@ const Services = () => {
             <Button color="secondary" className="mt-4 bg-white text-[#25466A] hover:bg-[#f1f1f1]" onClick={() => handleMoreInfo("Telefonía")}>
               Más Información
             </Button>
+            <p className="text-lg text-white-500 text-center">(en desarrollo)</p>
             {expandedServices.includes("Telefonía") && (
               <p className="mt-4">
                 Mantente conectado con el mundo a través de nuestro servicio de <strong>Telefonía</strong>. Ofrecemos
@@ -144,6 +153,7 @@ const Services = () => {
             <Button color="secondary" className="mt-4 bg-white text-[#25466A] hover:bg-[#f1f1f1]" onClick={() => handleMoreInfo("Pensión Alimenticia")}>
               Más Información
             </Button>
+            <p className="text-lg text-white-500 text-center">(en desarrollo)</p>
             {expandedServices.includes("Pensión Alimenticia") && (
               <p className="mt-4">
                 El servicio de <strong>Pensión Alimenticia</strong> te brinda una plataforma segura para gestionar
@@ -153,6 +163,22 @@ const Services = () => {
               </p>
             )}
           </div>
+
+          {/* Seguros Personales */}
+          <div className="bg-[#25466A] text-white p-6 rounded-lg shadow-md flex flex-col items-center transition-transform transform hover:scale-105">
+            <HiShieldCheck className="text-4xl mb-4" /> {/* Nuevo ícono de seguro */}
+            <h3 className="text-xl font-semibold">Seguros Personales</h3>
+            <Button color="secondary" className="mt-4 bg-white text-[#25466A] hover:bg-[#f1f1f1]" onClick={() => handleMoreInfo("Seguros Personales")}>
+              Más Información
+            </Button>
+            <p className="text-lg text-white-500 text-center">(en desarrollo)</p>
+            {expandedServices.includes("Seguros Personales") && (
+              <p className="mt-4">
+                Protege lo que más importa con nuestros <strong>Seguros Personales</strong>. Ofrecemos seguros de vida, salud y accidentes con coberturas adaptadas a tus necesidades. ¡Asegura tu tranquilidad y la de los tuyos!
+              </p>
+            )}
+          </div>
+
         </div>
 
         <div className="mt-12 text-center text-[#25466A]">

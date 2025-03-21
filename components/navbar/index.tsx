@@ -37,6 +37,7 @@ export const Navbar = ({ session }: { session: Session | null }) => {
     "Log Out",
   ];
   return (
+    
       <NextNavbar
         className="bg-white dark:bg-[#1e1e21] h-32"
         isBlurred={false}

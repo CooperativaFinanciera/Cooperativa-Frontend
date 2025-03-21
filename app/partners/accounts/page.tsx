@@ -1,160 +1,202 @@
-import { HiWallet, HiOutlineCurrencyDollar, HiCreditCard, HiCalendar } from "react-icons/hi2";
-import { FadeInEffect } from "@/components/ui/FadeInEffect";
-import { FaWhatsapp } from "react-icons/fa";
+'use client'
+import React, { useState } from "react";
 
-const accounts: React.FC = () => {
+import ahorroproImageImage from "@/app/assets/image/ahorropro.png";
+import ahorrorenImage from "@/app/assets/image/ahorroren.png";
+import cuentaahoImage from "@/app/assets/image/cuentaaho.png";
+import cuentacorImage from "@/app/assets/image/cuentacor.png";
+import cuentasImage from "@/app/assets/image/cuentas.gif";
+
+import { Button } from "@nextui-org/react";
+import { HiCalendar, HiCreditCard, HiOutlineCurrencyDollar, HiWallet } from "react-icons/hi2";
+
+const Accounts: React.FC = () => {
+  const [currentCard, setCurrentCard] = useState(0);
+  const [showMoreInfo, setShowMoreInfo] = useState(false);
+  const cards = [
+    {
+      image: ahorroproImageImage.src,
+      title: "Ahorro Programado",
+      description: "(En desarrollo)",
+      details: [
+        "Gana intereses desde el primer día.",
+        "Sin depósito inicial.",
+        "Realiza depósitos, retiros, transferencias, pagos en nuestras agencias y canales electrónicos.",
+      ],
+    },
+    {
+      image: ahorrorenImage.src,
+      title: "Ahorro Rentable",
+      description: "(En desarrollo)",
+      details: [
+        "Intereses competitivos.",
+        "Accesible a cualquier persona.",
+        "Ahorra en cualquier momento.",
+      ],
+    },
+    {
+      image: cuentaahoImage.src,
+      title: "Cuenta de Ahorros",
+      description: "(En desarrollo)",
+      details: [
+        "Depósito mínimo bajo.",
+        "Acceso a tus fondos en cualquier momento.",
+        "Intereses mensuales.",
+      ],
+    },
+    {
+      image: cuentacorImage.src,
+      title: "Cuenta Corriente",
+      description: "(En desarrollo)",
+      details: [
+        "Cheques disponibles.",
+        "Tarjetas de débito incluidas.",
+        "Sin costos de mantenimiento mensual.",
+      ],
+    },
+  ];
+
+  const nextCard = () => {
+    setCurrentCard((prev) => (prev + 1) % cards.length);
+  };
+
+  const prevCard = () => {
+    setCurrentCard((prev) => (prev - 1 + cards.length) % cards.length);
+  };
+
+  const toggleMoreInfo = () => {
+    setShowMoreInfo((prev) => !prev);
+  };
+
   return (
-    <>
-      <main className="space-y-10 md:space-y-20">
-        <header className="p-8 text-white rounded-2xl shadow-lg hover:scale-105 transform transition duration-300 text-center"
-          style={{
-            backgroundImage: `url('https://static.wixstatic.com/media/11062b_4f567bf2cb3c415a8721b0708b0568e7~mv2.jpg/v1/fill/w_794,h_400,al_t,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_4f567bf2cb3c415a8721b0708b0568e7~mv2.jpg')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}>
-          <div className="absolute top-0 left-0 w-full h-full bg-black opacity-30 rounded-2xl"></div> {/* Capa oscura para mejor contraste */}
+    <div className="min-h-screen bg-white dark:bg-black text-gray-700 dark:text-gray-300">
+      
+      <header className="bg-[rgba(37,70,106,1)] text-white px-8 py-16 font-bitter">
+  <div className="container mx-auto flex flex-col items-start space-y-4">
+    <h1 className="text-5xl font-light tracking-wider border-b-4 border-white pb-4">
+      Opciones de Cuentas
+    </h1>
+    <p className="text-xl font-light">
+      Descubre las opciones disponibles para abrir tu cuenta de manera fácil y segura.
+    </p>
+  </div>
+</header>
+
+      <div className="flex justify-center gap-6 mt-8">
+        {/* Card 1 */}
+        <div className="p-6 text-white rounded-2xl shadow-lg hover:scale-105 transform transition duration-300 text-center"
+          style={{ backgroundColor: "rgba(37,70,106,1)" }}>
           <div className="relative z-10">
-            <h1 className="text-2xl font-extrabold mb-2 text-gray-100">
-              A FUTURO ABRIRÁN TU NUEVA CUENTA ONLINE EN 5 MINUTOS
-            </h1>
-          </div>
-        </header>
-
-        <div className="flex justify-center gap-6 mt-8">
-          {/* Card 1 */}
-          <div className="p-6 text-white rounded-2xl shadow-lg hover:scale-105 transform transition duration-300 text-center"
-            style={{ backgroundImage: `url('https://cooptena.fin.ec/imagenes/2021/07/CUENTA_AHORRO_VISTA.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <div className="absolute top-0 left-0 w-full h-full bg-black opacity-30 rounded-2xl"></div> {/* Capa oscura */}
-            <div className="relative z-10">
-              <HiWallet className="text-4xl mb-4" />
-              <h3 className="text-lg font-semibold text-white bg-[rgba(37,70,106,1)] px-4 py-2 rounded-md">Cuentas de Ahorros</h3>
-              <p className="text-sm">(En desarrollo)</p>
-            </div>
-          </div>
-
-          {/* Card 2 */}
-          <div className="p-6 text-white rounded-2xl shadow-lg hover:scale-105 transform transition duration-300 text-center"
-            style={{ backgroundImage: `url('https://static.vecteezy.com/system/resources/previews/047/764/124/non_2x/money-illustration-investment-data-research-strategy-invetsment-youn-people-analysis-stock-market-for-income-profitable-isolated-on-white-background-free-png.png')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <div className="absolute top-0 left-0 w-full h-full bg-black opacity-30 rounded-2xl"></div> {/* Capa oscura */}
-            <div className="relative z-10">
-              <HiOutlineCurrencyDollar className="text-4xl mb-4" />
-              <h3 className="text-lg font-semibold text-white bg-[rgba(37,70,106,1)] px-4 py-2 rounded-md">Ahorro Rentable</h3>
-              <p className="text-sm">(En desarrollo)</p>
-            </div>
-          </div>
-
-          {/* Card 3 */}
-          <div className="p-6 text-white rounded-2xl shadow-lg hover:scale-105 transform transition duration-300 text-center"
-            style={{ backgroundImage: `url('https://res.cloudinary.com/compara/image/upload/v1699909460/cms/new-uploads/abrir-cuenta-corriente-1-65528f544e9ab4.81717192.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <div className="absolute top-0 left-0 w-full h-full bg-black opacity-30 rounded-2xl"></div> {/* Capa oscura */}
-            <div className="relative z-10">
-              <HiCreditCard className="text-4xl mb-4" />
-              <h3 className="text-lg font-semibold text-white bg-[rgba(37,70,106,1)] px-4 py-2 rounded-md">Cuenta Corriente</h3>
-              <p className="text-sm">(En desarrollo)</p>
-            </div>
-          </div>
-
-          {/* Card 4 */}
-          <div className="p-6 text-white rounded-2xl shadow-lg hover:scale-105 transform transition duration-300 text-center"
-            style={{ backgroundImage: `url('https://estaticos.elcolombiano.com/binrepository/780x1092/0c263/780d565/none/11101/YMBC/ahorro-indenpendiente_44272186_20240126151835.png')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <div className="absolute top-0 left-0 w-full h-full bg-black opacity-30 rounded-2xl"></div> {/* Capa oscura */}
-            <div className="relative z-10">
-              <HiCalendar className="text-4xl mb-4" />
-              <h3 className="text-lg font-semibold text-white bg-[rgba(37,70,106,1)] px-4 py-2 rounded-md">Ahorro Programado</h3>
-              <p className="text-sm">(En desarrollo)</p>
-            </div>
+            <HiWallet className="text-4xl mb-4" />
+            <h3 className="text-lg font-semibold text-white bg-[rgba(37,70,106,1)] px-4 py-2 rounded-md">Cuentas de Ahorros</h3>
+            <p className="text-sm">(En desarrollo)</p>
           </div>
         </div>
 
-        {/* Sección de Beneficios */}
-        <FadeInEffect className="flex flex-col items-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-4xl">
-            {/* Tarjeta de Cuentas 1 */}
-            <div className="p-8 bg-white border-2 border-[rgba(37,70,106,1)] rounded-2xl shadow-lg hover:scale-105 transform transition duration-300 relative overflow-hidden">
-              <div className="relative z-10">
-                <HiWallet className="text-4xl text-[rgba(37,70,106,1)] mb-4" />
-                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100 bg-[rgba(37,70,106,1)] text-white px-4 py-2 rounded-md">Cuentas de ahorros</h3>
-                <p className="text-gray-700 dark:text-gray-300">
-                  <ul className="mt-4 list-disc list-inside">
-                    <li>Gana intereses desde el primer día.</li>
-                    <li>Sin depósito inicial.</li>
-                    <li>Realiza depósitos, retiros, transferencias, pagos en nuestras agencias y canales electrónicos.</li>
-                  </ul>
-                </p>
-              </div>
-            </div>
-
-            {/* Tarjeta de Cuentas 2 */}
-            <div className="p-8 bg-white border-2 border-[rgba(37,70,106,1)] rounded-2xl shadow-lg hover:scale-105 transform transition duration-300 relative overflow-hidden">
-              <div className="relative z-10">
-                <HiCreditCard className="text-4xl text-[rgba(37,70,106,1)] mb-4" />
-                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100 bg-[rgba(37,70,106,1)] text-white px-4 py-2 rounded-md">Cuentas de ahorros rentables</h3>
-                <p className="text-gray-700 dark:text-gray-300">
-                  <ul className="mt-4 list-disc list-inside">
-                    <li>Gana intereses anuales.</li>
-                    <li>Sin depósito inicial.</li>
-                    <li>Realiza depósitos, retiros, transferencias, pagos en nuestras agencias y canales electrónicos.</li>
-                    <li>Aplica condiciones.</li>
-                  </ul>
-                </p>
-              </div>
-            </div>
-
-            {/* Tarjeta de Cuentas 3 */}
-            <div className="p-8 bg-white border-2 border-[rgba(37,70,106,1)] rounded-2xl shadow-lg hover:scale-105 transform transition duration-300 relative overflow-hidden">
-              <div className="relative z-10">
-                <HiCreditCard className="text-4xl text-[rgba(37,70,106,1)] mb-4" />
-                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100 bg-[rgba(37,70,106,1)] text-white px-4 py-2 rounded-md">Cuenta Corriente</h3>
-                <p className="text-gray-700 dark:text-gray-300">
-                  <ul className="mt-4 list-disc list-inside">
-                    <li>Personaliza tu chequera y obtenla de forma rápida y sencilla.</li>
-                    <li>Con tu tarjeta realiza compras de forma ágil y segura.</li>
-                    <li>Accede a sobregiros para cubrir necesidades de efectivo.</li>
-                  </ul>
-                </p>
-              </div>
-            </div>
-
-            {/* Tarjeta de Cuentas 4 */}
-            <div className="p-8 bg-white border-2 border-[rgba(37,70,106,1)] rounded-2xl shadow-lg hover:scale-105 transform transition duration-300 relative overflow-hidden">
-              <div className="relative z-10">
-                <HiCalendar className="text-4xl text-[rgba(37,70,106,1)] mb-4" />
-                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100 bg-[rgba(37,70,106,1)] text-white px-4 py-2 rounded-md">Cuenta de ahorros programado</h3>
-                <p className="text-gray-700 dark:text-gray-300">
-                  <ul className="mt-4 list-disc list-inside">
-                    <li>Sin comisión de administración y mantenimiento de la cuenta.</li>
-                    <li>Puedes controlar tus movimientos a través de nuestros Canales Electrónicos.</li>
-                    <li>Más de un millón de personas disfrutan ya de esta cuenta gratuita.</li>
-                  </ul>
-                </p>
-              </div>
-            </div>
+        {/* Card 2 */}
+        <div className="p-6 text-white rounded-2xl shadow-lg hover:scale-105 transform transition duration-300 text-center"
+          style={{ backgroundColor: "rgba(37,70,106,1)" }}>
+          <div className="relative z-10">
+            <HiOutlineCurrencyDollar className="text-4xl mb-4" />
+            <h3 className="text-lg font-semibold text-white bg-[rgba(37,70,106,1)] px-4 py-2 rounded-md">Ahorro Rentable</h3>
+            <p className="text-sm">(En desarrollo)</p>
           </div>
-        </FadeInEffect>
+        </div>
 
-        {/* Pie de Página */}
-        <footer className="p-8 bg-blue-100 text-white rounded-2xl shadow-lg hover:scale-105 transform transition duration-300 text-center">
-          <div className="text-center text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">
-            <p className="text-lg font-bold">
-              Mejora tu futuro financiero con nuestros Ahorros exclusivos.
-            </p>
-            <p className="text-sm flex items-center justify-center gap-2">
-              <span>¿Tienes dudas? Contáctanos:</span>
-              <a
-                href="https://wa.me/5930981321044"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-green-500 hover:text-green-600 transition duration-300">
-                <FaWhatsapp className="text-2xl" />
-                +593 0981321044
-              </a>
-            </p>
+        {/* Card 3 */}
+        <div className="p-6 text-white rounded-2xl shadow-lg hover:scale-105 transform transition duration-300 text-center"
+          style={{ backgroundColor: "rgba(37,70,106,1)" }}>
+          <div className="relative z-10">
+            <HiCreditCard className="text-4xl mb-4" />
+            <h3 className="text-lg font-semibold text-white bg-[rgba(37,70,106,1)] px-4 py-2 rounded-md">Cuenta Corriente</h3>
+            <p className="text-sm">(En desarrollo)</p>
           </div>
-        </footer>
+        </div>
 
-      </main>
-    </>
+        {/* Card 4 */}
+        <div className="p-6 text-white rounded-2xl shadow-lg hover:scale-105 transform transition duration-300 text-center"
+          style={{ backgroundColor: "rgba(37,70,106,1)" }}>
+          <div className="relative z-10">
+            <HiCalendar className="text-4xl mb-4" />
+            <h3 className="text-lg font-semibold text-white bg-[rgba(37,70,106,1)] px-4 py-2 rounded-md">Ahorro Programado</h3>
+            <p className="text-sm">(En desarrollo)</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex items-center justify-between mt-12 px-8 border-4 border-[#25466A] bg-[#25466A] p-6 shadow-lg"> {/* Fondo azul y sin bordes redondeados */}
+  <div className="flex-grow pr-6">
+    <h2 className="text-3xl font-semibold text-white"> {/* Título blanco */}
+      Cuentas
+    </h2>
+
+    <p className="text-lg text-white">(en desarrollo)</p> {/* Texto blanco */}
+    <p className="text-white text-lg"> {/* Texto blanco */}
+      Descubre todas las opciones de cuentas que ofrecemos. Desde cuentas de ahorro hasta planes especiales
+      diseñados para maximizar tus beneficios financieros.
+    </p>
+  </div>
+  <div className="flex-shrink-0">
+    <img
+      className="w-[500px] h-auto shadow-lg"
+      src={cuentasImage.src}
+      alt="Cuentas"
+    />
+  </div>
+</div>
+
+
+      {/* Sección de Beneficios - Carrusel */}
+      <section className="p-8 text-center">
+        <h2 className="text-xl font-bold text-[#00325e] dark:text-gray-100 mb-4">
+          Beneficios y Opciones
+        </h2>
+
+        <p className="text-lg text-gray-500 text">(en desarrollo)</p>
+        <div className="relative">
+          <div className="flex justify-center space-x-4 mb-6">
+            <button
+              onClick={prevCard}
+              className="text-xl text-[#00325e] hover:scale-110 transition duration-300"
+            >
+              &lt;
+            </button>
+            <div className="w-full md:w-2/3">
+              <div className="bg-white dark:bg-black p-6 rounded-lg shadow-lg text-center hover:scale-105 transform transition duration-300 border-4 border-[rgba(37,70,106,1)]">
+                <img
+                  src={cards[currentCard].image}
+                  alt={cards[currentCard].title}
+                  className="mx-auto mb-4 rounded-xl w-80 h-64 object-cover"
+                />
+                <h3 className="text-lg font-bold mb-2 text-[#00325e]">{cards[currentCard].title}</h3>
+                <p className="text-gray-600 dark:text-gray-400">{cards[currentCard].description}</p>
+
+                <Button color="primary" className="mt-4" onClick={toggleMoreInfo}>
+                  {showMoreInfo ? "Ocultar Información" : "Más Información"}
+                </Button>
+
+                {showMoreInfo && (
+                  <div className="mt-4 text-gray-600 dark:text-gray-400">
+                    <ul className="list-none pl-6">
+                      {cards[currentCard].details.map((detail, index) => (
+                        <li key={index}>{detail}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+            <button
+              onClick={nextCard}
+              className="text-xl text-[#00325e] hover:scale-110 transition duration-300"
+            >
+              &gt;
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 };
 
-export default accounts;
+export default Accounts;

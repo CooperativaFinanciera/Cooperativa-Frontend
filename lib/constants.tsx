@@ -156,6 +156,7 @@ export const mainFunctions = [
       "Conviértete en accionista de nuestra cooperativa y obtén beneficios exclusivos",
     href: "/shareholders",
     icon: <HiOutlineUserPlus size={40} />,
+    className: "accclass",
   },
   {
     title: "Socios",
@@ -163,6 +164,7 @@ export const mainFunctions = [
       "Conoce a nuestros socios y descubre cómo puedes ser parte de nuestra cooperativa",
     href: "/partners",
     icon: <HiOutlineUserGroup size={40} />,
+    className: "sociosclass",
   },
   {
     title: "Empleos o vacantes",
@@ -170,6 +172,7 @@ export const mainFunctions = [
       "Descubre las vacantes disponibles y únete a nuestro equipo de trabajo",
     href: "/jobs",
     icon: <HiOutlineBuildingOffice2 size={40} />,
+    className: "empleosclass",
   },
   {
     title: "Denuncias o reclamos",
@@ -177,6 +180,7 @@ export const mainFunctions = [
       "Realiza una denuncia o reclamo si has tenido algún problema con nuestra cooperativa",
     href: "/reports",
     icon: <HiOutlineExclamationTriangle size={40} />,
+    className: "denunciasclass",
   },
 ];
 
