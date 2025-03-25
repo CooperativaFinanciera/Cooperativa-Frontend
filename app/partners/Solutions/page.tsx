@@ -7,51 +7,47 @@ const Solutions = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300">
       <header
-  className="relative text-white px-8 py-16 font-bitter"
-  style={{
-    backgroundImage: `url(${solucionesportadaImage.src})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    height: "400px",
-  }}
->
-  {/* Filtro azul encima de la imagen de fondo */}
-  <div className="absolute inset-0 bg-[#234263] opacity-40 rounded-2xl"></div>
+        className="relative text-white px-8 py-16 font-bitter"
+        style={{
+          backgroundImage: `url(${solucionesportadaImage.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "400px",
+        }}
+      >
+        <div className="absolute inset-0 bg-[#234263] opacity-40 rounded-2xl"></div>
 
-  {/* Contenido del encabezado */}
-  <div className="relative z-10 container mx-auto h-full flex flex-col justify-center items-start space-y-4">
-    <h1 className="text-4xl font-bold tracking-wider border-b-4 border-white pb-4">
-      SOLUCIONES
-    </h1>
-    <p className="mt-4 text-lg">
-      Proporcionamos soluciones integrales que impulsan el crecimiento y el éxito tanto de su empresa como de su equipo.
-    </p>
-  </div>
-</header>
-
+        <div className="relative z-10 container mx-auto h-full flex flex-col justify-center items-start space-y-4">
+          <h1 className="text-4xl font-bold tracking-wider border-b-4 border-white pb-4">
+            SOLUCIONES
+          </h1>
+          <p className="mt-4 text-lg">
+            Proporcionamos soluciones integrales que impulsan el crecimiento y el éxito tanto de su empresa como de su equipo.
+          </p>
+        </div>
+      </header>
 
       <div className="flex items-center space-x-10 mt-8 px-4 border-4 border-[#25466A] rounded-xl p-6 shadow-lg">
-  <div className="flex-shrink-0">
-    <img
-      className="w-[400px] h-auto rounded-xl"
-      src={solucionesImage.src}
-      alt="Beneficios Sociales"
-    />
-  </div>
-  <div className="flex-grow">
-    <h2 className="text-2xl font-semibold text-[rgba(37,70,106,1)]">
-      Descubrirás oportunidades de inversión
-    </h2>
-    <p className="text-lg text-gray-500 text">(en desarrollo)</p>
-    <p className="text-black text-lg">
-      Descubrirás soluciones de inversión para alcanzar tus metas
-      financieras con productos diversificados y asesoramiento
-      personalizado. Consulta nuestras tasas de interés actualizadas en
-      nuestra tabla.
-    </p>
-  </div>
-</div>
-
+        <div className="flex-shrink-0">
+          <img
+            className="w-[400px] h-auto rounded-xl"
+            src={solucionesImage.src}
+            alt="Beneficios Sociales"
+          />
+        </div>
+        <div className="flex-grow">
+          <h2 className="text-2xl font-semibold text-[rgba(37,70,106,1)]">
+            Descubrirás oportunidades de inversión
+          </h2>
+          <p className="text-lg text-gray-500 text">(en desarrollo)</p>
+          <p className="text-black text-lg">
+            Descubrirás soluciones de inversión para alcanzar tus metas
+            financieras con productos diversificados y asesoramiento
+            personalizado. Consulta nuestras tasas de interés actualizadas en
+            nuestra tabla.
+          </p>
+        </div>
+      </div>
 
       <section className="p-8">
         <h3 className="text-2xl font-bold text-center text-[rgba(37,70,106,1)] mb-4">

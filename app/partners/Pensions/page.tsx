@@ -5,8 +5,8 @@ import CuentaImage from "@/app/assets/image/pago.png";
 import JubiImage from "@/app/assets/image/jubi.png";
 import VejezImage from "@/app/assets/image/vejez.png";
 import DiscaImage from "@/app/assets/image/disca.png";
-import PensionImg from "@/app/assets/image/pensionportada.png";
-import PensionGif from "@/app/assets/image/pension.png";
+import PensionportadaImg from "@/app/assets/image/pensionportada.png";
+import PensionImg from "@/app/assets/image/pension.png";
 
 import { FaMoneyBillWave, FaCreditCard, FaClock, FaBriefcase, FaWheelchair } from "react-icons/fa";
 import { Button } from "@nextui-org/react";
@@ -62,28 +62,25 @@ const Pensions = () => {
 
   return (
     <div className="min-h-screen bg-white dark:bg-black text-gray-700 dark:text-gray-300">
-     <header
-  className="relative text-white px-8 py-16 font-bitter"
-  style={{
-    backgroundImage: `url(${PensionImg.src})`, // Asegúrate de reemplazar con tu ruta de imagen
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    height: "400px",
-  }}
->
-  {/* Filtro azul encima de la imagen de fondo */}
-  <div className="absolute inset-0 bg-[#234263] opacity-40 rounded-2xl"></div>
-
-  {/* Contenido del encabezado */}
-  <div className="relative z-10 container mx-auto h-full flex flex-col justify-center items-start space-y-4">
-    <h1 className="text-3xl font-bold mb-2 border-b-4 border-white pb-4">
-      Opciones para Recibir tu Pensión
-    </h1>
-    <p className="text-lg font-medium">
-      Elige la forma más cómoda y segura de recibir tu pensión.
-    </p>
-  </div>
-</header>
+      <header
+        className="relative text-white px-8 py-16 font-bitter"
+        style={{
+          backgroundImage: `url(${PensionportadaImg.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "400px",
+        }}
+      >
+        <div className="absolute inset-0 bg-[#234263] opacity-40 rounded-2xl"></div>
+        <div className="relative z-10 container mx-auto h-full flex flex-col justify-center items-start space-y-4">
+          <h1 className="text-3xl font-bold mb-2 border-b-4 border-white pb-4">
+            Opciones para Recibir tu Pensión
+          </h1>
+          <p className="text-lg font-medium">
+            Elige la forma más cómoda y segura de recibir tu pensión.
+          </p>
+        </div>
+      </header>
 
 
       <div className="flex items-center justify-between mt-12 px-8 border-4 border-[rgba(37,70,106,1)] p-6 rounded-lg">
@@ -99,7 +96,7 @@ const Pensions = () => {
         <div className="flex-shrink-0">
           <img
             className="w-[500px] h-auto rounded-xl shadow-lg"
-            src={PensionGif.src}
+            src={PensionImg.src}
             alt="pensiones"
           />
         </div>
@@ -151,16 +148,16 @@ const Pensions = () => {
           <div className="flex justify-center space-x-4 mb-6">
             <div className="w-full md:w-2/3">
               <div className="bg-cover bg-center p-6 rounded-xl shadow-lg text-left hover:scale-105 transform transition duration-300 border-4 border-[rgba(37,70,106,1)]"
-                   style={{ backgroundImage: `url(${cards[currentCard].image})`, backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative', minHeight: '500px' }}>
+                style={{ backgroundImage: `url(${cards[currentCard].image})`, backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative', minHeight: '500px' }}>
                 {/* Filtro oscuro */}
                 <div className="absolute inset-0 bg-black opacity-70 rounded-xl"></div>
                 <div className="relative z-10 text-white p-6">
-                <div className="flex items-center mb-4">
-  <h3 className="text-lg font-bold mb-2 text-white text-left">{cards[currentCard].title}</h3>
-  <div className="ml-2"> {/* Espacio entre el título y el icono */}
-    {cards[currentCard].icon}
-  </div>
-</div>
+                  <div className="flex items-center mb-4">
+                    <h3 className="text-lg font-bold mb-2 text-white text-left">{cards[currentCard].title}</h3>
+                    <div className="ml-2">
+                      {cards[currentCard].icon}
+                    </div>
+                  </div>
 
                   <p className="text-white">{cards[currentCard].description}</p>
                   <Button color="primary" className="mt-4" onClick={cards[currentCard].toggleMoreInfo}>
@@ -180,9 +177,8 @@ const Pensions = () => {
             {cards.map((_, index) => (
               <div
                 key={index}
-                className={`w-4 h-4 mx-2 rounded-full cursor-pointer ${
-                  currentCard === index ? "bg-[#00325e]" : "bg-gray-300"
-                }`}
+                className={`w-4 h-4 mx-2 rounded-full cursor-pointer ${currentCard === index ? "bg-[#00325e]" : "bg-gray-300"
+                  }`}
                 onClick={() => setCurrentCard(index)}
               ></div>
             ))}

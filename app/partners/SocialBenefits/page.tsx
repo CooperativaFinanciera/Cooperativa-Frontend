@@ -4,18 +4,18 @@ import { FaPiggyBank, FaHeartbeat, FaTags, FaArrowRight } from "react-icons/fa";
 import { FadeInEffect } from "@/components/ui/FadeInEffect";
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
-import bienesaludGif from "@/app/assets/image/bienesalud.png";
-import creditoahoGif from "@/app/assets/image/creditoaho.png";
-import desconveGif from "@/app/assets/image/desconve.png";
-import benefiportada from "@/app/assets/image/benefiportada.png";
-import benefiportada2 from "@/app/assets/image/benefiportada2.png";
+import bienesaludImg from "@/app/assets/image/bienesalud.png";
+import creditoahoImg from "@/app/assets/image/creditoaho.png";
+import desconveImg from "@/app/assets/image/desconve.png";
+import benefiportadaImg from "@/app/assets/image/benefiportada.png";
+import benefiportada2Img from "@/app/assets/image/benefiportada2.png";
 
 import beneportadaImg from "@/app/assets/image/beneportada.png";
 
 const images = [
-  [creditoahoGif],
-  [bienesaludGif],
-  [desconveGif]
+  [creditoahoImg],
+  [bienesaludImg],
+  [desconveImg]
 ];
 
 const SocialBenefitsPage: React.FC = () => {
@@ -32,54 +32,52 @@ const SocialBenefitsPage: React.FC = () => {
 
   return (
     <main className="space-y-10 md:space-y-20">
-    <header 
-  className="relative text-white px-8 py-24 font-bitter flex items-center justify-start"
-  style={{
-    backgroundImage: `url(${beneportadaImg.src})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    height: "400px",
-  }}
->
-  <div className="absolute inset-0 bg-[rgba(37,70,106,0.6)]"></div>
+      <header
+        className="relative text-white px-8 py-24 font-bitter flex items-center justify-start"
+        style={{
+          backgroundImage: `url(${beneportadaImg.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "400px",
+        }}
+      >
+        <div className="absolute inset-0 bg-[rgba(37,70,106,0.6)]"></div>
 
-  <div className="relative z-10 max-w-2xl text-left">
-    <h1 className="text-5xl font-bold tracking-wider border-b-4 border-white pb-4">
-      Beneficios Sociales
-    </h1>
-    <p className="text-xl font-light mt-4">
-      Descubre los beneficios que ofrecemos para mejorar tu calidad de vida.
-    </p>
-  </div>
-</header>
+        <div className="relative z-10 max-w-2xl text-left">
+          <h1 className="text-5xl font-bold tracking-wider border-b-4 border-white pb-4">
+            Beneficios Sociales
+          </h1>
+          <p className="text-xl font-light mt-4">
+            Descubre los beneficios que ofrecemos para mejorar tu calidad de vida.
+          </p>
+        </div>
+      </header>
 
+      <section
+        className="relative w-full h-[400px] bg-cover bg-center mt-0"
+        style={{
+          backgroundImage: `url(${benefiportadaImg.src})`,
+          marginTop: "-10px",
+        }}
+      >
+        <div className="absolute top-0 left-0 w-full h-[2px] bg-white z-10"></div>
 
+        <div className="absolute inset-0 bg-black opacity-70"></div>
 
-<section
-  className="relative w-full h-[400px] bg-cover bg-center mt-0"
-  style={{
-    backgroundImage: `url(${benefiportada.src})`,
-    marginTop: "-10px",
-  }}
->
-  <div className="absolute top-0 left-0 w-full h-[2px] bg-white z-10"></div>
-
-  <div className="absolute inset-0 bg-black opacity-70"></div>
-
-  <div className="relative z-10 flex items-center justify-center h-full">
-    <div className="text-center text-white p-4">
-      <h2 className="text-4xl font-bold mb-2 animate-bounce">¡Beneficios Especiales para Ti!</h2>
-      <p className="text-lg mt-2 animate-pulse">
-        Aprovecha nuestros programas exclusivos diseñados para mejorar tu bienestar y darte las mejores soluciones.
-      </p>
-    </div>
-  </div>
-</section>
+        <div className="relative z-10 flex items-center justify-center h-full">
+          <div className="text-center text-white p-4">
+            <h2 className="text-4xl font-bold mb-2 animate-bounce">¡Beneficios Especiales para Ti!</h2>
+            <p className="text-lg mt-2 animate-pulse">
+              Aprovecha nuestros programas exclusivos diseñados para mejorar tu bienestar y darte las mejores soluciones.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <section
         className="relative w-full min-h-[120vh] bg-cover bg-center mt-0"
         style={{
-          backgroundImage: `url(${benefiportada2.src})`,
+          backgroundImage: `url(${benefiportada2Img.src})`,
           marginTop: '-10px',
           paddingBottom: 0,
         }}
@@ -87,7 +85,7 @@ const SocialBenefitsPage: React.FC = () => {
         <div className="absolute top-0 left-0 w-full h-[5px] bg-white z-20"></div>
 
         {/* <div className="absolute inset-0 bg-[rgba(37,70,106,0.6)] z-10"></div>*/}
-        
+
         <div className="absolute inset-0 z-20 flex items-center justify-center">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full max-w-5xl">
 
