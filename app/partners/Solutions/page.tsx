@@ -1,15 +1,35 @@
 import { HiTrendingUp, HiChartBar, HiLightBulb } from "react-icons/hi";
-import solucionesImage from "@/app/assets/image/soluciones.gif";
+import solucionesImage from "@/app/assets/image/soluciones.png";
+
+import solucionesportadaImage from "@/app/assets/image/solucionesportada.png";
 
 const Solutions = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300">
-      <header className="p-8 bg-[rgba(37,70,106,1)] text-white rounded-2xl shadow-lg hover:scale-105 transform transition duration-300 text-center">
-        <h1 className="text-4xl font-bold">SOLUCIONES</h1>
-        <p className="mt-4 text-lg">
-          Proporcionamos soluciones integrales que impulsan el crecimiento y el éxito tanto de su empresa como de su equipo
-        </p>
-      </header>
+      <header
+  className="relative text-white px-8 py-16 font-bitter"
+  style={{
+    backgroundImage: `url(${solucionesportadaImage.src})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    height: "400px",
+  }}
+>
+  {/* Filtro azul encima de la imagen de fondo */}
+  <div className="absolute inset-0 bg-[#234263] opacity-40 rounded-2xl"></div>
+
+  {/* Contenido del encabezado */}
+  <div className="relative z-10 container mx-auto h-full flex flex-col justify-center items-start space-y-4">
+    <h1 className="text-4xl font-bold tracking-wider border-b-4 border-white pb-4">
+      SOLUCIONES
+    </h1>
+    <p className="mt-4 text-lg">
+      Proporcionamos soluciones integrales que impulsan el crecimiento y el éxito tanto de su empresa como de su equipo.
+    </p>
+  </div>
+</header>
+
+
       <div className="flex items-center space-x-10 mt-8 px-4 border-4 border-[#25466A] rounded-xl p-6 shadow-lg">
   <div className="flex-shrink-0">
     <img

@@ -1,13 +1,14 @@
 "use client";
-
-import { useState } from "react";
 import { HiArrowCircleUp, HiTrendingUp, HiChartBar, HiLightBulb, HiQuestionMarkCircle, HiClipboardList, HiShieldCheck } from "react-icons/hi";
 import { FadeInEffect } from "@/components/ui/FadeInEffect";
 import { Button, Input } from "@nextui-org/react";
+import inverImg from "@/app/assets/image/inver.png";
 import inverGif from "@/app/assets/image/inversion.gif";
-import inver2Gig from "@/app/assets/image/inversion2.gif";
+import inver2Gig from "@/app/assets/image/inver.png";
 import { HiArrowUpCircle } from "react-icons/hi2";
 import { FaMoneyBillWave, FaCalculator, FaBook, FaRegEye, FaRegEyeSlash } from "react-icons/fa"
+
+import { useEffect, useState } from 'react';
 
 const InvestmentsPage: React.FC = () => {
   const [taxRate, setTaxRate] = useState(0);
@@ -50,46 +51,79 @@ const InvestmentsPage: React.FC = () => {
     setInterest(annualInterest);
   };
 
+  const [progress, setProgress] = useState(10); // Inicializa el progreso en 40%
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProgress((prevProgress) => {
+        if (prevProgress < 90) {
+          return prevProgress + 1;
+        } else {
+          clearInterval(interval); 
+          return 90;
+        }
+      });
+    }, 100);
+  
+    return () => clearInterval(interval);
+  }, []);
+  
   return (
     <main className="space-y-10 md:space-y-20">
-      <header className="p-8 bg-[rgba(37,70,106,1)] text-white rounded-2xl shadow-lg hover:scale-105 transform transition duration-300 text-center">
-        <h1 className="text-3xl font-bold mb-2">¡Haremos crecer tu dinero!</h1>
-        <p className="text-lg">Simula y crea tu inversión con el monto y plazo que prefieras. Recibirás intereses.</p>
-      </header>
+     <header
+  className="relative p-8 h-[350px] flex items-center bg-cover bg-center"
+  style={{ backgroundImage: `url(${inverImg.src})`, backgroundSize: "cover", backgroundPosition: "center" }}
+>
+  <div className="absolute inset-0 bg-[rgba(0,50,94,0.6)]"></div>
+  <div className="relative z-10 text-white text-left max-w-2xl px-8">
+    <h1 className="text-4xl font-bold text-white mb-2 font-[Bitter] border-b-4 border-white">¡HAREMOS CRECER TU DINERO!</h1>
+    <h3 className="text-2xl font-bold text-white mb-2 font-[Bitter]">
+    Simula y crea tu inversión con el monto y plazo que prefieras. Recibirás intereses.
+      </h3>
+  </div>
+</header>
 
-      {/* Sección Inversión Rentable */}
-      <section className="max-w-full mx-auto p-8 bg-white flex flex-col md:flex-row items-center border-4 border-[#25466A] rounded-xl shadow-lg">
-        <div className="flex-1 text-center md:text-left md:w-1/2">
-          <h2 className="text-3xl font-bold text-[rgba(37,70,106,1)] flex justify-start items-center gap-2">
-            <HiTrendingUp className="text-3xl" />
-            Inversión rentable desde el primer día
-          </h2>
+{/* Sección Inversión Rentable */}
+<section className="max-w-full mx-auto p-8 bg-[#25466A] flex flex-col md:flex-row items-center shadow-md">
+  <div className="flex-1 text-left md:w-2/3 p-0">
+    <div className="max-w-4xl mx-auto"> {/* Contenedor centrado con un ancho máximo */}
+      <h2 className="text-3xl font-bold text-white flex items-center gap-2 text-center md:text-left">
+        <HiTrendingUp className="text-3xl text-white" />
+        Inversión rentable desde el primer día
+      </h2>
+
+      <p className="text-lg text-gray-300 text-center md:text-left">(en desarrollo)</p>
+
+      <div className="mt-6">
+        <p className="text-lg text-white text-center md:text-left">
+          Convierte tus ahorros en una inversión segura y rentable. Con nuestra plataforma, puedes hacer crecer tu dinero desde el primer día.
+        </p>
+
+        {/* Progreso de la inversión con diseño invertido */}
+        <div className="mt-6">
+          <p className="text-white font-bold text-center md:text-left">Tu dinero creciendo en el tiempo:</p>
           
-    <p className="text-lg text-gray-500 text">(en desarrollo)</p>
-          <div className="mt-6">
-            <p className="text-lg text-black">
-              Convierte tus ahorros en una inversión segura y rentable. Con nuestra plataforma, puedes hacer crecer tu dinero desde el primer día.
-            </p>
-
-            {/* Progreso de la inversión */}
-            <div className="mt-6">
-              <p className="text-[rgba(37,70,106,1)] font-bold">Tu dinero creciendo en el tiempo:</p>
-              <div className="relative w-full bg-gray-200 rounded-full h-5 mt-2">
-                <div className="bg-[rgba(37,70,106,1)] h-4 rounded-full transition-all duration-1000 ease-in-out" style={{ width: "80%" }}></div>
-                <span className="absolute right-2 top-1/2 transform -translate-y-1/2 text-[rgba(37,70,106,1)] font-bold">80%</span>
-              </div>
-            </div>
+          {/* Barra de progreso dinámica */}
+          <div className="relative w-full bg-[#1b3654] rounded-full h-5 mt-2">
+            <div
+              className="bg-white h-4 rounded-full transition-all duration-1000 ease-in-out"
+              style={{ width: `${progress}%` }}
+            ></div>
+            <span className="absolute right-2 top-1/2 transform -translate-y-1/2 text-white font-bold">
+              {progress}%
+            </span>
           </div>
         </div>
-        <div className="mt-6 md:mt-0 md:ml-8 flex justify-center md:flex-none md:w-1/2">
-          <FadeInEffect>
-            <img className="w-full h-auto object-cover rounded-xl" src={inverGif.src} alt="Persona haciendo inversiones" />
-          </FadeInEffect>
-        </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <section className="p-8 bg-white border-4 border-[rgba(37,70,106,1)] text-gray-900 rounded-2xl shadow-lg flex flex-col md:flex-row items-center">
+
+
+      <section className="p-8 bg-white border-4 border-[rgba(37,70,106,1)] text-gray-900 shadow-lg flex flex-col md:flex-row items-center"style={{
+          marginTop: '0px'
+        }}>
         <div className="w-full md:w-1/2 mb-6 md:mb-0 bg-[rgba(37,70,106,1)] text-white p-6 rounded-lg shadow-md">
           <h2 className="text-2xl font-bold mb-4 text-center">Tu nueva Inversión</h2>
           
@@ -208,61 +242,64 @@ const InvestmentsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Sección Beneficios */}
-      <section className="p-8 bg-white border-4 border-[rgba(37,70,106,1)] text-gray-900 rounded-2xl shadow-lg text-center max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-white bg-[rgba(37,70,106,1)] py-3 px-6 rounded-xl">
-          Beneficios de tu Inversión
-        </h2>
+      <section className="p-8 bg-[#F1F5F9] border-4 border-[#25466A] text-gray-900 rounded-2xl shadow-lg text-center max-w-4xl mx-auto mt-12">
+  <h2 className="text-4xl font-semibold mb-8 text-white bg-[#25466A] py-4 px-8 rounded-xl shadow-lg">
+    Beneficios de tu Inversión
+  </h2>
 
-        <p className="text-lg text-gray-500 text-center">(en desarrollo)</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-          {[
-            { icon: <HiTrendingUp className="text-purple-600 text-4xl" />, title: "Alto Rendimiento", description: "Obtendrás intereses beneficiosos." },
-            { icon: <HiChartBar className="text-green-600 text-4xl" />, title: "Flexibilidad", description: "Define el tiempo de tu inversión." },
-            { icon: <HiLightBulb className="text-yellow-500 text-4xl" />, title: "Confianza", description: "Seguridad y estabilidad financiera garantizadas." },
-            { icon: <HiArrowUpCircle className="text-red-500 text-4xl" />, title: "Eficiencia", description: "Utiliza tu inversión como garantía de crédito." },
-          ].map((benefit, index) => (
-            <div key={index} className="bg-white border-2 border-[rgba(37,70,106,1)] p-6 rounded-xl shadow-md transition-all transform hover:scale-105 hover:shadow-2xl hover:bg-[rgba(37,70,106,0.1)] flex flex-col items-center text-center">
-              <div className="mb-3">{benefit.icon}</div>
-              <h3 className="text-lg font-semibold text-[rgba(37,70,106,1)]">{benefit.title}</h3>
-              <p className="text-gray-600 mt-2">{benefit.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+  <p className="text-lg text-[#5C6B73] mb-8 text-center">(en desarrollo)</p>
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+    {[
+      { icon: <HiTrendingUp className="text-4xl text-white p-3 bg-[#25466A] rounded-full shadow-lg" />, title: "Alto Rendimiento", description: "Obtendrás intereses beneficiosos." },
+      { icon: <HiChartBar className="text-4xl text-white p-3 bg-[#25466A] rounded-full shadow-lg" />, title: "Flexibilidad", description: "Define el tiempo de tu inversión." },
+      { icon: <HiLightBulb className="text-4xl text-white p-3 bg-[#25466A] rounded-full shadow-lg" />, title: "Confianza", description: "Seguridad y estabilidad financiera garantizadas." },
+      { icon: <HiArrowUpCircle className="text-4xl text-white p-3 bg-[#25466A] rounded-full shadow-lg" />, title: "Eficiencia", description: "Utiliza tu inversión como garantía de crédito." },
+    ].map((benefit, index) => (
+      <div key={index} className="bg-white border-2 border-[#25466A] p-6 rounded-xl shadow-xl transition-all transform hover:scale-105 hover:shadow-2xl hover:bg-[#e7f0f9] flex flex-col items-center text-center">
+        <div className="mb-4">{benefit.icon}</div>
+        <h3 className="text-xl font-semibold text-[#25466A]">{benefit.title}</h3>
+        <p className="text-gray-700 mt-3">{benefit.description}</p>
+      </div>
+    ))}
+  </div>
+</section>
 
-      {/* Sección Preguntas Frecuentes */}
-      <section className="p-8 bg-white border-4 border-[rgba(37,70,106,1)] text-gray-900 rounded-2xl shadow-lg">
-        <h2 className="text-3xl font-bold text-center text-white bg-[rgba(37,70,106,1)] py-2 px-4 rounded-xl mb-6">
-          Preguntas Frecuentes
-        </h2>
-        
+
+    {/* Contenedor centrado */}
+<div className="flex justify-center mt-5">
+  <section className="w-full max-w-3xl p-8 bg-white border-4 border-[rgba(37,70,106,1)] text-gray-900 rounded-2xl shadow-lg">
+    <h2 className="text-3xl font-bold text-center text-white bg-[rgba(37,70,106,1)] py-2 px-4 rounded-xl mb-6">
+      Preguntas Frecuentes
+    </h2>
+    
     <p className="text-lg text-gray-500 text-center">(en desarrollo)</p>
-        <div className="space-y-4">
-          {faqs.map((item, index) => (
-            <div key={index} className="border border-gray-300 rounded-lg overflow-hidden shadow-sm">
-              <button
-                onClick={() => setActiveQuestion(activeQuestion === index ? null : index)}
-                className="w-full flex items-center justify-between p-4 bg-gray-100 hover:bg-gray-200 transition-all">
-
-                <div className="flex items-center gap-4">
-                  <div className="bg-[rgba(37,70,106,1)] p-3 rounded-full shadow-md text-white">
-                    {item.icon}
-                  </div>
-                  <span className="font-semibold text-left">{item.question}</span>
-                </div>
-                <span className="text-lg">{activeQuestion === index ? "▲" : "▼"}</span>
-              </button>
-              {activeQuestion === index && (
-                <div className="p-4 bg-white text-gray-700 border-t">
-                  {item.answer}
-                </div>
-              )}
-
+    
+    <div className="space-y-4">
+      {faqs.map((item, index) => (
+        <div key={index} className="border border-gray-300 rounded-lg overflow-hidden shadow-sm">
+          <button
+            onClick={() => setActiveQuestion(activeQuestion === index ? null : index)}
+            className="w-full flex items-center justify-between p-4 bg-gray-100 hover:bg-gray-200 transition-all"
+          >
+            <div className="flex items-center gap-4">
+              <div className="bg-[rgba(37,70,106,1)] p-3 rounded-full shadow-md text-white">
+                {item.icon}
+              </div>
+              <span className="font-semibold text-left">{item.question}</span>
             </div>
-          ))}
+            <span className="text-lg">{activeQuestion === index ? "▲" : "▼"}</span>
+          </button>
+          {activeQuestion === index && (
+            <div className="p-4 bg-white text-gray-700 border-t">
+              {item.answer}
+            </div>
+          )}
         </div>
-      </section>
+      ))}
+    </div>
+  </section>
+</div>
+
     </main>
   );
 };

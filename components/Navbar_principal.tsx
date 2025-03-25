@@ -45,10 +45,9 @@ const DropdownButton: React.FC<{ label: string; items: DropdownItem[] }> = ({ la
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`flex flex-row items-center gap-2 relative p-3 font-bitter transition-transform duration-500 text-white hover:shadow-xl rounded-lg
-
           after:content-[''] after:absolute after:left-0 after:top-0 after:w-full after:h-[3px] 
-                  after:bg-white after:scale-x-0 after:transition-transform after:duration-300 ${isActive ? 'after:scale-x-100' : 'after:scale-x-0'}
-                    hover:after:scale-x-100`}
+          after:bg-white after:scale-x-0 after:transition-transform after:duration-300 ${isActive ? 'after:scale-x-100' : 'after:scale-x-0'}
+          hover:after:scale-x-100`}
       >
         <p>{label}</p>
         <VscChevronDown className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
@@ -67,6 +66,7 @@ const DropdownButton: React.FC<{ label: string; items: DropdownItem[] }> = ({ la
                     href={item.href}
                     className={`block px-6 py-4 border-2 transition-all rounded-lg shadow-md 
                                ${isItemActive ? "border-[#25466a] bg-gray-200" : "border-transparent hover:border-[#25466a] hover:bg-gray-100"}`}
+                    onClick={() => setIsOpen(false)} // Cierra el menú al hacer clic en un ítem
                   >
                     <p className="font-bitter font-semibold text-sm">{item.label}</p>
                     <span className="text-sm text-gray-500">{item.description}</span>
@@ -137,15 +137,6 @@ export const Navbar_principal = () => {
               { label: "Servicios", description: "Conoce acerca de los servicios.", href: "/articles/services" },
             ]}
           />
-          {/*<a href="/"> 
-                      <button className="relative p-3 font-serif transition-transform duration-500 text-white hover:shadow-xl rounded-lg
-                              after:content-[''] after:absolute after:left-0 after:top-0 after:w-full after:h-[3px] 
-                            after:bg-white after:scale-x-0 after:transition-transform after:duration-300 
-                              hover:after:scale-x-100">
-                          Articulos
-                      </button>
-                    </a>*/}
-
           <DropdownButton
             label="Socios"
             items={[
@@ -202,4 +193,4 @@ export const Navbar_principal = () => {
       </div>
     </div>
   );
-}
+};

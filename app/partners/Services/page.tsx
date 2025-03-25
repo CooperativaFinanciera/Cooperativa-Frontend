@@ -10,7 +10,8 @@ import {
 } from "react-icons/hi2";
 import { Button } from "@nextui-org/react";
 import { useState } from "react";
-import serviciosGif from "@/app/assets/image/servicios.gif";
+import serviciosGif from "@/app/assets/image/serviportada.png";
+import serviportadaImg from "@/app/assets/image/serviportada.png";
 
 const Services = () => {
   const [expandedServices, setExpandedServices] = useState<string[]>([]);
@@ -25,13 +26,26 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-white text-[#25466A]">
-      <header className="bg-[rgba(37,70,106,1)] text-white p-6 rounded-lg shadow-md flex flex-col items-center transition-transform transform hover:scale-105">
-        <h1 className="text-4xl font-bold">Servicios Disponibles</h1>
-        <p className="mt-4 text-xl">
-          Explora los servicios que tenemos a tu disposición para facilitarte la vida financiera.
-        </p>
-        <p className="text-lg mt-2 font-medium italic"></p>
-      </header>
+      <header
+  className="relative text-white px-8 py-16 font-bitter"
+  style={{
+    backgroundImage: `url(${serviportadaImg.src})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    height: "400px",
+  }}
+>
+  <div className="absolute inset-0 bg-[#234263] opacity-40 rounded-2xl"></div>
+  <div className="relative z-10 container mx-auto h-full flex flex-col justify-center items-start space-y-4 transform transition duration-300">
+    <h1 className="text-4xl font-bold tracking-wider border-b-4 border-white pb-4">
+      Servicios Disponibles
+    </h1>
+    <p className="mt-4 text-xl">
+      Explora los servicios que tenemos a tu disposición para facilitarte la vida financiera.
+    </p>
+  </div>
+</header>
+
 
       <section className="flex items-center space-x-10 mt-8 px-4 border-4 border-[rgba(37,70,106,1)] rounded-2xl shadow-xl">
   <div className="flex-shrink-0">
