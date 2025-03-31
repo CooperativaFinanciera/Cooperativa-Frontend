@@ -20,23 +20,69 @@ export const aboutLinks: navLink[] = [
     description: "Aprende más acerca de la educación financiera",
   },
 ];
+/*seccion de grupo de articulos*/
+
+
+/*seccion de socios*/
+export const partnersLinks: navLink[] = [
+
+  {
+    title: "Cuentas",
+    href: "/accounts",
+    description: "Conoce los tipos de cuentas que ofrecemos",
+  },
+  {
+    title: "Inversiones",
+    href: "/Investments",
+    description: "Simula tu inversión",
+  },
+  {
+    title: "Pensiones",
+    href: "/Pensions",
+    description: "Informate sobre las pensiones",
+  },
+  {
+    title: "Soluciones",
+    href: "/Solutions",
+    description: "Proporcionamos soluciones integrales",
+  },
+  {
+    title: "Servicios",
+    href: "/Services",
+    description: "Acceso eficiente a pago de servicios",
+  },
+
+];
 
 export const shareholdersLinks: navLink[] = [
+
   {
+    title: "Aportaciones Mensuales",
+    href: "/shareholders/monthlyContributions",
+    description: "Conoce las aportaciones mensuales",
+  },
+  {
+    title: "Historia",
+    href: "/shareholders/history",
+    description: "Conóce nuestra ruta histórica",
+  },
+
+  /*{
     title: "Requisitos",
     href: "/shareholders/requirements",
     description: "Conoce los requisitos para ser accionista",
   },
-  {
+  {/*
     title: "Beneficios",
     href: "/shareholders/benefits",
     description: "Conoce los beneficios de ser accionista",
-  },
+  },*/
   {
     title: "Afiliate",
     href: "/shareholders/join",
     description: "Puedes ser accionista con una inversión mínima",
   },
+  /*
   {
     title: "Rendimiento",
     href: "/shareholders/performance",
@@ -46,13 +92,28 @@ export const shareholdersLinks: navLink[] = [
     title: "Dividendos",
     href: "/shareholders/dividends",
     description: "Conoce los dividendos",
-  },
-
+  },*/
   {
-    title: "Preguntas frecuentes",
-    href: "/shareholders/faq",
-    description: "Preguntas frecuentes",
+    title: "Educación financiera",
+    href: "/shareholders/financialEducation",
+    description: "Aprende más acerca de la educación financiera para Accionistas",
   },
+  {
+    title: "Consulta de accionista",
+    href: "/shareholders/consult",
+    description: "Ya eres accionista? Consulta aquí",
+  },
+  {
+    title: "",
+    href: "/shareholders/register",
+    description: ""
+  },
+  {
+    title: "",
+    href: "/shareholders/visualConsult",
+    description: ""
+  }
+
 ];
 
 export const cooperativaWords = [
@@ -199,5 +260,5 @@ export const corporativeBrands = [
     src: "/academia_aneupi.webp",
     href: "#",
   },
- 
+
 ];

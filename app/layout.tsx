@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
-import { Providers } from "./providers";
+import { Navbar_principal } from "@/components/Navbar_principal";
+import { Providers } from "@/app/providers";
 import { auth } from "@/auth";
 import { Footer } from "@/components/footer";
 import { Open_Sans } from 'next/font/google'
 import { Toaster } from "@/components/ui/toaster"
- 
+import { GroupAssociation } from "@/components/GroupAssociation";
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -22,7 +24,7 @@ const openSans = Open_Sans({
   subsets: ['latin'],
   display: 'swap',
 })
- 
+
 
 export const metadata: Metadata = {
   title: "Cooperativa de ahorro ANEUPI",
@@ -42,11 +44,11 @@ export default async function RootLayout({
         className={`${openSans.className}`}
       >
         <Providers>
-          
-          <Navbar session={session} />
-          
+
+          <GroupAssociation/>
+          <Navbar_principal/>
           <div className="min-h-screen">
-          {children}
+            {children}
           </div>
           <Footer />
           <Toaster />

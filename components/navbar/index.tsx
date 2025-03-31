@@ -14,7 +14,7 @@ import { NavLink } from "./NavLink";
 import { NavigationMenuLink } from "../ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { aboutLinks, shareholdersLinks } from "@/lib/constants";
+import { aboutLinks, partnersLinks, shareholdersLinks } from "@/lib/constants";
 import { Session } from "next-auth";
 import { UserDropdown } from "./UserDropdown";
 import { LinksDropdown } from "./LinksDropdown";
@@ -58,7 +58,9 @@ export const Navbar = ({ session }: { session: Session | null }) => {
           <LinksDropdown label="Nosotros" items={aboutLinks} />
 
           <NavLink href="/articles">Artículos</NavLink>
+
           <NavLink href="/contact">Socios</NavLink>
+          {/* <LinksDropdown label="Socios" items={partnersLinks} /> */}
           <LinksDropdown label="Accionistas" items={shareholdersLinks} />
           {/* <NavLink href="/contact">Centro de ayuda</NavLink> */}
           {session && (
