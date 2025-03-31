@@ -202,3 +202,75 @@ input[type="number"]::-webkit-outer-spin-button {
 .parallax-logo:hover {
   transform: scale(1.05);
 }
+
+/* En globals.css */
+
+/* Animación de rebote tipo ola */
+@keyframes bounce-wave {
+  0% {
+    transform: translateY(0); /* Posición original */
+  }
+  25% {
+    transform: translateY(-5px); /* Sube ligeramente */
+  }
+  50% {
+    transform: translateY(0); /* Vuelve a la posición original */
+  }
+  75% {
+    transform: translateY(5px); /* Baja ligeramente */
+  }
+  100% {
+    transform: translateY(0); /* Regresa a la posición original */
+  }
+}
+
+/* Clase para aplicar la animación de rebote */
+.animate-bounce-wave {
+  animation: bounce-wave 1s ease-in-out infinite; /* Aplica la animación de manera infinita */
+}
+
+
+/* Animación de palpitación para el texto */
+@keyframes pulseText {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1); /* Aumenta el tamaño de la letra */
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Clase para aplicar la animación */
+.animate-pulse-title {
+  animation: pulseText 1.5s infinite; /* Duración y repetición */
+}
+
+
+
+/* Definir animaciones en CSS */
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%); /* La imagen comienza fuera de la vista desde abajo */
+  }
+  50% {
+    transform: translateY(0); /* La imagen se mueve hacia su posición original */
+  }
+  100% {
+    transform: translateY(100%); /* La imagen vuelve a salir hacia abajo */
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%); /* La imagen comienza fuera de la vista desde arriba */
+  }
+  50% {
+    transform: translateY(0); /* La imagen se mueve hacia su posición original */
+  }
+  100% {
+    transform: translateY(-100%); /* La imagen vuelve a salir hacia arriba */
+  }
+}

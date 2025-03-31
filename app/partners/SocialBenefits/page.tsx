@@ -53,7 +53,7 @@ const SocialBenefitsPage: React.FC = () => {
         </div>
       </header>
 
-      <section
+      {/* <section
         className="relative w-full h-[400px] bg-cover bg-center mt-0"
         style={{
           backgroundImage: `url(${benefiportadaImg.src})`,
@@ -72,7 +72,7 @@ const SocialBenefitsPage: React.FC = () => {
             </p>
           </div>
         </div>
-      </section>
+      </section>*/}
 
       <section
         className="relative w-full min-h-[120vh] bg-cover bg-center mt-0"
@@ -110,7 +110,7 @@ const SocialBenefitsPage: React.FC = () => {
                 </p>
               </div>
 
-              {/* Imagen en la parte inferior */}
+              {/*parte inferior */}
               <div className="absolute bottom-0 left-0 w-full h-[200px] overflow-hidden">
                 <img
                   className="w-full h-full object-cover"
@@ -144,7 +144,7 @@ const SocialBenefitsPage: React.FC = () => {
                 </p>
               </div>
 
-              {/* Imagen en la parte inferior */}
+              {/*parte inferior */}
               <div className="absolute bottom-0 left-0 w-full h-[200px] overflow-hidden">
                 <img
                   className="w-full h-full object-cover"
@@ -177,7 +177,7 @@ const SocialBenefitsPage: React.FC = () => {
                 </p>
               </div>
 
-              {/* Imagen en la parte inferior */}
+              {/*parte inferior */}
               <div className="absolute bottom-0 left-0 w-full h-[200px] overflow-hidden">
                 <img
                   className="w-full h-full object-cover"
@@ -193,9 +193,9 @@ const SocialBenefitsPage: React.FC = () => {
               <Link href="/partners/FinancialEducationPartners" passHref>
                 <Button
                   className="text-white bg-gradient-to-r from-[rgba(37,70,106,1)] to-[rgba(37,70,106,1)] 
-        hover:from-[rgba(37,70,106,1)] hover:to-[rgba(37,70,106,1)] 
-        transition-all duration-300
-        rounded-full shadow-lg hover:scale-105 hover:shadow-2xl"
+                    hover:from-[rgba(37,70,106,1)] hover:to-[rgba(37,70,106,1)] 
+                    transition-all duration-300
+                    rounded-full shadow-lg hover:scale-105 hover:shadow-2xl"
                   size="lg"
                 >
                   <FaArrowRight className="mr-2" />
