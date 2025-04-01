@@ -15,7 +15,12 @@ const config: Config = {
     extend: {
       animation: {
         aurora: "aurora 60s linear infinite",
-        'rotate-fade': 'rotateFade 1.5s ease-in-out infinite', // Animación rotar y desvanecer
+        rotate: "rotate 0.06s ease-in-out infinite", // Animación rotar y desvanecer
+        slowblink: "blink 2s linear infinite",
+        slowblin: "blink 0.60s linear infinite", // Animación de parpadeo lento
+        beat: "beat 1.2s ease-in-out infinite",// Animación de latido
+        beats: "beats 0.5s ease-in-out infinite",
+        fadeZoom: "fadeZoom 1s ease-in-out" , 
       },
       keyframes: {
         aurora: {
@@ -25,11 +30,12 @@ const config: Config = {
           to: {
             backgroundPosition: "350% 50%, 350% 50%",
           },
+          
         },
-        rotateFade: { // Definición de la animación "rotate-fade"
+        rotate: { // Definición de la animación "rotate-fade"
           '0%': {
             transform: 'rotate(0deg)',
-            opacity: '0',
+            opacity: '0.20',
           },
           '50%': {
             transform: 'rotate(180deg)',
@@ -37,7 +43,38 @@ const config: Config = {
           },
           '100%': {
             transform: 'rotate(360deg)',
-            opacity: '1',
+            opacity: '10',
+          },
+          
+        },
+        fadeZoom: {
+          '0%': { opacity: "0", transform: 'scale(0.8)' },
+          '100%': { opacity: "1", transform: 'scale(1)' },
+        },
+        blink: { // Nueva animación de parpadeo lento
+          '20%, 90%': { opacity: "1" },
+          '50%': { opacity: "0" },
+        },
+        beat: { // Animación de latido
+          '0%': {
+            transform: 'scale(1)',
+          },
+          '50%': {
+            transform: 'scale(1.2)', 
+          },
+          '100%': {
+            transform: 'scale(1)',
+          },
+        },
+        beats: { // Animación de latido
+          '0%': {
+            transform: 'scale(1)',
+          },
+          '50%': {
+            transform: 'scale(1.04)', 
+          },
+          '100%': {
+            transform: 'scale(1)',
           },
         },
       },
@@ -89,7 +126,10 @@ const config: Config = {
           "5": "hsl(var(--chart-5))",
         },
         // Agrega tu color personalizado
-        'custom-blue': 'rgb(37, 70, 106)', // Aquí está el color rgb(37, 70, 106)
+        'custom-blue': 'rgb(37, 70, 106)', 
+        'blue': 'rgb(94, 195, 235)',
+        'custom-gray': 'rgb(65, 65, 65)',
+        'custom-white': 'rgba(252, 252, 252, 0.12)',
       },
     },
   },

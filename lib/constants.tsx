@@ -22,16 +22,24 @@ export const aboutLinks: navLink[] = [
 ];
 
 export const articlesLinks = [
-  { title: "Empleos", href: "/articles/1", description: "" },
-  { title: "Cuentas", href: "/articles/2", description: "" },
-  { title: "Creditos", href: "/articles/3", description: "" },
-  { title: "Inversiones", href: "/articles/4", description: "" },
-  { title: "FIDEICOMISOS", href: "/articles/5", description: "" },
-  { title: "Productos", href: "/articles/6", description: "" },
-  { title: "Pago de Servicios Impuestos", href: "/articles/7", description: "" },
-  { title: "Nomina", href: "/articles/8", description: "" },
-  { title: "Revistas", href: "/articles/9", description: "" },
-  { title: "Servicios", href: "/articles/10", description: "" },
+  { title: "Empleos (en desarrollo)", href: "/articles/1", description: "" },
+  { title: "FIDEICOMISOS (en desarrollo)", href: "/articles/FIDEICOMISOS", description: "" },
+  { title: "Productos (en desarrollo)", href: "/articles/Productos", description: "" },
+  { title: "Pago de Servicios Impuestos (en desarrollo)", href: "/articles/PagodeServiciosImpuestos", description: "" },
+  { title: "Nomina (en desarrollo)", href: "/articles/Nomina", description: "" },
+  { title: "Revistas (en desarrollo)", href: "/articles/Revistas", description: "" },
+  { title: "Servicios (en desarrollo)", href: "/articles/Servicios", description: "" },
+
+];
+
+export const sociosLinks = [
+  { title: "benficios sociales (en desarrollo)", href: "/socios/benficios-sociales", description: "" },
+  { title: "Cuentas (en desarrollo)", href: "/socios/Cuentas", description: "" },
+  { title: "Educacion Financiera Socios (en desarrollo)", href: "/socios/Educacion-Financiera-Socios", description: "" },
+  { title: "Pensiones (en desarrollo)", href: "/socios/Pensiones", description: "" },
+  { title: "Inversiones (en desarrollo)", href: "/socios/Inversiones", description: "" },
+  { title: "Soluciones (en desarrollo)", href: "/socios/Soluciones", description: "" },
+  { title: "Servicios (en desarrollo)", href: "/socios/Servicios", description: "" },
 
 ];
 
