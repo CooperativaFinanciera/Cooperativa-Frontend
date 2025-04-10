@@ -1,28 +1,14 @@
 "use client";
 import Link from "next/link";
 import { ThemeSwitch } from "../littleComponets/ThemeSwitch";
-import {
-  Navbar as NextNavbar,
-  NavbarBrand,
-  NavbarContent,
-  Button,
-  NavbarMenuToggle,
-  NavbarMenu,
-  NavbarMenuItem,
-} from "@nextui-org/react";
-import { NavLink } from "./NavLink";
 import { NavigationMenuLink } from "../ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
-import { aboutLinks, shareholdersLinks } from "@/lib/constants";
 import { Session } from "next-auth";
-import { UserDropdown } from "./UserDropdown";
-import { LinksDropdown } from "./LinksDropdown";
-import { NotificationButton } from "../buttons/NotificationButton";
 import { useState } from "react";
-import { Brand } from "../littleComponets/Brand";
+import { GroupAssociation } from "../littleComponets/GroupAssociation";
+import { Navbar_principal} from "./Navbar_principal";
 export const Navbar = ({ session }: { session: Session | null }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  {/*const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
     "Profile",
@@ -35,77 +21,19 @@ export const Navbar = ({ session }: { session: Session | null }) => {
     "Team Settings",
     "Help & Feedback",
     "Log Out",
-  ];
+  ];*/}
   return (
-      <NextNavbar
-        className="bg-white dark:bg-[#1e1e21] h-32"
-        isBlurred={false}
-        maxWidth="full"
-        position="sticky"
-        onMenuOpenChange={setIsMenuOpen}
-      >
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
-        />
 
-        <NavbarBrand>
-          <Brand className="text-default-600" />
-        </NavbarBrand>
-
-        <NavbarContent justify="end" className="">
-          <NavLink href="/">Inicio</NavLink>
-          <LinksDropdown label="Nosotros" items={aboutLinks} />
-
-          <NavLink href="/articles">Artículos</NavLink>
-          <NavLink href="/contact">Socios</NavLink>
-          <LinksDropdown label="Accionistas" items={shareholdersLinks} />
-          {/* <NavLink href="/contact">Centro de ayuda</NavLink> */}
-          {session && (
-            <>
-              <ThemeSwitch />
-              <NotificationButton />
-            </>
-          )}
-          {session ? (
-            <UserDropdown session={session} />
-          ) : (
-            <Button
-              size="lg"
-              as={Link}
-              href="/auth/signIn"
-              color="primary"
-              radius="full"
-            >
-              Iniciar sesión
-            </Button>
-          )}
-        </NavbarContent>
-        <NavbarMenu>
-          {menuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
-              <Link
-                color={
-                  index === 2
-                    ? "primary"
-                    : index === menuItems.length - 1
-                    ? "danger"
-                    : "foreground"
-                }
-                className="w-full"
-                href="#"
-              >
-                {item}
-              </Link>
-            </NavbarMenuItem>
-          ))}
-        </NavbarMenu>
-      </NextNavbar>
-
+      <>
+        <div className="flex flex-col items-center justify-center gap-4">
+          <GroupAssociation/> {/*Encabezado*/}
+          <Navbar_principal/> {/*Barra de navegacion principal*/}   
+        </div>
+      </>
   );
 };
 
-const ListItem = ({
+{/*const ListItem = ({
   className,
   title,
   children,
@@ -137,4 +65,4 @@ const ListItem = ({
     </li>
   );
 };
-ListItem.displayName = "ListItem";
+ListItem.displayName = "ListItem";*/}

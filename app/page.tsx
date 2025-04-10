@@ -1,4 +1,5 @@
 "use client";
+import './globals.css'; // Aquí se importa los estilos globales
 import { FunctionCard } from "@/components/cards/FunctionCard";
 import { ServiceCard } from "@/components/cards/ServiceCard";
 import { FadeInEffect } from "@/components/ui/FadeInEffect";
@@ -9,7 +10,7 @@ import {
   mainFunctions,
   services,
 } from "@/lib/constants";
-import { Button, Card, CardFooter, Tooltip } from "@nextui-org/react";
+import { button, Button, Card, CardFooter, Tooltip } from "@nextui-org/react";
 import { HiChevronRight } from "react-icons/hi2";
 import { motion } from "framer-motion";
 import { ShareholderCard } from "@/components/footer/ShareholderCard";
@@ -18,67 +19,45 @@ import { Image as NextImage } from "@nextui-org/react";
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
 import { ReviewCard } from "@/components/cards/ReviewCard";
+import { CardServices } from '@/components/cards/CardServices';
+import { NoticeSection } from '@/components/littleComponets/NoticeSection';
+import { useEffect, useState } from "react";
+import { ArrowUp } from "lucide-react";
+import { CorporateBrands } from '@/components/littleComponets/CorporateBrands';
+import { TestimoniosSection } from '@/components/littleComponets/TestimoniosSection';
+import { AnunceSection } from '@/components/littleComponets/AnunceSection';
+
 export default function Home() {
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300){
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <>
+      {/* Sección de portada con fade-in y logo de la cooperativa */}
       <div>
         <FadeInEffect
-          className="relative h-[78vh] w-full flex flex-col items-center justify-center gap-5"
+          className="w-full h-[90vh] flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat bg-primary/80 gap-5"
           style={{
             backgroundImage: "url('/portada.webp')",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            backgroundAttachment: "scroll",
           }}
         >
-          {/* <TypewriterEffectSmooth words={HomePageWords} /> */}
-          <div className="bg-primary/80 w-1/2 flex justify-center rounded-2xl">
-            <TypewriterEffectSmooth words={cooperativaWords} />
-          </div>
-          <FadeInEffect>
-            <Button className="bg-white h-16 w-52 text-2xl  rounded-full flex items-center justify-center gap-2">
-              <motion.p
-                initial={{
-                  scale: 0.9,
-                }}
-                animate={{ scale: 1 }}
-                transition={{
-                  duration: 0.5,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                }}
-                className="flex items-center gap-2 dark:text-black"
-              >
-                Postúlate
-                <HiChevronRight />
-              </motion.p>
-            </Button>
-          </FadeInEffect>
-        </FadeInEffect>
-        <div className="bg-[#25466a] text-white p-2">
-          <Marquee>
-            {" "}
-            Gracias por la confianza a todas las personas por ser parte como
-            accionistas de esta Institución Financiera y además, a todos los
-            ciudadanas(os) que están interesadas a sumarse contáctarse por
-            medios oficiales.
-          </Marquee>
-        </div>
-      </div>
-      <main className="space-y-10 md:space-y-10 w-[90%] mx-auto mt-5">
-        {/* <FadeInEffect className="grid md:grid-cols-2 gap-10 ">
-          {mainFunctions.map(({ title, description, href, icon }, index) => (
-            <FunctionCard
-              icon={icon}
-              title={title}
-              description={description}
-              href={href}
-              key={index}
-            />
-          ))}
-        </FadeInEffect> */}
-        <section className="space-y-10">
-          {/* <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans text-center">
-            Servicios
-          </h2> */}
-          <article className="grid md:grid-cols-4 gap-5 ">
+          {/* Sección de funciones principales */}
+          <article className="grid md:grid-cols-4 gap-5 absolute bottom-0 w-full">
             {mainFunctions.map(({ title, description, href, icon }, index) => (
               <motion.div
                 initial={{ opacity: 0 }}
@@ -98,7 +77,6 @@ export default function Home() {
                     size="lg"
                     fullWidth
                     color="warning"
-                    
                     startContent={icon}
                     as={Link}
                     href={href}
@@ -110,81 +88,49 @@ export default function Home() {
               </motion.div>
             ))}
           </article>
+        </FadeInEffect>
+        {/* Marquee para mostrar mensaje de confianza */}
+        <div className="bg-[#25466a] text-white font-serif p-2">
+          <Marquee>
+            {" "}
+            Gracias por la confianza a todas las personas por ser parte como
+            accionistas de esta Institución Financiera y además, a todos los
+            ciudadanas(os) que están interesadas a sumarse contáctarse por
+            medios oficiales. 
+          </Marquee>
+        </div>
+      </div>
+      {/* Sección de Nuestros Servicios*/}
+      <main className="space-y-10 md:space-y-10 w-[90%] mx-auto mt-5">
+        <section className="text-center py-12 border-t-8 border-b-8 border-[#25466a]">
+          <h3 className='text-3xl font-semibold text-[#25466a]'>Nuestros Servicios</h3>
+          {/* Sección de botones */}
+          <article className="mt-10"> {}
+            <CardServices /> 
+          </article>
         </section>
-        <section>
-          <Card
-            isFooterBlurred
-            className="border-3 border-primary w-[80%] mx-auto rounded-2xl"
+        <section> {/*Seccion de eventos a realizar*/}
+          <AnunceSection />
+        </section>
+        <section> {/*Seccion de Testimonios*/}
+          <TestimoniosSection />
+        </section>
+        <section> {/* Seccion de Ubicación */}
+          {/*<CorporateSearch />*/}
+        </section>
+        <section> {/*Sección Marcas Corporativas*/}
+          <CorporateBrands />
+        </section>
+    </main>
+      {/* Botón para subir al inicio de la página */}
+      {showButton && (
+        <button 
+          className="fixed bottom-5 right-5 bg-orange-600 text-white p-3 rounded-full shadow-lg hover:bg-primary-dark z-50"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <NextImage
-              className=" object-cover object-top"
-              removeWrapper
-              as={Image}
-              src="/homeResources/personasFinancieras.jpg"
-              width={1280}
-              height={720}
-              alt=""
-            />
-            <CardFooter className="justify-center before:bg-white/10 border-white/20 border-1 overflow-hidden  absolute before:rounded-xl rounded-large bottom-0 w-1/2 mx-auto shadow-small z-10 py-4">
-              <div className="space-y-3">
-                <h3 className="text-black text-3xl font-semibold">
-                  Nuestros Servicios
-                </h3>
-
-                <div className="flex flex-col gap-3">
-                  {services.map((service, index) => (
-                    <Button
-                      size="lg"
-                      as={Link}
-                      href={service.href}
-                      color="primary"
-                      key={index}
-                    >
-                      {service.title}
-                    </Button>
-                  ))}
-                </div>
-              </div>
-            </CardFooter>
-          </Card>
-        </section>
-        {/* <section className="space-y-5">
-        <h2 className="text-center text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200">
-          Servicios
-        </h2>
-        <article className="grid md:grid-cols-2 gap-5">
-          {services.map((service, index) => (
-            <ServiceCard
-              key={index}
-              title={service.title}
-              description={service.description}
-              href={service.href}
-              icon={service.icon}
-              index={index}
-            />
-          ))}
-        </article>
-      </section> */}
-        <section className="border-primary border-3 rounded-2xl py-5">
-          <h2 className="text-center text-xl md:text-3xl font-bold text-primary dark:text-neutral-200 relative">
-            NUESTRAS MARCAS CORPORATIVAS
-          </h2>
-          <div className="flex flex-col md:flex-row justify-between items-center w-[90%] mx-auto gap-10">
-            {corporativeBrands.map((brand, index) => (
-              <Link key={index} href={brand.href} target="_blank">
-                <Image
-                  className="hover:scale-125 transition-transform"
-                  alt={brand.title}
-                  src={brand.src}
-                  width={150}
-                  height={150}
-                />
-              </Link>
-            ))}
-          </div>
-        </section>
-        <ReviewCard/>
-      </main>
+            <ArrowUp size={24} />
+        </button>
+      )}
     </>
   );
 }

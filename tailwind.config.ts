@@ -51,6 +51,10 @@ const config: Config = {
           DEFAULT: "#25466a",
           foreground: "hsl(var(--secondary-foreground))",
         },
+        third: {
+          DEFAULT: "white",
+          foreground: "hsl(var(--third-foreground))",
+        },
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",

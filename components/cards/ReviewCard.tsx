@@ -92,10 +92,10 @@ export const ReviewCard = () => {
       <Card className="rounded-2xl">
         <CardBody className="grid md:grid-cols-2 gap-10 p-8">
           <section className="space-y-3">
-            <h2 className="text-3xl font-bold text-primary">
+            <h2 className="text-3xl font-serif font-bold text-primary">
               ¿Deseas dejar una opinión sobre nuestros servicios?
             </h2>
-            <p className="text-default-600 text-sm">
+            <p className="text-default-600 text-sm font-serif">
               Ayúdanos a mejorar nuestros servicios, tu opinión es muy
               importante para nosotros.
             </p>
@@ -111,7 +111,7 @@ export const ReviewCard = () => {
             /> */}
             <Button endContent={
               <HiOutlinePencil />
-            } fullWidth variant="flat" onPress={onOpen} size="lg" className="" color="primary">
+            } fullWidth variant="flat" onPress={onOpen} size="lg" className="font-serif" color="primary">
               Escribir opinión
             </Button>
           </section>
@@ -120,7 +120,7 @@ export const ReviewCard = () => {
       <Modal size="2xl" isOpen={isOpen} onClose={onClose}>
         <ModalContent>
           <ModalHeader>
-            <h2 className="text-2xl font-bold text-primary">Deja tu opinión</h2>
+            <h2 className="text-2xl font-serif font-bold text-primary">Deja tu opinión</h2>
           </ModalHeader>
           <ModalBody className="flex flex-row  gap-5">
             <InputFile onChange={handleImageChange}>
@@ -136,7 +136,7 @@ export const ReviewCard = () => {
                   }</p>
               )}
             </InputFile>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-3 grow">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-3 grow font-serif"> {/*Formulario para enviar la opinion*/}
               <fieldset>
                 <Input
                   placeholder="Ingresa tu nombre"
