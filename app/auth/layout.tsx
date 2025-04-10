@@ -1,17 +1,16 @@
 import { Card, CardBody } from "@nextui-org/react";
 
-import type { Metadata } from 'next'
- 
+import type { Metadata } from "next";
+
 export const metadata: Metadata = {
-  title: 'Autenticación',
-  description: 'Autenticación de usuarios',
-}
+  title: "Autenticación",
+  description: "Autenticación de usuarios",
+};
 export default function Layout({ children }: { children: React.ReactNode }) {
-  
   return (
-    <div className="min-h-[85vh] flex items-center justify-center">
+    <div className="">
       <Card>
-        <CardBody className="grid md:grid-cols-2 gap-10 shadow-lg rounded-xl p-4 md:p-8">
+        <CardBody className="">
           {children}
           <section></section>
         </CardBody>

@@ -7,7 +7,7 @@ export const AnunceSection = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsTransitioning(true); // Activa la animación de salida
+      setIsTransitioning(true);
 
       setTimeout(() => {
         setCurrentImage((prevImage) => {
@@ -15,9 +15,9 @@ export const AnunceSection = () => {
           return images[(currentIndex + 1) % images.length];
         });
         
-        setIsTransitioning(false); // Activa la animación de entrada
-      }, 500); // Tiempo de la animación de salida antes de cambiar la imagen
-    }, 5000); // Cambia la imagen cada 5 segundos
+        setIsTransitioning(false);
+      }, 500);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);

@@ -7,25 +7,24 @@ const Solutions = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300">
       <header
-        className="relative text-white px-8 py-16 font-bitter"
-        style={{
-          backgroundImage: `url(${solucionesportadaImage.src})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          height: "400px",
-        }}
-      >
-        <div className="absolute inset-0 bg-[#234263] opacity-40 rounded-2xl"></div>
-
-        <div className="relative z-10 container mx-auto h-full flex flex-col justify-center items-start space-y-4">
-          <h1 className="text-4xl font-bold tracking-wider border-b-4 border-white pb-4">
-            SOLUCIONES
-          </h1>
-          <p className="mt-4 text-lg">
-            Proporcionamos soluciones integrales que impulsan el crecimiento y el éxito tanto de su empresa como de su equipo.
-          </p>
-        </div>
-      </header>
+  className="relative text-white px-8 py-16 font-bitter"
+  style={{
+    backgroundImage: `url(${solucionesportadaImage.src})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    height: "400px",
+  }}
+>
+  <div className="absolute inset-0 bg-[rgba(0,0,0,0.65)]"></div>
+  <div className="relative z-10 container mx-auto h-full flex flex-col justify-center items-start space-y-4">
+    <h1 className="text-5xl font-bold mb-2 border-b-4 border-white pb-4">
+      Soluciones
+    </h1>
+    <p className="text-xl font-light">
+      Proporcionamos soluciones integrales que impulsan el crecimiento y el éxito.
+    </p>
+  </div>
+</header>
 
       <div className="flex items-center space-x-10 mt-8 px-4 border-4 border-[#25466A] rounded-xl p-6 shadow-lg">
         <div className="flex-shrink-0">

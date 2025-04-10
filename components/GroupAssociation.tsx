@@ -8,7 +8,7 @@ export const GroupAssociation = ({ className }: { className?: string }) => {
     useEffect(() => {
         const interval = setInterval(() => {
             setVisible(prev => !prev);
-        },  1000); // Cambia cada 2 segundos
+        },  1000);
 
         return () => clearInterval(interval);
     }, []);

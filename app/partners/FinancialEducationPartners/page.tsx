@@ -5,7 +5,7 @@ import { FadeInEffect } from "@/components/ui/FadeInEffect";
 import Link from "next/link";
 import Image from "next/image";
 import edufiportadaImg from "@/app/assets/image/edufiportada.png";
-import edufiportada2Img from "@/app/assets/image/edufiportada2.png";
+import edufiportada2Img from "@/app/assets/image/edufiportada3.png";
 import edufiImg from "@/app/assets/image/edufi.png";
 import edufi2Img from "@/app/assets/image/edufi2.png";
 
@@ -84,31 +84,28 @@ const FinancialEducationPartners: React.FC = () => {
 
   return (
     <main className="space-y-10 md:space-y-20">
-      <header className="relative p-6 text-[#234263] text-left transform transition-all duration-300 flex items-center justify-start" // Aseguramos que el contenido esté alineado a la izquierda
-        style={{
-          backgroundImage: `url(${edufiportadaImg.src})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          height: "400px",
-          marginTop: "0",
-          paddingTop: "0",
-          position: "relative",
-          top: "0",
-        }}
-      >
+      <header
+  className="relative text-white px-8 py-24 font-bitter flex items-center justify-start"
+  style={{
+    backgroundImage: `url(${edufiportadaImg.src})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    height: "400px",
+  }}
+>
+  {/* Filtro oscuro neutro */}
+  <div className="absolute inset-0 bg-[rgba(0,0,0,0.5)]"></div>
 
-        <div className="absolute inset-0 bg-[#234263] opacity-40 rounded-2xl"></div>
+  <div className="relative z-10 max-w-2xl text-left">
+    <h1 className="text-5xl font-bold tracking-wider border-b-4 border-white pb-4 capitalize">
+      Tu futuro financiero comienza aquí
+    </h1>
+    <p className="text-xl font-light mt-4">
+      Educación financiera para nuestros futuros socios
+    </p>
+  </div>
+</header>
 
-        <div className="relative z-10 text-white text-left max-w-2xl px-8">
-          <h1 className="text-4xl font-bold text-white mb-2 font-[Bitter] text-left border-b-4 border-white">
-            TU FUTURO FINANCIERO COMIENZA AQUÍ
-          </h1>
-          <h3 className="text-2xl font-bold text-white mb-2 font-[Bitter] text-left">
-            ¡Educación financiera para nuestros futuros socios!
-          </h3>
-        </div>
-
-      </header>
       {/* Sección 2 */}
       <section className="relative flex items-center justify-between gap-8 px-0 bg-white m-0" style={{ marginTop: '90px' }}>
         {/* Imagen con fondo azul*/}
@@ -210,34 +207,6 @@ const FinancialEducationPartners: React.FC = () => {
           </FadeInEffect>
         </div>
       </div>
-
-      {/* Pie de Página
-      <footer className="p-8 bg-[#234263] text-white rounded-2xl shadow-lg hover:scale-105 transform transition duration-300 rounded-lg border-4 border-[#234263] flex flex-col items-center space-y-6">
-        <div className="text-center text-xl font-bold mb-4">
-          <p className="text-lg font-bold">
-            Mejora tu futuro financiero con nuestros Ahorros exclusivos.
-          </p>
-        </div>
-        <div className="flex items-center gap-4 mb-4">
-          <a
-            href="https://wa.me/5930981321044"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center bg-[#25d366] text-white rounded-full p-3 hover:bg-[#128c7e] transform transition duration-300"
-          >
-            <FaWhatsapp className="text-3xl" />
-            <span className="ml-2 text-lg font-medium">¡Contáctanos por WhatsApp!</span>
-          </a>
-        </div>
-        <div className="flex gap-6 mb-4">
-          <Link href="/terms" className="text-gray-300 hover:text-white">
-            Términos y Condiciones
-          </Link>
-          <Link href="/privacy" className="text-gray-300 hover:text-white">
-            Política de Privacidad
-          </Link>
-        </div>
-      </footer> */}
     </main>
   );
 };

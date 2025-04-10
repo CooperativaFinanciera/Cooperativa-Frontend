@@ -55,31 +55,54 @@ const DropdownButton: React.FC<{ label: string; items: DropdownItem[] }> = ({ la
 
       {/* Menú Desplegable */}
       {isOpen && (
-        <div className="absolute left-0 mt-2 min-w-[510px] bg-white/90 text-black shadow-lg rounded-lg overflow-hidden 
-                        z-50 backdrop-blur-lg transition-all duration-300 opacity-100 scale-100">
-          <ul className="grid grid-cols-2 gap-2 p-2">
+        <div className={`absolute left-0 mt-2 ${items.length === 2 ? 'min-w-[200px]' : 'min-w-[510px]'} bg-white/90 text-black shadow-lg rounded-lg overflow-hidden z-50 backdrop-blur-lg transition-all duration-300 opacity-100 scale-100`}>
+          <ul className={`p-2 items-stretch ${items.length === 2 ? 'flex flex-col' : 'grid grid-cols-2'}`}>
             {items.map((item, index) => {
               const isItemActive = pathname === item.href;
               return (
                 <li key={index} className="w-full">
                   <Link
                     href={item.href}
-                    className={`block px-6 py-4 border-2 transition-all rounded-lg shadow-md 
-                               ${isItemActive ? "border-[#25466a] bg-gray-200" : "border-transparent hover:border-[#25466a] hover:bg-gray-100"}`}
-                    onClick={() => setIsOpen(false)} // Cierra el menú al hacer clic en un ítem
+                    className={`block px-6 py-4 border-2 transition-all rounded-lg shadow-md h-full flex flex-col justify-start 
+                     ${isItemActive ? "border-[#25466a] bg-gray-200" : "border-transparent hover:border-[#25466a] hover:bg-gray-100"}`}
+                    onClick={() => setIsOpen(false)}
                   >
-                    <p className="font-bitter font-semibold text-sm">{item.label}</p>
-                    <span className="text-sm text-gray-500">{item.description}</span>
+                    <div className="flex flex-col space-y-2">
+                      <p className="font-bitter font-semibold text-sm">{item.label}</p>
+                      <span className="text-sm text-gray-500">{item.description}</span>
+                    </div>
                   </Link>
                 </li>
               );
             })}
           </ul>
+
         </div>
       )}
     </div>
   );
 };
+{/*
+export const articlesLinks = [
+  { title: "Empleos", href: "/articles/1", description: "Trabaja con nosotros." },
+  { title: "FIDEICOMISOS", href: "/articles/FIDEICOMISOS", description: "Nosotros te ayudamos con tu fideicomiso." },
+  { title: "Productos", href: "/articles/Productos", description: "Conoce sobre nuestros productos." },
+  { title: "Pago de Servicios Impuestos", href: "/articles/PagodeServiciosImpuestos", description: "Nosotros te ayudamos en el pago de servicios e impuestos." },
+  { title: "Nomina", href: "/articles/Nomina", description: "Conoce acerca de las nóminas." },
+  { title: "Revistas", href: "/articles/Revistas", description: "Conoce acerca de las revistas." },
+  { title: "Servicios", href: "/articles/Servicios", description: "Conoce acerca de los servicios." },
+
+]; */}
+
+{/*export const sociosLinks = [
+  { title: "Beneficios Sociales", href: "/socios/benficios-sociales", description: "Conoce los beneficios para nuestros socios." },
+  { title: "Cuentas", href: "/socios/Cuentas", description: "Descubre las cuentas disponibles." },
+  { title: "Educación Financiera Socios", href: "/socios/Educacion-Financiera-Socios", description: "Aprende educación financiera con nosotros." },
+  { title: "Pensiones", href: "/socios/Pensiones", description: "Infórmate sobre los planes de pensiones." },
+  { title: "Inversiones", href: "/socios/Inversiones", description: "Aprende más sobre las inversión." },
+  { title: "Soluciones", href: "/socios/Soluciones", description: "Conoce las soluciones que brindamos." },
+  { title: "Servicios", href: "/socios/Servicios", description: "Conoce acerca de los servicios." }
+];*/}
 
 export const Navbar_principal = () => {
   const pathname = usePathname();
@@ -87,9 +110,9 @@ export const Navbar_principal = () => {
   return (
     <div className="flex flex-row gap-8 p-2 my-1 w-full h-16 items-center bg-[#25466a]">
       <div className="flex flex-row gap-4 items-center w-auto h-auto">
-        <a href=""> {/*link del congreso*/}
+        <a href="https://aneupi.com/congreso-internacional" target="_blank" rel="noopener noreferrer">
           <img
-            src="/Logos/congreso_internacionales.png"
+            src="/Logos/congreso_internacionales.png "
             alt="Logo Cooperativa"
             width={180}
             height={180}
@@ -118,25 +141,23 @@ export const Navbar_principal = () => {
 
               { label: "Contactanos", description: "Te ayudaremos en lo se pueda.", href: "/contactos" },
               { label: "Estatuto", description: "Conoce más acerca de nuestro estatuto.", href: "/estatuto" },
-              { label: "Organigrama", description: "Conoce más acerca de nuestro organigrama.", href: "organigrama" },
+              { label: "Organigrama", description: "Conoce más acerca de nuestro organigrama.", href: "/organigrama" },
             ]}
           />
 
           <DropdownButton
             label="Articulos"
             items={[
-              { label: "Empleos", description: "Trabaja con nosotros.", href: "/articles/jobs" },
-              { label: "Cuentas", description: "Ten una cuenta con nosotros.", href: "/articules/accounts" },
-              { label: "Creditos", description: "Saca el credito con nosotros", href: "/articules/credits" },
-              { label: "Inversiones", description: "Haz tu inversion con nosotros.", href: "/articules/investments" },
-              { label: "Fideicomisos", description: "Nosotros te ayudamos con tu fideicomiso.", href: "/articules/trusts" },
-              { label: "Productos", description: "Conoce sobre nuestros productos.", href: "/articules/products" },
-              { label: "Pago de Servicios e Impuestos", description: "Nosotros te ayudamos en el pago de servicios e impuestos.", href: "/articules/payment-of-services-and-taxes" },
-              { label: "Nóminas", description: "Conoce acerca de las nóminas.", href: "/articles/payroll" },
-              { label: "Revistas", description: "Conoce acerca de las revistas.", href: "/articles/magazines" },
-              { label: "Servicios", description: "Conoce acerca de los servicios.", href: "/articles/services" },
+              { label: "Empleos", description: "Trabaja con nosotros.", href: "/articulos/empleos" },
+              { label: "Fideicomisos", description: "Nosotros te ayudamos con tu fideicomiso.", href: "/articulos/fideicomisos" },
+              { label: "Productos", description: "Conoce sobre nuestros productos.", href: "/articulos/productos" },
+              { label: "Pago de Servicios Impuestos", description: "Nosotros te ayudamos en el pago de servicios e impuestos.", href: "/articulos/pagoServicios" },
+              { label: "Nóminas", description: "Conoce acerca de las nóminas.", href: "/articulos/nomina" },
+              { label: "Revistas", description: "Conoce acerca de las revistas.", href: "/articulos/revista" },
+              { label: "Servicios", description: "Conoce acerca de los servicios.", href: "/articulos/servicios" },
             ]}
           />
+
           <DropdownButton
             label="Socios"
             items={[
@@ -149,6 +170,27 @@ export const Navbar_principal = () => {
               { label: "Servicios", description: "Explora los servicios que tenemos.", href: "/partners/Services" }
             ]}
           />
+          {/*
+           <DropdownButton
+            label="Articulos"
+            items={articlesLinks.map(item => ({
+              label: item.title,
+              description: item.description,
+              href: item.href,
+            }))}
+          /> 
+
+          {/* <DropdownButton
+          <DropdownButton
+            label="Socios"
+            items={sociosLinks.map(item => ({
+              label: item.title,
+              description: item.description,
+              href: item.href,
+            }))}
+          />*/}
+
+
           <DropdownButton
             label="Accionistas"
             items={[
@@ -171,7 +213,7 @@ export const Navbar_principal = () => {
           <DropdownButton
             label="Centro de ayuda"
             items={[
-              { label: "Centro Ayuda Socios", description: "Ayuda para Socios.", href: "ayudaSocios" },
+              { label: "Centro Ayuda Socios", description: "Ayuda para Socios.", href: "/ayudaSocios" },
               { label: "Centro Ayuda Accionistas", description: "Ayuda para Accionistas.", href: "/ayudAccionistas" },
             ]}
           />

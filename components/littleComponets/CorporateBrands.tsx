@@ -29,7 +29,7 @@ export const CorporateBrands = () => {
 
     return(
         <div 
-            className="flex flex-col w-full h-[400px] gap-5 border-b-8 border-[#25466a] items-center relative"
+            className="flex flex-col w-full h-[400px] gap-5 border-[#25466a] items-center relative"
             onMouseEnter={() => setShowArrows(true)}
             onMouseLeave={() => setShowArrows(false)}
         >

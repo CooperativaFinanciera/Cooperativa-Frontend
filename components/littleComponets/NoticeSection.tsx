@@ -1,82 +1,138 @@
-import { useEffect, useState } from "react";
-import { FaArrowRight, FaArrowLeft, FaNewspaper } from "react-icons/fa";
+import { useState, useEffect } from "react";
+import { FaEye, FaHeart } from "react-icons/fa";
+
+const news = [
+  {
+    image: "/homeResources/CongresoInternacional.png",
+    title: "¿Por qué asistir al Congreso Internacional?",
+    description: "Descubre temas clave sobre educación financiera, innovación y liderazgo.",
+    link: "https://aneupi.com/congreso-internacional",
+  },
+  {
+    image: "/homeResources/notice1.png",
+    title: "¡Descubre ganancias!",
+    description: "Conoce nuestras iniciativas y proyectos enfocadas en el bienestar de nuestros accionistas.",
+    link: "https://aneupi.com",
+  },
+  {
+    image: "/homeResources/notice2.png",
+    title: "Crecimiento financiero",
+    description: "Mantente informado con los últimos anuncios relevantes para nuestra comunidad.",
+    link: "https://aneupi.com/anuncios",
+  },
+  {
+    image: "/homeResources/notice.png",
+    title: "Nueva actualización de servicios",
+    description: "Descubre las mejoras recientes en nuestros servicios y cómo te benefician.",
+    link: "https://aneupi.com/actualizacion",
+  },
+];
 
 export const NoticeSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [news, setNews] = useState([
-    {
-      image: "/homeResources/CongresoInternacional.png",
-      imageTitle: "Congreso Internacional 2024",
-      title: "¿Por qué asistir al Congreso Internacional?",
-      description: "Descubre temas clave sobre educación financiera, innovación y liderazgo.",
-      link: "https://aneupi.com/congreso-internacional",
-    },
-    {
-      image: "portada.png",
-      imageTitle: "Bienvenido a ANEUPI",
-      title: "¡Bienvenido a ANEUPI!",
-      description: "Conoce nuestras iniciativas y proyectos enfocados en el bienestar de nuestros accionistas.",
-      link: "https://aneupi.com",
-    },
-    {
-      image: "/homeResources/anuncio.png",
-      imageTitle: "Anuncios Importantes",
-      title: "Anuncios importantes",
-      description: "Mantente informado con los últimos anuncios relevantes para nuestra comunidad.",
-      link: "https://aneupi.com/anuncios",
-    },
-  ]);
+  const [carouselIndex, setCarouselIndex] = useState(0);
+  const [likes, setLikes] = useState(Array(news.length).fill(0));
+  const [views, setViews] = useState(Array(news.length).fill(0));
+  const [animating, setAnimating] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => nextSlide(), 5000);
+    const interval = setInterval(() => {
+      handleNext();
+    }, 5000);
     return () => clearInterval(interval);
-  }, [currentIndex]);
+  }, []);
 
-  const nextSlide = () => setCurrentIndex((prevIndex) => (prevIndex + 1) % news.length);
-  const prevSlide = () => setCurrentIndex((prevIndex) => (prevIndex === 0 ? news.length - 1 : prevIndex - 1));
+  const handleNext = () => {
+    if (!animating) {
+      setAnimating(true);
+      setTimeout(() => {
+        setCarouselIndex((prevIndex) => (prevIndex + 1) % news.length);
+        setAnimating(false);
+      }, 500); // Duración de la animación
+    }
+  };
+
+  const visibleNews = [];
+  for (let i = 0; i < 3; i++) {
+    visibleNews.push(news[(carouselIndex + i) % news.length]);
+  }
+
+  const handleLike = (index: number) => {
+    const updatedLikes = [...likes];
+    updatedLikes[index] += 1;
+    setLikes(updatedLikes);
+  };
+
+  const handleView = (index: number) => {
+    const updatedViews = [...views];
+    updatedViews[index] += 1;
+    setViews(updatedViews);
+  };
 
   return (
-    <div className="w-full max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden flex border border-gray-300 h-96 relative">
-      {/* Imagen */}
-      <div className="w-1/2 h-full relative">
-        <img src={news[currentIndex].image} alt={news[currentIndex].imageTitle} className="w-full h-full object-cover" />
+    <div className="max-w-4xl mx-auto p-2">
+      <h1 className="text-xl font-bold text-gray-800 mb-3 text-left">
+        Noticias del Día
+      </h1>
+
+      {/* Contenedor del carrusel */}
+      <div className="overflow-hidden">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 transition-transform duration-500 ease-in-out transform">
+          {visibleNews.map((item, index) => {
+            const originalIndex = (carouselIndex + index) % news.length;
+
+            return (
+              <div
+                key={originalIndex}
+                className={`bg-white shadow-md rounded-lg overflow-hidden p-2 transform transition-all duration-500 ease-in-out ${
+                  animating ? "opacity-100 translate-x-10" : "opacity-100 translate-x-0"
+                }`}
+              >
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-40 object-cover rounded-md"
+                />
+                <div className="p-3">
+                  <h2 className="text-md font-semibold text-gray-800 mb-2">
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-red-500 hover:underline"
+                      onClick={() => handleView(originalIndex)}
+                    >
+                      {item.title}
+                    </a>
+                  </h2>
+                  <hr className="mb-2" />
+                  <div className="flex items-center justify-between text-gray-500 text-xs">
+                    <div className="flex items-center gap-2">
+                      <FaEye /> <span>{views[originalIndex]}</span>
+                    </div>
+                    <div
+                      className="flex items-center gap-2 cursor-pointer"
+                      onClick={() => handleLike(originalIndex)}
+                    >
+                      <span>{likes[originalIndex]}</span> <FaHeart className="text-red-500" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
 
-      {/* Contenido */}
-      <div className="w-1/2 p-6 flex flex-col justify-between h-full text-center">
-        <h3 className="text-2xl font-extrabold text-white bg-[#01335E] p-3 rounded-md flex items-center justify-center gap-2">
-          <FaNewspaper className="text-yellow-400 text-3xl" /> {news[currentIndex].title}
-        </h3>
-        <p className="text-md text-gray-700 mt-4">{news[currentIndex].description}</p>
-        <a
-          href={news[currentIndex].link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 px-6 py-3 bg-[#01335E] text-white text-lg font-semibold text-center rounded-md hover:bg-blue-900 transition duration-300"
-        >
-          Ver más
-        </a>
-      </div>
-
-      {/* Botones de navegación */}
-      <button onClick={prevSlide} className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md border border-gray-300 hover:bg-gray-200">
-        <FaArrowLeft className="text-gray-700" />
-      </button>
-
-      <button onClick={nextSlide} className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md border border-gray-300 hover:bg-gray-200">
-        <FaArrowRight className="text-gray-700" />
-      </button>
-
-      {/* Indicadores */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+      {/* Círculos de navegación */}
+      <div className="flex justify-center mt-4">
         {news.map((_, index) => (
-          <div
+          <button
             key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${
-              index === currentIndex ? "bg-yellow-500 scale-110" : "bg-gray-300"
+            className={`w-3 h-3 mx-1 rounded-full transition-all ${
+              index === carouselIndex ? "bg-blue-500 scale-125" : "bg-gray-300"
             }`}
-          ></div>
+            onClick={() => setCarouselIndex(index)}
+          />
         ))}
       </div>
     </div>

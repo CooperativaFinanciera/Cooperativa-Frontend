@@ -50,7 +50,7 @@ const InvestmentsPage: React.FC = () => {
     setInterest(annualInterest);
   };
 
-  const [progress, setProgress] = useState(10); // inicializacion del %
+  const [progress, setProgress] = useState(10);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -73,10 +73,12 @@ const InvestmentsPage: React.FC = () => {
         className="relative p-8 h-[350px] flex items-center bg-cover bg-center"
         style={{ backgroundImage: `url(${inverImg.src})`, backgroundSize: "cover", backgroundPosition: "center" }}
       >
-        <div className="absolute inset-0 bg-[rgba(0,50,94,0.6)]"></div>
+        <div className="absolute inset-0 bg-[rgba(0,0,0,0.65)]"></div>
         <div className="relative z-10 text-white text-left max-w-2xl px-8">
-          <h1 className="text-4xl font-bold text-white mb-2 font-[Bitter] border-b-4 border-white">¡HAREMOS CRECER TU DINERO!</h1>
-          <h3 className="text-2xl font-bold text-white mb-2 font-[Bitter]">
+          <h1 className="text-4xl font-bold text-white mb-2 font-[Bitter] border-b-4 border-white">
+            ¡HAREMOS CRECER TU DINERO!
+          </h1>
+          <h3 className="text-2xl font-light text-white mb-2 font-[Bitter]">
             Simula y crea tu inversión con el monto y plazo que prefieras. Recibirás intereses.
           </h3>
         </div>

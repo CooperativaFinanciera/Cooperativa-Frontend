@@ -71,12 +71,12 @@ const Pensions = () => {
           height: "400px",
         }}
       >
-        <div className="absolute inset-0 bg-[#234263] opacity-40 rounded-2xl"></div>
+        <div className="absolute inset-0 bg-[rgba(0,0,0,0.65)]"></div>
         <div className="relative z-10 container mx-auto h-full flex flex-col justify-center items-start space-y-4">
-          <h1 className="text-3xl font-bold mb-2 border-b-4 border-white pb-4">
+          <h1 className="text-5xl font-bold mb-2 border-b-4 border-white pb-4">
             Opciones para Recibir tu Pensión
           </h1>
-          <p className="text-lg font-medium">
+          <p className="text-xl font-light">
             Elige la forma más cómoda y segura de recibir tu pensión.
           </p>
         </div>

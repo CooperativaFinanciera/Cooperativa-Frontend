@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from "react";
 import { FaPiggyBank, FaHeartbeat, FaTags, FaArrowRight } from "react-icons/fa";
+
 import { FadeInEffect } from "@/components/ui/FadeInEffect";
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
@@ -41,7 +42,8 @@ const SocialBenefitsPage: React.FC = () => {
           height: "400px",
         }}
       >
-        <div className="absolute inset-0 bg-[rgba(37,70,106,0.6)]"></div>
+        <div className="absolute inset-0 bg-[rgba(0,0,0,0.65)]"></div>
+
 
         <div className="relative z-10 max-w-2xl text-left">
           <h1 className="text-5xl font-bold tracking-wider border-b-4 border-white pb-4">
@@ -78,7 +80,7 @@ const SocialBenefitsPage: React.FC = () => {
         className="relative w-full min-h-[120vh] bg-cover bg-center mt-0"
         style={{
           backgroundImage: `url(${benefiportada2Img.src})`,
-          marginTop: '-10px',
+          marginTop: '30px',
           paddingBottom: 0,
         }}
       >

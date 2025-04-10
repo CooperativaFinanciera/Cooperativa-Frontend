@@ -35,12 +35,12 @@ const Services = () => {
           height: "400px",
         }}
       >
-        <div className="absolute inset-0 bg-[#234263] opacity-40 rounded-2xl"></div>
-        <div className="relative z-10 container mx-auto h-full flex flex-col justify-center items-start space-y-4 transform transition duration-300">
-          <h1 className="text-4xl font-bold tracking-wider border-b-4 border-white pb-4">
+        <div className="absolute inset-0 bg-[rgba(0,0,0,0.5)]"></div>
+        <div className="relative z-10 container mx-auto h-full flex flex-col justify-center items-start space-y-4">
+          <h1 className="text-5xl font-bold mb-2 border-b-4 border-white pb-4">
             Servicios Disponibles
           </h1>
-          <p className="mt-4 text-xl">
+          <p className="text-xl font-light">
             Explora los servicios que tenemos a tu disposición para facilitarte la vida financiera.
           </p>
         </div>

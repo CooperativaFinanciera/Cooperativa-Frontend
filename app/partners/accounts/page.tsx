@@ -76,12 +76,12 @@ const Accounts: React.FC = () => {
           height: "400px",
         }}
       >
-        <div className="absolute inset-0 bg-[#234263] opacity-40 rounded-2xl"></div>
+        <div className="absolute inset-0 bg-[rgba(0,0,0,0.65)]"></div>
         <div className="relative z-10 container mx-auto h-full flex flex-col justify-center items-start space-y-4">
           <h1 className="text-5xl font-bold tracking-wider border-b-4 border-white pb-4">
             Opciones de Cuentas
           </h1>
-          <p className="text-xl font-bold">
+          <p className="text-xl font-light">
             Descubre las opciones disponibles para abrir tu cuenta de manera fácil y segura.
           </p>
         </div>
@@ -163,7 +163,6 @@ const Accounts: React.FC = () => {
               <div className="absolute inset-0 bg-black opacity-60 rounded-lg"></div>
 
               <div className="relative z-10">
-                {/* Aquí el contenido */}
                 <h3 className="text-lg font-bold mb-2">{cards[currentCard].title}</h3>
                 <p className="text-sm mb-4">{cards[currentCard].description}</p>
 
