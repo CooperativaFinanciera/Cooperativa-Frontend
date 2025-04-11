@@ -13,7 +13,8 @@ interface DropdownItem {
   href: string;
 }
 
-const DropdownButton: React.FC<{ label: string; items: DropdownItem[] }> = ({ label, items }) => {
+const DropdownButton: React.FC<{ label: string; items: DropdownItem[]; align?: "left" | "right" }> = ({ label, items, align = "left" }) => {
+
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
@@ -55,8 +56,9 @@ const DropdownButton: React.FC<{ label: string; items: DropdownItem[] }> = ({ la
 
       {/* Menú Desplegable */}
       {isOpen && (
-        <div className={`absolute left-0 mt-2 ${items.length === 2 ? 'min-w-[200px]' : 'min-w-[510px]'} bg-white/90 text-black shadow-lg rounded-lg overflow-hidden z-50 backdrop-blur-lg transition-all duration-300 opacity-100 scale-100`}>
-          <ul className={`p-2 items-stretch ${items.length === 2 ? 'flex flex-col' : 'grid grid-cols-2'}`}>
+  <div className={`absolute ${align === "left" ? "left-0" : "right-0"} mt-2 min-w-[510px] bg-white/90 text-black shadow-lg rounded-lg overflow-hidden z-50 backdrop-blur-lg transition-all duration-300 opacity-100 scale-100`}>
+          <ul className="p-2 items-stretch grid grid-cols-2">
+
             {items.map((item, index) => {
               const isItemActive = pathname === item.href;
               return (
@@ -108,7 +110,8 @@ export const Navbar_principal = () => {
   const pathname = usePathname();
   const isInicioActive = pathname === "/";
   return (
-    <div className="flex flex-row gap-8 p-2 my-1 w-full h-16 items-center bg-[#25466a]">
+    <div className="flex flex-row justify-between items-center px-6 py-2 w-full h-16 bg-[#25466a]">
+
       <div className="flex flex-row gap-4 items-center w-auto h-auto">
         <a href="https://aneupi.com/congreso-internacional" target="_blank" rel="noopener noreferrer">
           <img
@@ -193,6 +196,7 @@ export const Navbar_principal = () => {
 
           <DropdownButton
             label="Accionistas"
+            align="right"
             items={[
               { label: "Requisitos", description: "Conoce los requisitos para ser accionista.", href: "/requesitos" },
               { label: "Beneficios", description: "Conoce los beneficios de ser accionista.", href: "/beneficios" },
@@ -204,6 +208,7 @@ export const Navbar_principal = () => {
           />
           <DropdownButton
             label="Créditos"
+            align="right"
             items={[
               { label: "Credito Ordinario", description: "Conoce sobre credito Ordinario.", href: "/creditoOrdinario" },
               { label: "Credito Emergente", description: "Conoce sobre credito Emergente.", href: "/creditoEmergente" },
@@ -212,6 +217,7 @@ export const Navbar_principal = () => {
           />
           <DropdownButton
             label="Centro de ayuda"
+            align="right"
             items={[
               { label: "Centro Ayuda Socios", description: "Ayuda para Socios.", href: "/ayudaSocios" },
               { label: "Centro Ayuda Accionistas", description: "Ayuda para Accionistas.", href: "/ayudAccionistas" },
